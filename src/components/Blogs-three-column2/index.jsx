@@ -41,13 +41,12 @@ const BlogsThreeColumn2 = ({ subBG }) => {
 
                                 <div className="info custom-font">
                                     <span className="author">by / Admin</span>
-                                    <span className="tag">WordPress</span>
+                                    <span className="tag">Web</span>
                                 </div>
                                 <h6>
                                     <Link href="/blog-details/blog-details-light-1">
-                                        Navigating the digital landscape: A
-                                        guide to measuring your website’s
-                                        success
+                                        Measuring Digital Success: Your Website
+                                        Guide
                                     </Link>
                                 </h6>
                                 <div className="btn-more custom-font">
@@ -67,31 +66,23 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                                 <img src="/img/blog/2.jpg" alt="" />
                             </div>
                             <div className="cont">
-                                <Link href="/blog/blog-dark">
-                                    <a className="date custom-font">
-                                        <span>
-                                            <i>07</i> August
-                                        </span>
-                                    </a>
-                                </Link>
+                                <a className="date custom-font">
+                                    <span>
+                                        <i>07</i> October
+                                    </span>
+                                </a>
                                 <div className="info custom-font">
-                                    <a href="#0" className="author">
-                                        <span>by / Admin</span>
-                                    </a>
-                                    <Link href="/blog/blog-dark">
-                                        <a className="tag">
-                                            <span>WordPress</span>
-                                        </a>
-                                    </Link>
+                                    <span className="author">by / Admin</span>
+                                    <span className="tag">Social Media</span>
                                 </div>
                                 <h6>
-                                    <Link href="/blog-details/blog-details-dark">
-                                        The Start-Up Ultimate Guide to Make Your
-                                        WordPress Journal.
+                                    <Link href="/blog-details/blog-details-light-2">
+                                        Lights, Camera, Action: Tips for
+                                        shooting social media videos
                                     </Link>
                                 </h6>
                                 <div className="btn-more custom-font">
-                                    <Link href="/blog-details/blog-details-dark">
+                                    <Link href="/blog-details/blog-details-light-2">
                                         <a className="simple-btn">Read More</a>
                                     </Link>
                                 </div>
@@ -107,31 +98,23 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                                 <img src="/img/blog/3.jpg" alt="" />
                             </div>
                             <div className="cont">
-                                <Link href="/blog/blog-dark">
-                                    <a className="date custom-font">
-                                        <span>
-                                            <i>08</i> August
-                                        </span>
-                                    </a>
-                                </Link>
+                                <a className="date custom-font">
+                                    <span>
+                                        <i>08</i> November
+                                    </span>
+                                </a>
                                 <div className="info custom-font">
-                                    <a href="#0" className="author">
-                                        <span>by / Admin</span>
-                                    </a>
-                                    <Link href="/blog/blog-dark">
-                                        <a className="tag">
-                                            <span>WordPress</span>
-                                        </a>
-                                    </Link>
+                                    <span className="author">by / Admin</span>
+                                    <span className="tag">Branding</span>
                                 </div>
                                 <h6>
-                                    <Link href="/blog-details/blog-details-dark">
-                                        The Start-Up Ultimate Guide to Make Your
-                                        WordPress Journal.
+                                    <Link href="/blog-details/blog-details-light-3">
+                                        Things you need to know to find a great
+                                        Logo
                                     </Link>
                                 </h6>
                                 <div className="btn-more custom-font">
-                                    <Link href="/blog-details/blog-details-dark">
+                                    <Link href="/blog-details/blog-details-light-3">
                                         <a className="simple-btn">Read More</a>
                                     </Link>
                                 </div>
