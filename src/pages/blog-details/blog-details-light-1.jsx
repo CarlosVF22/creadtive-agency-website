@@ -26,7 +26,7 @@ const BlogDetailsLight = () => {
     }, [navbarRef]);
     return (
         <LightTheme>
-            <Navbar nr={navbarRef} lr={logoRef} theme="themeL" />
+            <Navbar nr={navbarRef} lr={logoRef} />
             <section className="page-header blg">
                 <div className="container">
                     <div className="row justify-content-center">
