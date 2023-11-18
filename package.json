@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.454.0",
+    "aws-sdk": "^2.1499.0",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "next": "12.0.7",
+    "nodemailer": "^6.9.7",
     "react": "17.0.2",
     "react-circular-progressbar": "^2.0.4",
     "react-countup": "^6.1.0",

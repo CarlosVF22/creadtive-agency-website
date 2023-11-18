@@ -45,15 +45,14 @@ const ContactSection = () => {
                                     await sendMessage(500);
                                     // alert(JSON.stringify(values, null, 2));
                                     // show message
-                                    const formData = new FormData();
-
-                                    formData.append("name", values.name);
-                                    formData.append("email", values.email);
-                                    formData.append("message", values.message);
-                                    console.log(formData);
+                                    const body = {
+                                        name: values.name,
+                                        email: values.email,
+                                        message: values.message,
+                                    };
                                     const res = await axios.post(
                                         "/api/contact",
-                                        formData
+                                        body
                                     );
 
                                     if (!res) return;
