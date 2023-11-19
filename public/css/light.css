@@ -60,6 +60,7 @@
     --mouse-color: #c0d89a;
     --navbar-bg-color: #e7e9e3;
     --navbar-text-color: #575756;
+    --footer-third-color: #c5df9a;
 }
 
 * {
@@ -79,7 +80,7 @@ body {
     font-family: "Poppins", sans-serif;
 }
 body.bd-dark {
-    color: #fff;
+    color: var(--navbar-bg-color);
     background: #0c0f16;
 }
 
@@ -299,7 +300,7 @@ span:hover {
 					 text color
 -------------------------------------------------------*/
 .text-white {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 
 .text-black {
@@ -1267,7 +1268,7 @@ body {
 }
 
 [data-overlay-light]:before {
-    background: #fff;
+    background: var(--navbar-bg-color);
 }
 
 [data-overlay-dark] h1,
@@ -1291,7 +1292,7 @@ body {
 .bg-color h5,
 .bg-color h6,
 .bg-color span {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 
 [data-overlay-dark] p,
@@ -1487,7 +1488,7 @@ body {
     transform: rotate(0deg);
 }
 .btn-curve:hover span {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .btn-curve:after {
     content: "";
@@ -1516,23 +1517,23 @@ body {
     transition: all 0.8s;
 }
 .btn-curve.btn-lit {
-    border-color: #fff;
-    color: #fff;
+    border-color: var(--navbar-bg-color);
+    color: var(--navbar-bg-color);
 }
 .btn-curve.btn-lit:hover span {
     color: var(--primary-color);
 }
 .btn-curve.btn-lit:after {
-    background: #fff;
+    background: var(--navbar-bg-color);
 }
 .btn-curve.btn-blc {
     background: #1e1e1e;
 }
 .btn-curve.btn-blc:after {
-    background: #fff;
+    background: var(--navbar-bg-color);
 }
 .btn-curve.btn-blc span {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .btn-curve.btn-blc:hover span {
     color: #1e1e1e;
@@ -1542,7 +1543,7 @@ body {
     border-color: var(--primary-color);
 }
 .btn-curve.btn-color:after {
-    background: #fff;
+    background: var(--navbar-bg-color);
 }
 .btn-curve.btn-color span {
     color: #0c0f16;
@@ -1557,8 +1558,8 @@ body {
     font-size: 14px;
 }
 .btn-curve.btn-wit {
-    background: #fff;
-    border-color: #fff;
+    background: var(--navbar-bg-color);
+    border-color: var(--navbar-bg-color);
 }
 .btn-curve.btn-wit:after {
     background: #090909;
@@ -1567,7 +1568,7 @@ body {
     color: #1e1e1e;
 }
 .btn-curve.btn-wit:hover span {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .btn-curve.btn-radius {
     border-radius: 30px;
@@ -1684,7 +1685,7 @@ body {
     width: 10px;
 }
 .navbar .search {
-    color: #fff;
+    color: var(--navbar-bg-color);
     padding-left: 30px;
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1712,7 +1713,7 @@ body {
 .navbar .search .search-form form input {
     padding: 15px 0;
     font-size: 80px;
-    color: #fff;
+    color: var(--navbar-bg-color);
     text-transform: uppercase;
     text-align: left;
     background: transparent;
@@ -1723,7 +1724,7 @@ body {
     position: absolute;
     top: 20%;
     right: 20%;
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 60px;
     opacity: 1;
     cursor: pointer;
@@ -1774,7 +1775,7 @@ body {
     width: 100%;
     z-index: 999999;
     padding: 30px 0;
-    color: #fff;
+    color: var(--navbar-bg-color);
     -webkit-transition: all 0.7s;
     -o-transition: all 0.7s;
     transition: all 0.7s;
@@ -1852,7 +1853,7 @@ body {
     display: block;
     width: 20px;
     height: 3px;
-    background: #fff;
+    background: var(--navbar-bg-color);
     margin: 4px 0;
 }
 .topnav.dark .menu-icon {
@@ -1862,10 +1863,10 @@ body {
     background: #000;
 }
 .topnav.dark.navlit .menu-icon {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .topnav.dark.navlit .menu-icon .icon i {
-    background: #fff;
+    background: var(--navbar-bg-color);
 }
 
 .hamenu {
@@ -1906,7 +1907,7 @@ body {
     transition-delay: 1s;
 }
 .hamenu .menu-links {
-    color: #fff;
+    color: var(--navbar-bg-color);
     margin-top: 30px;
 }
 .hamenu .menu-links .o-hidden {
@@ -2002,7 +2003,7 @@ body {
     width: max-content;
 }
 .hamenu .menu-links .main-menu .sub-menu li:hover {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .hamenu .menu-links .main-menu .sub-menu li .sub-link {
     -webkit-transform: translateY(45px);
@@ -2013,7 +2014,7 @@ body {
     transition: all 0.7s;
 }
 .hamenu .menu-links .main-menu .sub-menu li .sub-link.back {
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 20px;
     font-weight: 600;
     cursor: pointer;
@@ -2027,7 +2028,7 @@ body {
     margin-left: 10px;
 }
 .hamenu .cont-info {
-    color: #fff;
+    color: var(--navbar-bg-color);
     margin-top: 50px;
     position: relative;
 }
@@ -2144,7 +2145,7 @@ body {
     font-size: 65px;
     font-weight: 700;
     letter-spacing: 4px;
-    color: #fff;
+    color: var(--navbar-bg-color);
     opacity: 0;
     visibility: hidden;
     -webkit-transition: opacity 0.5s, visibility 0.5s;
@@ -2152,7 +2153,7 @@ body {
     transition: opacity 0.5s, visibility 0.5s;
 }
 .slider .parallax-slider .caption p {
-    color: #eee;
+    color: var(--navbar-bg-color);
     margin-top: 15px;
     opacity: 0;
     -webkit-transform: translateY(20px);
@@ -2266,7 +2267,7 @@ body {
 .slider .txt-botm .swiper-nav-ctrl span {
     font-weight: 500;
     font-size: 12px;
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .slider .txt-botm .swiper-nav-ctrl:after {
     display: none;
@@ -2293,7 +2294,7 @@ body {
     bottom: auto;
     top: 20%;
     width: auto;
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 40px;
     font-weight: 500;
 }
@@ -2302,11 +2303,11 @@ body {
     font-weight: 700;
     position: relative;
     color: transparent;
-    -webkit-text-stroke: 0.5px #fff;
+    -webkit-text-stroke: 0.5px var(--navbar-bg-color);
 }
 .slider .swiper-pagination-fraction.top .swiper-pagination-current:after {
     content: "/";
-    color: #fff;
+    color: var(--navbar-bg-color);
     position: relative;
     margin: 0 10px;
     font-size: 12px;
@@ -2320,7 +2321,7 @@ body {
 .slider .swiper-pagination-fraction.steps {
     position: absolute;
     width: 100px;
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 15px;
     bottom: 40px;
     left: calc(50% - 50px);
@@ -2353,7 +2354,7 @@ body {
     text-align: center;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 13px;
 }
 
@@ -2492,7 +2493,7 @@ header.simpl .caption .btn-curve {
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: #fff;
+    color: var(--navbar-bg-color);
     opacity: 0;
     visibility: hidden;
     -webkit-transition: opacity 0.5s, visibility 0.5s;
@@ -2518,7 +2519,7 @@ header.simpl .caption .btn-curve {
     transition-delay: 0.8s;
 }
 .cta__slider-item .caption p {
-    color: #eee;
+    color: var(--navbar-bg-color);
     font-weight: 300;
     font-size: 14px;
     opacity: 0;
@@ -2601,7 +2602,7 @@ header.simpl .caption .btn-curve {
     margin-top: 40px;
 }
 .freelancer .cont .social-icon a {
-    color: #fff;
+    color: var(--navbar-bg-color);
     width: 55px;
     height: 55px;
     line-height: 55px;
@@ -2671,7 +2672,7 @@ header.simpl .caption .btn-curve {
     left: 60px;
     bottom: 30px;
     width: auto;
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 40px;
     font-weight: 500;
 }
@@ -2680,11 +2681,11 @@ header.simpl .caption .btn-curve {
     font-weight: 700;
     position: relative;
     color: transparent;
-    -webkit-text-stroke: 0.5px #fff;
+    -webkit-text-stroke: 0.5px var(--navbar-bg-color);
 }
 .slider-bus .swiper-pagination-fraction .swiper-pagination-current:after {
     content: "/";
-    color: #fff;
+    color: var(--navbar-bg-color);
     position: relative;
     margin: 0 10px;
     font-size: 12px;
@@ -2736,7 +2737,7 @@ header.simpl .caption .btn-curve {
     font-size: 90px;
     font-weight: 800;
     letter-spacing: 4px;
-    color: #fff;
+    color: var(--navbar-bg-color);
     opacity: 0;
     visibility: hidden;
     -webkit-transition: opacity 0.5s, visibility 0.5s;
@@ -2744,7 +2745,7 @@ header.simpl .caption .btn-curve {
     transition: opacity 0.5s, visibility 0.5s;
 }
 .slider-bus .caption p {
-    color: #eee;
+    color: var(--navbar-bg-color);
     opacity: 0;
     -webkit-transform: translateY(20px);
     -ms-transform: translateY(20px);
@@ -2791,7 +2792,7 @@ header.simpl .caption .btn-curve {
     margin-bottom: 20px;
 }
 .pages-header .cont .path {
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 17px;
 }
 .pages-header .cont .path .active {
@@ -2841,7 +2842,7 @@ header.simpl .caption .btn-curve {
     font-size: 100px;
     font-weight: 900;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #fff;
+    -webkit-text-stroke-color: var(--navbar-bg-color);
     color: transparent;
 }
 .page-header .img-wrapper .map {
@@ -2928,7 +2929,7 @@ header.simpl .caption .btn-curve {
 }
 
 .main-content {
-    background: #fff;
+    background: var(--navbar-bg-color);
     position: relative;
     z-index: 3;
 }
@@ -2949,7 +2950,7 @@ header.simpl .caption .btn-curve {
 }
 .showcase-full .parallax-slider .caption h1 .stroke {
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--navbar-bg-color);
 }
 .showcase-full .parallax-slider .caption h1 span {
     margin-left: 200px;
@@ -2968,7 +2969,7 @@ header.simpl .caption .btn-curve {
     height: 70px;
     line-height: 70px;
     text-align: center;
-    border: 1px solid #fff;
+    border: 1px solid var(--navbar-bg-color);
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -2998,7 +2999,7 @@ header.simpl .caption .btn-curve {
 .showcase-carus .caption h1 .stroke,
 .showcase-carus .copy-cap h1 .stroke {
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--navbar-bg-color);
     -webkit-transform: skewX(25deg) translateX(-100px);
     -ms-transform: skewX(25deg) translateX(-100px);
     transform: skewX(25deg) translateX(-100px);
@@ -3043,7 +3044,7 @@ header.simpl .caption .btn-curve {
     height: 70px;
     line-height: 70px;
     text-align: center;
-    border: 1px solid #fff;
+    border: 1px solid var(--navbar-bg-color);
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -3080,10 +3081,10 @@ header.simpl .caption .btn-curve {
 }
 .showcase-carus .copy-cap .cap h1 span {
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--navbar-bg-color);
 }
 .showcase-carus .copy-cap .cap h1 .stroke {
-    color: #fff;
+    color: var(--navbar-bg-color);
     -webkit-text-stroke: 0;
 }
 .showcase-carus.circle-slide .swiper-slide {
@@ -3125,20 +3126,20 @@ header.simpl .caption .btn-curve {
 .showcase-carus.circle-slide .copy-cap h1 .stroke {
     display: inline-block;
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--navbar-bg-color);
 }
 .showcase-carus.circle-slide .caption h1 span,
 .showcase-carus.circle-slide .copy-cap h1 span {
     margin-left: auto;
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--navbar-bg-color);
 }
 .showcase-carus.circle-slide .copy-cap .cap h1 span {
-    color: #fff;
+    color: var(--navbar-bg-color);
     -webkit-text-stroke: 0;
 }
 .showcase-carus.circle-slide .copy-cap .cap h1 .stroke {
-    color: #fff;
+    color: var(--navbar-bg-color);
     -webkit-text-stroke: 0;
 }
 .showcase-carus.circle-slide .caption h1 .stroke,
@@ -3176,7 +3177,7 @@ header.simpl .caption .btn-curve {
 }
 .showstyle .caption h1 .stroke {
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--navbar-bg-color);
 }
 .showstyle .caption h1 span {
     margin-left: 200px;
@@ -3194,7 +3195,7 @@ header.simpl .caption .btn-curve {
     height: 70px;
     line-height: 70px;
     text-align: center;
-    border: 1px solid #fff;
+    border: 1px solid var(--navbar-bg-color);
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -3219,7 +3220,7 @@ header.simpl .caption .btn-curve {
 .div-tooltip-tit {
     display: none;
     position: absolute;
-    color: #fff;
+    color: var(--navbar-bg-color);
     background-color: #000;
     padding: 0 10px;
     height: 50px;
@@ -3234,7 +3235,7 @@ header.simpl .caption .btn-curve {
 .div-tooltip-sub {
     display: none;
     position: absolute;
-    background-color: #fff;
+    background-color: var(--navbar-bg-color);
     padding: 10px;
     color: #111;
     font-size: 10px;
@@ -3387,7 +3388,7 @@ header.simpl .caption .btn-curve {
     line-height: 80px;
     text-align: center;
     border-radius: 50%;
-    background: #fff;
+    background: var(--navbar-bg-color);
     color: var(--primary-color);
     -webkit-box-shadow: 0px 10px 50px rgba(52, 60, 70, 0.05);
     box-shadow: 0px 10px 50px rgba(52, 60, 70, 0.05);
@@ -3457,7 +3458,7 @@ header.simpl .caption .btn-curve {
     z-index: 8;
 }
 .video-wrapper .vid .vid-butn:hover .icon {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .video-wrapper .vid .vid-butn:hover .icon:before {
     -webkit-transform: scale(0);
@@ -3496,7 +3497,7 @@ header.simpl .caption .btn-curve {
     bottom: 5px;
     right: 5px;
     left: 5px;
-    background: #fff;
+    background: var(--navbar-bg-color);
     border-radius: 50%;
     z-index: -1;
     -webkit-transition: all 0.5s cubic-bezier(1, 0, 0, 1);
@@ -3550,7 +3551,7 @@ header.simpl .caption .btn-curve {
     z-index: -1;
 }
 .services .item-box.bg-img h4 {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .services .item-box .icon {
     color: var(--primary-color);
@@ -4022,7 +4023,7 @@ header.simpl .caption .btn-curve {
     transition: all 0.4s;
 }
 .portfolio .gallery .items .item-img .cont h6 {
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .portfolio .gallery .items .item-img .cont span {
     color: #eee;
@@ -4094,7 +4095,7 @@ header.simpl .caption .btn-curve {
 }
 .portfolio.full-bg .cluom .info {
     padding: 40px 10px 40px 20px;
-    color: #fff;
+    color: var(--navbar-bg-color);
     position: relative;
     z-index: 2;
     -webkit-transition: all 0.4s;
@@ -4109,7 +4110,7 @@ header.simpl .caption .btn-curve {
     left: -2%;
     width: 104%;
     height: 0;
-    background: #fff;
+    background: var(--navbar-bg-color);
     z-index: -1;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -4129,7 +4130,7 @@ header.simpl .caption .btn-curve {
     position: absolute;
     bottom: 50px;
     right: 50px;
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 13px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -4193,7 +4194,7 @@ header.simpl .caption .btn-curve {
     height: 60px;
     border-radius: 0;
     border: 0;
-    background: #fff;
+    background: var(--navbar-bg-color);
     opacity: 0;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
@@ -4311,7 +4312,7 @@ header.simpl .caption .btn-curve {
     width: 100%;
     padding: 30px;
     text-align: center;
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 
 .work-carousel .noraidus .item-img {
@@ -4401,7 +4402,7 @@ header.simpl .caption .btn-curve {
 .next-prog .box .copy-cap h1 .stroke {
     display: inline-block;
     color: transparent;
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--navbar-bg-color);
 }
 .next-prog .box .copy-cap {
     z-index: -1;
@@ -4443,7 +4444,7 @@ header.simpl .caption .btn-curve {
     background: rgba(0, 0, 0, 0.25);
 }
 .process .item .bg-img h3 {
-    color: #fff;
+    color: var(--navbar-bg-color);
     font-size: 40px;
     font-weight: 300;
     line-height: 150px;
@@ -4608,7 +4609,7 @@ header.simpl .caption .btn-curve {
 }
 .team .item .info {
     padding: 15px;
-    background: #fff;
+    background: var(--navbar-bg-color);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -4853,12 +4854,12 @@ header.simpl .caption .btn-curve {
 .testim-box .swiper-container .controls .swiper-nav-ctrl {
     position: static;
     display: inline-block;
-    color: #fff;
+    color: var(--navbar-bg-color);
     width: 45px;
     height: 45px;
     line-height: 45px;
     text-align: center;
-    border: 1px solid #fff;
+    border: 1px solid var(--navbar-bg-color);
     border-radius: 50%;
     font-size: 13px;
     margin-right: 10px;
@@ -4928,7 +4929,7 @@ header.simpl .caption .btn-curve {
 .block-sec .vid-area .vid-icon .vid {
     width: 80px;
     height: 80px;
-    background: #fff;
+    background: var(--navbar-bg-color);
     border-radius: 50%;
     text-align: center;
     line-height: 80px;
@@ -4941,7 +4942,7 @@ header.simpl .caption .btn-curve {
     left: -10px;
     right: -10px;
     bottom: -10px;
-    background: #fff;
+    background: var(--navbar-bg-color);
     border-radius: 50%;
     opacity: 0.1;
 }
@@ -5078,7 +5079,7 @@ header.simpl .caption .btn-curve {
     font-size: 20px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.15);
-    border: 1px solid #fff;
+    border: 1px solid var(--navbar-bg-color);
     position: absolute;
     top: calc(50% - 70px);
     left: calc(50% - 70px);
@@ -5121,7 +5122,7 @@ header.simpl .caption .btn-curve {
 .blog-curs .item .cont {
     width: 50%;
     padding: 10px 30px;
-    background: #fff;
+    background: var(--navbar-bg-color);
 }
 .blog-curs .item .cont .info {
     margin-bottom: 30px;
@@ -5161,7 +5162,7 @@ header.simpl .caption .btn-curve {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: var(--navbar-bg-color);
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     transition: all 0.4s;
@@ -5209,7 +5210,7 @@ header.simpl .caption .btn-curve {
     display: none;
 }
 .blog-grid .item.list .cont {
-    background: #fff;
+    background: var(--navbar-bg-color);
     padding: 30px;
     position: relative;
 }
@@ -5246,7 +5247,7 @@ header.simpl .caption .btn-curve {
     right: 0;
     top: 0;
     padding: 15px;
-    background: #fff;
+    background: var(--navbar-bg-color);
 }
 .blog-pg .posts .item .img .info .date {
     text-align: center;
@@ -5738,7 +5739,7 @@ header.simpl .caption .btn-curve {
     content: "";
     width: 1px;
     height: 100%;
-    background: #fff;
+    background: var(--navbar-bg-color);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -5844,8 +5845,8 @@ header.simpl .caption .btn-curve {
 /* ====================== [ End contact ] ====================== */
 /* ====================== [ Start Footer ] ====================== */
 .footer-half {
-    color: #fff;
-    background: #0c0f16 !important;
+    color: var(--navbar-bg-color);
+    background: var(--navbar-bg-color) !important;
     position: relative;
     z-index: 2;
 }
@@ -5856,7 +5857,7 @@ header.simpl .caption .btn-curve {
     left: 0;
     height: 100%;
     width: 50%;
-    background: #151921;
+    background: var(--primary-color);
     z-index: -1;
 }
 .footer-half .stit {
@@ -5912,7 +5913,7 @@ header.simpl .caption .btn-curve {
     width: 100%;
     background: rgba(255, 255, 255, 0.01);
     border: 0;
-    color: #fff;
+    color: var(--navbar-bg-color);
 }
 .footer-half .subscribe form button {
     border: 0;
@@ -5943,7 +5944,7 @@ header.simpl .caption .btn-curve {
 .footer-half .copyrights {
     margin-top: 50px;
     padding: 30px 0;
-    background: #13161d;
+    background: var(--footer-third-color);
 }
 .footer-half .copyrights p {
     font-size: 12px;
@@ -6537,8 +6538,8 @@ header.simpl .caption .btn-curve {
     .next-prog .box .caption h1 .stroke,
     .next-prog .box .copy-cap h1 .stroke {
         display: inline-block;
-        color: #fff;
-        -webkit-text-stroke: 0px #fff;
+        color: var(--navbar-bg-color);
+        -webkit-text-stroke: 0px var(--navbar-bg-color);
     }
 }
 
