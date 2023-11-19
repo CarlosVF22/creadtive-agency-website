@@ -1309,6 +1309,7 @@ body {
 [data-overlay-dark="1"]:before,
 [data-overlay-light="1"]:before {
     opacity: 0.1;
+    border-radius: 20px;
 }
 
 [data-overlay-dark="2"]:before,
@@ -2988,6 +2989,7 @@ header.simpl .caption .btn-curve {
 .showcase-carus .swiper-slide .bg-img {
     height: 60vh;
     margin: 20vh 0 0;
+    border-radius: 20px;
 }
 .showcase-carus .caption h1,
 .showcase-carus .copy-cap h1 {
@@ -2999,8 +3001,10 @@ header.simpl .caption .btn-curve {
 }
 .showcase-carus .caption h1 .stroke,
 .showcase-carus .copy-cap h1 .stroke {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--navbar-bg-color);
+    color: var(--primary-color);
+    /* color: transparent; */
+    -webkit-text-stroke: 1px var(--primary-color);
+    /* -webkit-text-stroke: 1px var(--navbar-bg-color); */
     -webkit-transform: skewX(25deg) translateX(-100px);
     -ms-transform: skewX(25deg) translateX(-100px);
     transform: skewX(25deg) translateX(-100px);
@@ -3082,10 +3086,10 @@ header.simpl .caption .btn-curve {
 }
 .showcase-carus .copy-cap .cap h1 span {
     color: transparent;
-    -webkit-text-stroke: 1px var(--navbar-bg-color);
+    -webkit-text-stroke: 1px var(--primary-color);
 }
 .showcase-carus .copy-cap .cap h1 .stroke {
-    color: var(--navbar-bg-color);
+    color: var(--primary-color);
     -webkit-text-stroke: 0;
 }
 .showcase-carus.circle-slide .swiper-slide {
@@ -3127,7 +3131,8 @@ header.simpl .caption .btn-curve {
 .showcase-carus.circle-slide .copy-cap h1 .stroke {
     display: inline-block;
     color: transparent;
-    -webkit-text-stroke: 1px var(--navbar-bg-color);
+    -webkit-text-stroke: 1px var(--primary-color);
+    /* -webkit-text-stroke: 1px var(--navbar-bg-color); */
 }
 .showcase-carus.circle-slide .caption h1 span,
 .showcase-carus.circle-slide .copy-cap h1 span {
