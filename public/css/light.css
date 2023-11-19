@@ -1474,6 +1474,7 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 20px;
 }
 .btn-curve:focus {
     outline: none;
@@ -3670,6 +3671,7 @@ header.simpl .caption .btn-curve {
     padding: 60px;
     background: #efefef;
     position: relative;
+    border-radius: 20px;
 }
 .services .item.simpl {
     background: transparent;
