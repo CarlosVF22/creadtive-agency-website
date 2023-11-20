@@ -127,11 +127,9 @@ const IntroWithSlider1 = ({ sliderRef }) => {
                                                     {slide?.content && (
                                                         <p>{slide.content}</p>
                                                     )}
-                                                    <Link href="/about/about-dark">
+                                                    <Link href="mailto:cevasquezf22@gmail.com?subject=Inquiry About Hiring&body=Hello, I would like to inquire about your services.">
                                                         <a className="btn-curve btn-lit mt-30">
-                                                            <span>
-                                                                Look More
-                                                            </span>
+                                                            <span>Hire us</span>
                                                         </a>
                                                     </Link>
                                                 </div>

@@ -484,15 +484,46 @@ const BlogDetails = () => {
                                             comment: "",
                                         }}
                                         onSubmit={async (values) => {
-                                            await sendComment(500);
-                                            alert(
-                                                JSON.stringify(values, null, 2)
-                                            );
+                                            await sendMessage(100);
+                                            // alert(JSON.stringify(values, null, 2));
+                                            // show message
+                                            try {
+                                                const body = {
+                                                    name: values.name,
+                                                    email: values.email,
+                                                    message: values.message,
+                                                };
+                                                const res = await axios.post(
+                                                    "/api/contact",
+                                                    body
+                                                );
 
+                                                // Verifica si la respuesta es exitosa
+                                                if (res.status === 200) {
+                                                    messageRef.current.innerText =
+                                                        "Your Message has been successfully sent. I will contact you soon.";
+                                                    messageRef.current.style.backgroundColor =
+                                                        "#B0FFAD"; // Fondo verde para éxito
+                                                } else {
+                                                    throw new Error(
+                                                        "Failed to send email"
+                                                    );
+                                                }
+                                            } catch (error) {
+                                                messageRef.current.innerText =
+                                                    "Error: Your message could not be sent."; // Mensaje de error
+                                                messageRef.current.style.backgroundColor =
+                                                    "#FF8369"; // Fondo rojo para error
+                                            }
                                             // Reset the values
                                             values.name = "";
                                             values.email = "";
-                                            values.comment = "";
+                                            values.message = "";
+                                            // clear message
+                                            setTimeout(() => {
+                                                messageRef.current.innerText =
+                                                    "";
+                                            }, 3000);
                                         }}
                                     >
                                         {({ errors, touched }) => (

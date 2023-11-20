@@ -26,7 +26,7 @@ const Footer = ({ noSubBG }) => {
                         <div className="cont">
                             <div className="logo">
                                 <a href="#0">
-                                    <img src={`${appData.lightLogo}`} alt="" />
+                                    <img src={`${appData.darkLogo}`} alt="" />
                                 </a>
                             </div>
                             <div className="con-info custom-font">

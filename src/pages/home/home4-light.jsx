@@ -50,9 +50,7 @@ const Homepage4 = () => {
                 <Services4 withBG withPadding />
                 <ShowcasesOneCenter />
                 <AboutUs1 />
-                {/* <PortfolioCustomColumn column={2} filterPosition="left" /> */}
                 <Testimonials1 withBG imgSrc="/img/pattern-light.png" />
-                {/* <TeamWithSkills /> */}
                 <BlogsThreeColumn2 subBG />
                 <ContactSection />
                 <Footer />
