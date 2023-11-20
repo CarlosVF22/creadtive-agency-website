@@ -42,23 +42,37 @@ const ContactSection = () => {
                                     message: "",
                                 }}
                                 onSubmit={async (values) => {
-                                    await sendMessage(500);
+                                    await sendMessage(100);
                                     // alert(JSON.stringify(values, null, 2));
                                     // show message
-                                    const body = {
-                                        name: values.name,
-                                        email: values.email,
-                                        message: values.message,
-                                    };
-                                    const res = await axios.post(
-                                        "/api/contact",
-                                        body
-                                    );
+                                    try {
+                                        const body = {
+                                            name: values.name,
+                                            email: values.email,
+                                            message: values.message,
+                                        };
+                                        const res = await axios.post(
+                                            "/api/contact",
+                                            body
+                                        );
 
-                                    if (!res) return;
-
-                                    messageRef.current.innerText =
-                                        "Your Message has been successfully sent. I will contact you soon.";
+                                        // Verifica si la respuesta es exitosa
+                                        if (res.status === 200) {
+                                            messageRef.current.innerText =
+                                                "Your Message has been successfully sent. I will contact you soon.";
+                                            messageRef.current.style.backgroundColor =
+                                                "#B0FFAD"; // Fondo verde para éxito
+                                        } else {
+                                            throw new Error(
+                                                "Failed to send email"
+                                            );
+                                        }
+                                    } catch (error) {
+                                        messageRef.current.innerText =
+                                            "Error: Your message could not be sent."; // Mensaje de error
+                                        messageRef.current.style.backgroundColor =
+                                            "#FF8369"; // Fondo rojo para error
+                                    }
                                     // Reset the values
                                     values.name = "";
                                     values.email = "";
@@ -66,7 +80,7 @@ const ContactSection = () => {
                                     // clear message
                                     setTimeout(() => {
                                         messageRef.current.innerText = "";
-                                    }, 1000);
+                                    }, 3000);
                                 }}
                             >
                                 {({ errors, touched }) => (
