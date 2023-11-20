@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.454.0",
+    "@aws-sdk/credential-provider-node": "^3.451.0",
     "aws-sdk": "^2.1499.0",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
