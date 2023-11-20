@@ -28,6 +28,7 @@ class MailService {
             return envelope;
         } catch (error) {
             console.error("Error to send email:", error);
+            throw new Error("Failed to send email", error);
         }
     }
 }
