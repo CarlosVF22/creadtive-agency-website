@@ -50,7 +50,7 @@ const Homepage4 = () => {
                 <Services4 withBG withPadding />
                 <ShowcasesOneCenter />
                 <AboutUs1 />
-                <Testimonials1 withBG imgSrc="/img/pattern-light.png" />
+                {/* <Testimonials1 withBG imgSrc="/img/pattern-light.png" /> */}
                 <BlogsThreeColumn2 subBG />
                 <ContactSection />
                 <Footer />

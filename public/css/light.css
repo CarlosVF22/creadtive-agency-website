@@ -1732,7 +1732,7 @@ body {
     cursor: pointer;
 }
 .navbar .logo {
-    width: 120px;
+    width: 250px;
 }
 .navbar.light .navbar-nav .nav-link {
     color: #0c0f16;
@@ -6042,8 +6042,10 @@ header.simpl .caption .btn-curve {
         margin: 10px auto !important;
     }
     .navbar .logo {
+        margin-top: 15px;
         margin-left: 15px;
-        width: 100px;
+        width: 120px;
+        /* aca */
     }
     .nav-scroll .navbar-collapse .nav-link,
     .light .navbar-collapse .nav-link {
