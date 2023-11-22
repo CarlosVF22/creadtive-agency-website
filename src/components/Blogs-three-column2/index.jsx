@@ -30,7 +30,7 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                             data-wow-delay=".3s"
                         >
                             <div className="img">
-                                <img src="/img/slid/banner-1.png" alt="" />
+                                <img src="/img/blog/1.png" alt="" />
                             </div>
                             <div className="cont">
                                 <a className="date custom-font">
@@ -63,7 +63,7 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                             data-wow-delay=".5s"
                         >
                             <div className="img">
-                                <img src="/img/slid/banner-1.png" alt="" />
+                                <img src="/img/blog/2.png" alt="" />
                             </div>
                             <div className="cont">
                                 <a className="date custom-font">
@@ -95,7 +95,7 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                             data-wow-delay=".8s"
                         >
                             <div className="img">
-                                <img src="/img/slid/banner-1.png" alt="" />
+                                <img src="/img/blog/3.png" alt="" />
                             </div>
                             <div className="cont">
                                 <a className="date custom-font">

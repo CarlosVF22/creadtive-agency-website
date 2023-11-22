@@ -5,22 +5,19 @@
             "first": "Web",
             "second": "Development"
         },
-        "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+        "content": "Transform Your Online Presence with Expert Web Development. Elevate your brand with cutting-edge, responsive websites. Seamless user experience guaranteed. Let's create digital magic together!",
         "image": "/img/slid/banner-1.png"
     },
     {
         "id": 2,
-        "title": {
-            "first": "Digital",
-            "second": "Design Awards"
-        },
-        "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+        "title": "Branding",
+        "content": "Craft Your Unique Brand Identity with Us. Stand out with bespoke branding that resonates. Connect, engage, and grow your audience. Start your branding journey now!",
         "image": "/img/slid/banner-2.png"
     },
     {
         "id": 3,
-        "title": "Original Solutions",
-        "content": "If you need to redesign your new project, new visual strategy, ux structure or you do have some cool ideas for collaboration.",
+        "title": "SEO and SEM",
+        "content": "Boost Your Visibility with Our SEO & SEM Services. Climb search rankings and drive traffic. Expert strategies for maximum impact. Elevate your online success now!",
         "image": "/img/slid/banner-3.png"
     }
 ]

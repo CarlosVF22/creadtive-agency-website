@@ -165,13 +165,7 @@ const IntroWithSlider1 = ({ sliderRef }) => {
                         <i className="fab fa-facebook-f"></i>
                     </a>
                     <a href="#0">
-                        <i className="fab fa-twitter"></i>
-                    </a>
-                    <a href="#0">
-                        <i className="fab fa-behance"></i>
-                    </a>
-                    <a href="#0">
-                        <i className="fab fa-pinterest-p"></i>
+                        <i className="fab fa-instagram"></i>
                     </a>
                 </div>
             </div>

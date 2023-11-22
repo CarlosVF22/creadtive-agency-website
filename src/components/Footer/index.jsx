@@ -33,13 +33,13 @@ const Footer = ({ noSubBG }) => {
                                 <ul>
                                     <li>
                                         <span>Email : </span>{" "}
-                                        Avo_support@website.com
+                                        info@creadtiveagency.com
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <span>Address : </span> A32 , Ave 15th
                                         Street, Door 211, San Franciso, USA
                                         32490.
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <span>Phone : </span> (+1) 2345 678 44
                                         88
@@ -55,20 +55,20 @@ const Footer = ({ noSubBG }) => {
                                         <i className="fab fa-facebook-f"></i>
                                     </a>
                                     <a href="#0" className="icon">
-                                        <i className="fab fa-twitter"></i>
+                                        <i className="fab fa-instagram"></i>
                                     </a>
-                                    <a href="#0" className="icon">
+                                    {/* <a href="#0" className="icon">
                                         <i className="fab fa-pinterest"></i>
                                     </a>
                                     <a href="#0" className="icon">
                                         <i className="fab fa-behance"></i>
-                                    </a>
+                                    </a> */}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-5 offset-lg-2">
-                        <div className="subscribe mb-50">
+                        {/* <div className="subscribe mb-50">
                             <h6 className="custom-font stit simple-btn">
                                 Newslatter
                             </h6>
@@ -103,8 +103,8 @@ const Footer = ({ noSubBG }) => {
                                     </Form>
                                 )}
                             </Formik>
-                        </div>
-                        <div className="insta">
+                        </div> */}
+                        {/* <div className="insta">
                             <h6 className="custom-font stit simple-btn">
                                 Instagram Post
                             </h6>
@@ -119,7 +119,7 @@ const Footer = ({ noSubBG }) => {
                                     <img src="/img/insta/3.jpg" alt="" />
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="copyrights text-center">

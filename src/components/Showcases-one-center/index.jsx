@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Split from "../Split";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ShowcassesFullScreenData from "../../data/showcases-full-screen-slider.json";
 import SwiperCore, { Navigation, Parallax } from "swiper";
@@ -26,6 +27,17 @@ const ShowcasesOneCenter = () => {
     const navigationNextRef = React.useRef(null);
     return (
         <header className="slider showcase-carus">
+            <div className="sec-head custom-font text-center">
+                <h6 className="wow fadeIn" data-wow-delay=".5s">
+                    professionalism
+                </h6>
+                <Split>
+                    <h3 className="wow words chars splitting" data-splitting>
+                        Our tools
+                    </h3>
+                </Split>
+                <span className="tbg">Our tools</span>
+            </div>
             <div
                 id="content-carousel-container-unq-1"
                 className="swiper-container"

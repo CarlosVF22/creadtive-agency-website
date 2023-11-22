@@ -5,7 +5,7 @@ import AboutUs1Date from "../../data/sections/about-us1.json";
 
 const AboutUs1 = () => {
     return (
-        <div className="about section-padding">
+        <div className="about section-padding" style={{ marginTop: "4rem" }}>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5">
