@@ -32,7 +32,7 @@ const Services4 = ({ withBG, withPadding, halfBG, withOutTitle }) => {
                         <div
                             className="col-lg-4"
                             key={item.id}
-                            style={{ marginTop: "10px" }}
+                            style={{ marginTop: "10px", display: "flex" }}
                         >
                             <div
                                 className={`item ${

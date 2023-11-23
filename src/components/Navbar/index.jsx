@@ -168,20 +168,20 @@ const Navbar = ({ lr, nr, theme }) => {
                             <div className="dropdown-menu">
                                 <Link href="/blog-details/blog-details-light-1">
                                     <a className="dropdown-item">
-                                        Measuring Digital Success: Your Website
-                                        Guide
+                                        Measuring Digital Success: <br /> Your
+                                        Website Guide
                                     </a>
                                 </Link>
                                 <Link href="/blog-details/blog-details-light-2">
                                     <a className="dropdown-item">
-                                        Lights, Camera, Action: Tips for
+                                        Lights, Camera, Action: <br /> Tips for
                                         shooting social media videos
                                     </a>
                                 </Link>
                                 <Link href="/blog-details/blog-details-light-3">
                                     <a className="dropdown-item">
-                                        Things you need to know to find a great
-                                        Logo
+                                        Things you need to know <br /> to find a
+                                        great Logo
                                     </a>
                                 </Link>
                             </div>

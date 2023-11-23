@@ -1578,12 +1578,18 @@ body {
 
 .simple-btn {
     position: relative;
+    background-color: var(--primary-color);
+    color: var(--navbar-bg-color);
     padding: 7px;
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 4px;
     font-size: 13px;
-    font-weight: 300;
+    font-weight: bold;
+}
+.simple-btn:hover {
+    background-color: var(--footer-third-color);
+    color: var(--navbar-bg-color);
 }
 .simple-btn:after {
     content: "";
@@ -2988,7 +2994,7 @@ header.simpl .caption .btn-curve {
 }
 .showcase-carus .swiper-slide .bg-img {
     height: 60vh;
-    margin: 20vh 0 0;
+    margin: 10vh 0 0;
     border-radius: 20px;
 }
 .showcase-carus .caption h1,
@@ -5784,15 +5790,34 @@ header.simpl .caption .btn-curve {
     width: 100%;
     padding: 15px 0;
     border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+    border-bottom: 2px solid var(--navbar-text-color); /* Color más oscuro para la línea inferior */
+    color: #333; /* Texto más oscuro para mejor visibilidad */
     background: transparent;
     font-family: "Barlow Condensed", sans-serif;
 }
 
-.contact-sec .form button {
+/* .contact-sec .form button {
     font-size: 17px;
     background: transparent;
     border: 0;
+} */
+
+.contact-sec .form button {
+    background: var(--primary-color); /* Color de fondo */
+    color: var(--navbar-bg-color); /* Texto en color blanco */
+    padding: 10px 20px;
+    border-radius: 5px; /* Bordes redondeados */
+    border: none;
+    cursor: pointer; /* Cambiar el cursor a puntero */
+    transition: all 0.3s ease; /* Efecto de transición */
+    font-weight: bold;
+}
+
+.contact-sec .form button:hover {
+    background: var(
+        --footer-third-color
+    ); /* Color de fondo al pasar el ratón por encima */
 }
 
 .contact .form input,
@@ -6044,8 +6069,7 @@ header.simpl .caption .btn-curve {
     .navbar .logo {
         margin-top: 15px;
         margin-left: 15px;
-        width: 120px;
-        /* aca */
+        width: 200px;
     }
     .nav-scroll .navbar-collapse .nav-link,
     .light .navbar-collapse .nav-link {
