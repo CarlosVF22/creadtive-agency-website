@@ -13,7 +13,7 @@ import removeSlashFromPagination from "../../common/removeSlashFromPagination";
 
 SwiperCore.use([Navigation, Pagination, Parallax, Autoplay]);
 
-const IntroWithSlider1 = ({ sliderRef }) => {
+const IntroWithSlider1 = ({ sliderRef, language }) => {
     const [load, setLoad] = React.useState(true);
     React.useEffect(() => {
         fadeWhenScroll();
@@ -129,7 +129,12 @@ const IntroWithSlider1 = ({ sliderRef }) => {
                                                     )}
                                                     <Link href="mailto:cevasquezf22@gmail.com?subject=Inquiry About Hiring&body=Hello, I would like to inquire about your services.">
                                                         <a className="btn-curve btn-lit mt-30">
-                                                            <span>Hire us</span>
+                                                            <span>
+                                                                {language ===
+                                                                "en"
+                                                                    ? "Hire us"
+                                                                    : "Contratame"}
+                                                            </span>
                                                         </a>
                                                     </Link>
                                                 </div>

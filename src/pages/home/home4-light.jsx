@@ -11,12 +11,16 @@ import TeamWithSkills from "../../components/Team-with-skills";
 import Testimonials1 from "../../components/Testimonials1";
 import LightTheme from "../../layouts/Light";
 import ShowcasesOneCenter from "../../components/Showcases-one-center";
+import { useLanguage } from "../../common/languageContext";
 
 const Homepage4 = () => {
     const fixedSlider = React.useRef(null);
     const MainContent = React.useRef(null);
     const navbarRef = React.useRef(null);
     const logoRef = React.useRef(null);
+
+    // language
+    const { language, toggleLanguage } = useLanguage();
 
     React.useEffect(() => {
         setInterval(() => {
@@ -44,8 +48,13 @@ const Homepage4 = () => {
 
     return (
         <LightTheme>
-            <Navbar nr={navbarRef} lr={logoRef} />
-            <IntroWithSlider1 sliderRef={fixedSlider} />
+            <Navbar
+                nr={navbarRef}
+                lr={logoRef}
+                language={language}
+                toggleLanguage={toggleLanguage}
+            />
+            <IntroWithSlider1 sliderRef={fixedSlider} language={language} />
             <div ref={MainContent} className="main-content">
                 <Services4 withBG withPadding />
                 <ShowcasesOneCenter />

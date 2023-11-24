@@ -4,11 +4,12 @@ import Script from "next/script";
 import Cursor from "../components/Cursor";
 import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
+import { LanguageProvider } from "../common/languageContext";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
     return (
-        <>
+        <LanguageProvider>
             <Head>
                 <title>Creadtive Agency</title>
                 <link rel="icon" href="/img/favicon.ico" />
@@ -42,7 +43,7 @@ function MyApp({ Component, pageProps }) {
                 id="initWow"
                 src="/js/initWow.js"
             ></Script>
-        </>
+        </LanguageProvider>
     );
 }
 

@@ -9,7 +9,7 @@ import {
     handleSearch,
 } from "../../common/navbar";
 
-const Navbar = ({ lr, nr, theme }) => {
+const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
     // React.useEffect(() => {
     //     handleSearch();
     // }, []);
@@ -28,25 +28,26 @@ const Navbar = ({ lr, nr, theme }) => {
                                 <img
                                     ref={lr}
                                     src={`${appData.darkLogo}`}
-                                    alt="logo"
+                                    alt="Creadtive agency logo"
                                 />
                             ) : (
                                 <img
                                     ref={lr}
                                     src={`${appData.lightLogo}`}
-                                    alt="logo"
+                                    alt="Creadtive agency logo"
                                 />
                             )
                         ) : (
                             <img
                                 ref={lr}
                                 src={`${appData.lightLogo}`}
-                                alt="logo"
+                                alt="Creadtive agency logo"
                             />
                         )}
                     </a>
                 </Link>
 
+                {/* collapse button */}
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -61,95 +62,26 @@ const Navbar = ({ lr, nr, theme }) => {
                         <i className="fas fa-bars"></i>
                     </span>
                 </button>
-
+                {/* Links menu */}
                 <div
                     className="collapse navbar-collapse"
                     id="navbarSupportedContent"
                 >
                     <ul className="navbar-nav ml-auto">
-                        {/* <li
-                            className="nav-item dropdown"
-                            onClick={handleDropdown}
-                        >
-                            <span
-                                className="nav-link dropdown-toggle"
-                                data-toggle="dropdown"
-                                role="button"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                Home
-                            </span>
-                            <div className="dropdown-menu">
-                                <Link href="/home/home1-dark">
-                                    <a className="dropdown-item">Main Home</a>
-                                </Link>
-                                <Link href="/home/home2-dark">
-                                    <a className="dropdown-item">
-                                        Creative Studio
-                                    </a>
-                                </Link>
-                                <Link href="/home/home3-dark">
-                                    <a className="dropdown-item">
-                                        Business Startup
-                                    </a>
-                                </Link>
-                                <Link href="/home/home4-dark">
-                                    <a className="dropdown-item">One Page</a>
-                                </Link>
-                                <Link href="/home/home5-dark">
-                                    <a className="dropdown-item">Freelancer</a>
-                                </Link>
-                            </div>
-                        </li>
-
-                        <li
-                            className="nav-item dropdown"
-                            onClick={handleDropdown}
-                        >
-                            <span
-                                className="nav-link dropdown-toggle"
-                                data-toggle="dropdown"
-                                role="button"
-                                aria-haspopup="true"
-                                aria-expanded="false"
-                            >
-                                Showcases
-                            </span>
-                            <div className="dropdown-menu">
-                                <Link href="/showcase/showcase-dark">
-                                    <a className="dropdown-item">Full Screen</a>
-                                </Link>
-                                <Link href="/showcase2/showcase2-dark">
-                                    <a className="dropdown-item">
-                                        Creative Carousel
-                                    </a>
-                                </Link>
-                                <Link href="/showcase3/showcase3-dark">
-                                    <a className="dropdown-item">
-                                        Radius Carousel
-                                    </a>
-                                </Link>
-                                <Link href="/showcase4/showcase4-dark">
-                                    <a className="dropdown-item">
-                                        Columns Carousel
-                                    </a>
-                                </Link>
-                                <Link href="/showcase5/showcase5-dark">
-                                    <a className="dropdown-item">
-                                        Boxed Carousel
-                                    </a>
-                                </Link>
-                            </div>
-                        </li> */}
                         <li className="nav-item">
                             <Link href="/">
-                                <a className="nav-link">Home</a>
+                                <a className="nav-link">
+                                    {language === "en" ? "Home" : "Home"}
+                                </a>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link href="/#section-services">
-                                <a className="nav-link">Services</a>
+                                <a className="nav-link">
+                                    {language === "en"
+                                        ? "Services"
+                                        : "Servicios"}
+                                </a>
                             </Link>
                         </li>
                         <li
@@ -168,56 +100,56 @@ const Navbar = ({ lr, nr, theme }) => {
                             <div className="dropdown-menu">
                                 <Link href="/blog-details/blog-details-light-1">
                                     <a className="dropdown-item">
-                                        Measuring Digital Success: <br /> Your
-                                        Website Guide
+                                        {language === "en"
+                                            ? "Measuring Digital Success: Your Website Guide"
+                                            : "Medición del éxito digital: La guía de su sitio web"}
                                     </a>
                                 </Link>
                                 <Link href="/blog-details/blog-details-light-2">
                                     <a className="dropdown-item">
-                                        Lights, Camera, Action: <br /> Tips for
-                                        shooting social media videos
+                                        {language === "en"
+                                            ? `Lights, Camera, Action: Tips for shooting social media videos`
+                                            : "Luces, cámara, acción: consejos para grabar vídeos en redes sociales"}
                                     </a>
                                 </Link>
                                 <Link href="/blog-details/blog-details-light-3">
                                     <a className="dropdown-item">
-                                        Things you need to know <br /> to find a
-                                        great Logo
+                                        {language === "en"
+                                            ? "Things you need to know to find a great Logo"
+                                            : "Cosas que necesitas saber para encontrar un gran logotipo"}
                                     </a>
                                 </Link>
                             </div>
                         </li>
                         <li className="nav-item">
                             <Link href="/contact/contact-light">
-                                <a className="nav-link">Contact</a>
+                                <a className="nav-link">
+                                    {language === "en" ? "Contact" : "Contacto"}
+                                </a>
                             </Link>
                         </li>
                     </ul>
-                    {/* <div className="search">
-                        <span className="icon pe-7s-search cursor-pointer"></span>
-                        <div className="search-form text-center custom-font">
-                            <Formik
-                                initialValues={{
-                                    search: "",
-                                }}
-                                onSubmit={async (values) => {
-                                    alert(JSON.stringify(values, null, 2));
-                                    // Reset the values
-                                    values.search = "";
-                                }}
-                            >
-                                {({ errors, touched }) => (
-                                    <Form>
-                                        <Field
-                                            type="text"
-                                            name="search"
-                                            placeholder="Search"
-                                        />
-                                    </Form>
-                                )}
-                            </Formik>
-                            <span className="close pe-7s-close cursor-pointer"></span>
-                        </div>
-                    </div> */}
+                </div>
+
+                {/* Interruptor de idioma */}
+                <div className="toggle-container">
+                    <div className="lang-switch-label">
+                        <span className="lang-label">EN</span>
+                        <label className="lang-switch">
+                            <input
+                                type="checkbox"
+                                className="lang-checkbox"
+                                checked={language === "es"}
+                                onChange={() =>
+                                    toggleLanguage(
+                                        language === "en" ? "es" : "en"
+                                    )
+                                }
+                            />
+                            <span className="lang-slider lang-round"></span>
+                        </label>
+                        <span className="lang-label">ES</span>
+                    </div>
                 </div>
             </div>
         </nav>

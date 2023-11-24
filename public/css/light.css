@@ -5875,6 +5875,87 @@ header.simpl .caption .btn-curve {
 }
 
 /* ====================== [ End contact ] ====================== */
+
+/* ====================== [ Start Toogle Lang ] ====================== */
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Asegura que el toggle esté centrado con las etiquetas */
+}
+
+.lang-label {
+    font-size: 12px;
+    margin: 0 10px; /* Espacio alrededor de las etiquetas */
+    color: var(
+        --primary-color
+    ); /* Asumiendo que tienes una variable CSS para el color principal */
+}
+
+.lang-switch {
+    position: relative;
+    display: inline-block;
+    width: 45px; /* Ancho del interruptor */
+    height: 25px; /* Altura del interruptor */
+    margin: 0 10px; /* Espacio alrededor del interruptor */
+}
+
+.lang-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.lang-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: #ccc; Color cuando está desactivado */
+    background-color: var(--primary-color); /* Color cuando está desactivado */
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.lang-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; /* Altura del círculo */
+    width: 18px; /* Ancho del círculo */
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.lang-checkbox:checked + .lang-slider {
+    background-color: var(--primary-color); /* Color cuando está activado */
+}
+
+.lang-checkbox:focus + .lang-slider {
+    box-shadow: 0 0 1px var(--primary-color);
+}
+
+.lang-checkbox:checked + .lang-slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.lang-slider.lang-round {
+    border-radius: 34px; /* Hace que los bordes sean redondeados */
+}
+
+.lang-slider.lang-round:before {
+    border-radius: 50%; /* Hace que el círculo sea perfectamente redondo */
+}
+
+/* ====================== [ End Toogle Lang ] ====================== */
+
 /* ====================== [ Start Footer ] ====================== */
 .footer-half {
     color: var(--navbar-bg-color);
@@ -6067,7 +6148,6 @@ header.simpl .caption .btn-curve {
         margin: 10px auto !important;
     }
     .navbar .logo {
-        margin-top: 15px;
         margin-left: 15px;
         width: 200px;
     }
@@ -6124,6 +6204,11 @@ header.simpl .caption .btn-curve {
     }
     .navbar .navbar-nav .nav-link:hover {
         color: var(--primary-color);
+    }
+
+    .navbar .toggle-container {
+        width: 100%;
+        justify-content: flex-end;
     }
     .slider .parallax-slider .caption.dig {
         text-align: center;
