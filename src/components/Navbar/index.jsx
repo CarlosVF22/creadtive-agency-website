@@ -128,29 +128,29 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                 </a>
                             </Link>
                         </li>
+                        <div className="toggle-container">
+                            <div className="lang-switch-label">
+                                <span className="lang-label">EN</span>
+                                <label className="lang-switch">
+                                    <input
+                                        type="checkbox"
+                                        className="lang-checkbox"
+                                        checked={language === "es"}
+                                        onChange={() =>
+                                            toggleLanguage(
+                                                language === "en" ? "es" : "en"
+                                            )
+                                        }
+                                    />
+                                    <span className="lang-slider lang-round"></span>
+                                </label>
+                                <span className="lang-label">ES</span>
+                            </div>
+                        </div>
                     </ul>
                 </div>
 
                 {/* Interruptor de idioma */}
-                <div className="toggle-container">
-                    <div className="lang-switch-label">
-                        <span className="lang-label">EN</span>
-                        <label className="lang-switch">
-                            <input
-                                type="checkbox"
-                                className="lang-checkbox"
-                                checked={language === "es"}
-                                onChange={() =>
-                                    toggleLanguage(
-                                        language === "en" ? "es" : "en"
-                                    )
-                                }
-                            />
-                            <span className="lang-slider lang-round"></span>
-                        </label>
-                        <span className="lang-label">ES</span>
-                    </div>
-                </div>
             </div>
         </nav>
     );

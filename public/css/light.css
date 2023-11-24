@@ -6205,11 +6205,6 @@ header.simpl .caption .btn-curve {
     .navbar .navbar-nav .nav-link:hover {
         color: var(--primary-color);
     }
-
-    .navbar .toggle-container {
-        width: 100%;
-        justify-content: flex-end;
-    }
     .slider .parallax-slider .caption.dig {
         text-align: center;
     }

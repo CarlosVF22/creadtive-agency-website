@@ -27,6 +27,8 @@ const IntroWithSlider1 = ({ sliderRef, language }) => {
     const navigationNextRef = React.useRef(null);
     const paginationRef = React.useRef(null);
 
+    React.useEffect(() => {}, [language]);
+
     return (
         <header
             ref={sliderRef}
@@ -104,36 +106,34 @@ const IntroWithSlider1 = ({ sliderRef, language }) => {
                                                 <div className="caption center">
                                                     <Split>
                                                         <h1 className="words chars splitting">
-                                                            {typeof slide.title ===
-                                                            "object" ? (
-                                                                <>
-                                                                    {
-                                                                        slide
-                                                                            .title
-                                                                            .first
-                                                                    }{" "}
-                                                                    <br />
-                                                                    {
-                                                                        slide
-                                                                            .title
-                                                                            .second
-                                                                    }
-                                                                </>
-                                                            ) : (
-                                                                slide.title
-                                                            )}
+                                                            {slide.title &&
+                                                            language
+                                                                ? slide.title[
+                                                                      language
+                                                                  ]
+                                                                : ""}
                                                         </h1>
                                                     </Split>
-                                                    {slide?.content && (
-                                                        <p>{slide.content}</p>
+                                                    {console.log(
+                                                        "type of slide.title[language]:",
+                                                        slide.title[language]
+                                                            .first
                                                     )}
+                                                    <p>
+                                                        {language === "en"
+                                                            ? slide?.content_en
+                                                            : slide?.content_es}
+                                                    </p>
+                                                    {/* {slide?.content && (
+                                                        <p>{slide.content}</p>
+                                                    )} */}
                                                     <Link href="mailto:cevasquezf22@gmail.com?subject=Inquiry About Hiring&body=Hello, I would like to inquire about your services.">
                                                         <a className="btn-curve btn-lit mt-30">
                                                             <span>
                                                                 {language ===
                                                                 "en"
                                                                     ? "Hire us"
-                                                                    : "Contratame"}
+                                                                    : "Contratanos"}
                                                             </span>
                                                         </a>
                                                     </Link>
