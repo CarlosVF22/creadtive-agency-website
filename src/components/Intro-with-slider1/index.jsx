@@ -114,11 +114,6 @@ const IntroWithSlider1 = ({ sliderRef, language }) => {
                                                                 : ""}
                                                         </h1>
                                                     </Split>
-                                                    {console.log(
-                                                        "type of slide.title[language]:",
-                                                        slide.title[language]
-                                                            .first
-                                                    )}
                                                     <p>
                                                         {language === "en"
                                                             ? slide?.content_en

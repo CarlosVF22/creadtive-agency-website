@@ -14,7 +14,7 @@ import removeSlashFromPagination from "../../common/removeSlashFromPagination";
 // SwiperCore.use([Navigation, Parallax, Mousewheel]);
 SwiperCore.use([Navigation, Parallax]);
 
-const ShowcasesOneCenter = () => {
+const ShowcasesOneCenter = ({ language }) => {
     const [load, setLoad] = React.useState(true);
     React.useEffect(() => {
         setTimeout(() => {
@@ -29,14 +29,18 @@ const ShowcasesOneCenter = () => {
         <header className="slider showcase-carus">
             <div className="sec-head custom-font text-center">
                 <h6 className="wow fadeIn" data-wow-delay=".5s">
-                    professionalism
+                    {language === "en" ? "professionalism" : "Profesionalismo"}
                 </h6>
                 <Split>
                     <h3 className="wow words chars splitting" data-splitting>
-                        Our skills
+                        {language === "en"
+                            ? "Our skills"
+                            : "Nuestras habilidades"}
                     </h3>
                 </Split>
-                <span className="tbg">Our skills</span>
+                <span className="tbg">
+                    {language === "en" ? "Our skills" : "Nuestras habilidades"}
+                </span>
             </div>
             <div
                 id="content-carousel-container-unq-1"
@@ -118,10 +122,14 @@ const ShowcasesOneCenter = () => {
                                                 {/* <Link href="/project-details2/project-details2-dark"> */}
                                                 {/* <a> */}
                                                 <div className="stroke">
-                                                    {slide.title.first}
+                                                    {language === "en"
+                                                        ? slide.title_en.first
+                                                        : slide.title_es.first}
                                                 </div>
                                                 <span>
-                                                    {slide.title.second}
+                                                    {language === "en"
+                                                        ? slide.title_en.second
+                                                        : slide.title_es.second}
                                                 </span>
                                                 {/* </a> */}
                                                 {/* </Link> */}
@@ -134,10 +142,14 @@ const ShowcasesOneCenter = () => {
                                                 {/* <Link href="/project-details2/project-details2-dark"> */}
                                                 {/* <a> */}
                                                 <div className="stroke">
-                                                    {slide.title.first}
+                                                    {language === "en"
+                                                        ? slide.title_en.first
+                                                        : slide.title_es.first}
                                                 </div>
                                                 <span>
-                                                    {slide.title.second}
+                                                    {language === "en"
+                                                        ? slide.title_en.second
+                                                        : slide.title_es.second}
                                                 </span>
                                                 {/* </a> */}
                                                 {/* </Link> */}
@@ -155,7 +167,9 @@ const ShowcasesOneCenter = () => {
                         className="swiper-button-next swiper-nav-ctrl cursor-pointer"
                     >
                         <div>
-                            <span className=" custom-font">Next Slide</span>
+                            <span className=" custom-font">
+                                {language === "en" ? "Next Slide" : "Siguiente"}
+                            </span>
                         </div>
                         <div>
                             <i className="fas fa-chevron-right"></i>
@@ -169,7 +183,9 @@ const ShowcasesOneCenter = () => {
                             <i className="fas fa-chevron-left"></i>
                         </div>
                         <div>
-                            <span className="custom-font">Prev Slide</span>
+                            <span className="custom-font">
+                                {language === "en" ? "Prev Slide" : "Atras"}
+                            </span>
                         </div>
                     </div>
                 </div>

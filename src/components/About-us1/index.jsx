@@ -3,7 +3,7 @@ import React from "react";
 import Split from "../Split";
 import AboutUs1Date from "../../data/sections/about-us1.json";
 
-const AboutUs1 = () => {
+const AboutUs1 = ({ language }) => {
     return (
         <div className="about section-padding" style={{ marginTop: "4rem" }}>
             <div className="container">
@@ -39,7 +39,11 @@ const AboutUs1 = () => {
                     <div className="col-lg-6 offset-lg-1 valign">
                         <div className="content">
                             <div className="sub-title">
-                                <h6>{AboutUs1Date.smallTitle}</h6>
+                                <h6>
+                                    {language === "en"
+                                        ? AboutUs1Date.smallTitle_en
+                                        : AboutUs1Date.smallTitle_es}
+                                </h6>
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -49,8 +53,17 @@ const AboutUs1 = () => {
                                     className="words chars splitting main-title wow"
                                     data-splitting
                                 >
-                                    {AboutUs1Date.title.first} <br />{" "}
-                                    {AboutUs1Date.title.second}
+                                    {language === "en"
+                                        ? AboutUs1Date.title_en.first
+                                        : AboutUs1Date.title_es.first}
+                                </h3>
+                                <h3
+                                    className="words chars splitting main-title wow"
+                                    data-splitting
+                                >
+                                    {language === "en"
+                                        ? AboutUs1Date.title_en.second
+                                        : AboutUs1Date.title_es.second}
                                 </h3>
                             </Split>
                             <Split>
@@ -58,7 +71,9 @@ const AboutUs1 = () => {
                                     className="words chars splitting wow txt"
                                     data-splitting
                                 >
-                                    {AboutUs1Date.content}
+                                    {language === "en"
+                                        ? AboutUs1Date.content_en
+                                        : AboutUs1Date.content_es}
                                 </p>
                             </Split>
                             <div className="ftbox mt-30">
@@ -76,8 +91,14 @@ const AboutUs1 = () => {
                                                 className={`icon color-font pe-7s-${feature.icon}`}
                                             ></span>
                                             <h6 className="custom-font">
-                                                {feature.name.first} <br />{" "}
-                                                {feature.name.second}
+                                                {language === "en"
+                                                    ? feature.name_en.first
+                                                    : feature.name_es.first}
+                                            </h6>
+                                            <h6 className="custom-font">
+                                                {language === "en"
+                                                    ? feature.name_en.second
+                                                    : feature.name_es.second}
                                             </h6>
                                             <div className="dots">
                                                 <span></span>

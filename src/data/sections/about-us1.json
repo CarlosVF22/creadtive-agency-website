@@ -3,29 +3,38 @@
     "image1": "/img/intro/about-1.png",
     "image2": "/img/intro/about-2.png",
     "image3": "/img/intro/about-3.png",
-    "smallTitle": "About Us",
-    "title": {
+    "smallTitle_en": "About Us",
+    "smallTitle_es": "Sobre nosotros",
+    "title_en": {
         "first": "We are more than just",
         "second": "a digital agency."
     },
-    "content": "Where innovation meets digital marketing excellence in perfect synergy. We are the architects of engagement, the drivers of conversation, and the wizards of conversion. At CreADtive , we don't just generate leads; we orchestrate a symphony of interactions that resonate with your audience, creating meaningful connections that lead to lasting relationships. Our team is on the cutting edge of the digital landscape, harnessing the power of data-driven strategies and creative brilliance to turn your vision into reality. Let us be your partners on this journey to digital success, where every click, every like, and every share is a step closer to your business's ultimate triumph.",
+    "title_es": {
+        "first": "Nosotros somos mas que solo",
+        "second": "una agencia digital."
+    },
+    "content_en": "Where innovation meets digital marketing excellence in perfect synergy. We are the architects of engagement, the drivers of conversation, and the wizards of conversion. At CreADtive , we don't just generate leads; we orchestrate a symphony of interactions that resonate with your audience, creating meaningful connections that lead to lasting relationships. Our team is on the cutting edge of the digital landscape, harnessing the power of data-driven strategies and creative brilliance to turn your vision into reality. Let us be your partners on this journey to digital success, where every click, every like, and every share is a step closer to your business's ultimate triumph.",
+    "content_es": "Donde la innovación se une a la excelencia del marketing digital en perfecta sinergia. Somos los arquitectos del compromiso, los impulsores de la conversación y los magos de la conversión. En CreADtive, no solo generamos clientes potenciales; Orquestamos una sinfonía de interacciones que resuenan con su audiencia, creando conexiones significativas que conducen a relaciones duraderas. Nuestro equipo está a la vanguardia del panorama digital y aprovecha el poder de las estrategias basadas en datos y la brillantez creativa para convertir su visión en realidad. Permítanos ser sus socios en este viaje hacia el éxito digital, donde cada clic, cada me gusta y cada acción es un paso más hacia el triunfo final de su negocio.",
     "features": [
         {
             "id": 1,
             "icon": "gleam",
-            "name": { "first": "Pixel", "second": "Perfect" },
+            "name_en": { "first": "Pixel", "second": "Perfect" },
+            "name_es": { "first": "Detalle", "second": "Perfecto" },
             "wowDelay": ".3s"
         },
         {
             "id": 2,
             "icon": "paint-bucket",
-            "name": { "first": "Creative", "second": "Design" },
+            "name_en": { "first": "Creative", "second": "Design" },
+            "name_es": { "first": "Diseño", "second": "Creativo" },
             "wowDelay": ".5s"
         },
         {
             "id": 3,
             "icon": "medal",
-            "name": { "first": "Heigh", "second": "Perfomance" },
+            "name_en": { "first": "Heigh", "second": "Perfomance" },
+            "name_es": { "first": "Rendimiento", "second": "Excelente" },
             "wowDelay": ".8s"
         }
     ]

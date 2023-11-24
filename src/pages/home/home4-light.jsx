@@ -56,9 +56,9 @@ const Homepage4 = () => {
             />
             <IntroWithSlider1 sliderRef={fixedSlider} language={language} />
             <div ref={MainContent} className="main-content">
-                <Services4 withBG withPadding />
-                <ShowcasesOneCenter />
-                <AboutUs1 />
+                <Services4 withBG withPadding language={language} />
+                <ShowcasesOneCenter language={language} />
+                <AboutUs1 language={language} />
                 <BlogsThreeColumn2 subBG />
                 <ContactSection />
                 <Footer />

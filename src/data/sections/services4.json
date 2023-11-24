@@ -1,32 +1,62 @@
 [
     {
         "id": 1,
-        "title": "Branding",
+        "title": {
+            "en": "Branding",
+            "es": "Creación de marca"
+        },
         "icon": "pe-7s-gleam",
-        "content": "Shape Your Brand's Future with Our Expertise. Innovative branding that tells your story. Craft a lasting impression. Unleash your brand's potential now!"
+        "content": {
+            "en": "Shape Your Brand's Future with Our Expertise. Innovative branding that tells your story. Craft a lasting impression. Unleash your brand's potential now!",
+            "es": "Impulsa Tu Visibilidad con Nuestros Servicios de SEO y SEM. Escala en rankings de búsqueda y atrae tráfico. Estrategias expertas para un impacto máximo. ¡Eleva tu éxito en línea ahora!"
+        }
     },
     {
         "id": 2,
-        "title": "Web & App Development",
+        "title": {
+            "en": "Web and App development",
+            "es": "Desarrollo web y móvil"
+        },
         "icon": "pe-7s-phone",
-        "content": "Revolutionize Your Digital Footprint with Our Web & App Development. Innovative solutions for seamless web and mobile experiences. Your digital dreams, realized. Let's build together!"
+        "content": {
+            "en": "Revolutionize Your Digital Footprint with Our Web & App Development. Innovative solutions for seamless web and mobile experiences. Your digital dreams, realized. Let's build together!",
+            "es": "Revoluciona Tu Huella Digital con Nuestro Desarrollo Web y de Apps. Soluciones innovadoras para experiencias web y móviles impecables. Tus sueños digitales, hechos realidad. ¡Construyamos juntos!"
+        }
     },
     {
         "id": 3,
-        "title": "Social content",
+        "title": {
+            "en": "Social content",
+            "es": "Contenido para redes sociales"
+        },
         "icon": "pe-7s-magic-wand",
-        "content": "Engage Your Audience with Captivating Social Content. Unleash the power of social media. Creative, impactful, and memorable posts. Let's make your brand go viral!"
+        "content": {
+            "en": "Engage Your Audience with Captivating Social Content. Unleash the power of social media. Creative, impactful, and memorable posts. Let's make your brand go viral!",
+            "es": "Conecta con Tu Audiencia con Contenido Social Cautivador. Desata el poder de las redes sociales. Publicaciones creativas, impactantes y memorables. ¡Hagamos que tu marca sea viral! "
+        }
     },
     {
         "id": 4,
-        "title": "Social Ads",
+        "title": {
+            "en": "Social ads",
+            "es": "Ads en redes sociales"
+        },
         "icon": "pe-7s-magic-wand",
-        "content": "Amplify Your Reach with Targeted Social Ads. Connect with your audience where it matters. Dynamic, engaging ad campaigns. Boost your brand's impact now!"
+        "content": {
+            "en": "Amplify Your Reach with Targeted Social Ads. Connect with your audience where it matters. Dynamic, engaging ad campaigns. Boost your brand's impact now!",
+            "es": "Amplía Tu Alcance con Anuncios Sociales Dirigidos. Conéctate con tu audiencia donde importa. Campañas publicitarias dinámicas y atractivas. ¡Potencia el impacto de tu marca ya!"
+        }
     },
     {
         "id": 5,
-        "title": "SEO and SEM",
+        "title": {
+            "en": "SEO and SEM",
+            "es": "SEO y SEM"
+        },
         "icon": "pe-7s-magic-wand",
-        "content": "Ascend in Search Rankings with Elite SEO & SEM. Tailored strategies for top visibility. Drive meaningful traffic, convert leads. Your pathway to digital dominance!"
+        "content": {
+            "en": "Ascend in Search Rankings with Elite SEO & SEM. Tailored strategies for top visibility. Drive meaningful traffic, convert leads. Your pathway to digital dominance!",
+            "es": "Ascende en los Rankings de Búsqueda con SEO & SEM Élite. Estrategias a medida para máxima visibilidad. Atrae tráfico relevante, convierte leads. ¡Tu camino hacia el dominio digital!"
+        }
     }
 ]
