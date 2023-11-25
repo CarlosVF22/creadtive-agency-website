@@ -3,12 +3,14 @@ import ContactHeader from "../../components/Contact-header";
 import ContactWithMap from "../../components/Contact-with-map";
 import Navbar from "../../components/Navbar";
 import LightTheme from "../../layouts/Light";
+import { useLanguage } from "../../common/languageContext";
 
 const Contact = () => {
     const fixedHeader = React.useRef(null);
     const MainContent = React.useRef(null);
     const navbarRef = React.useRef(null);
     const logoRef = React.useRef(null);
+    const { language, toggleLanguage } = useLanguage();
     React.useEffect(() => {
         document.querySelector("body").classList.add("menubarblack");
         setInterval(() => {
@@ -35,10 +37,15 @@ const Contact = () => {
     }, []);
     return (
         <LightTheme>
-            <Navbar nr={navbarRef} lr={logoRef} />
-            <ContactHeader sliderRef={fixedHeader} />
+            <Navbar
+                nr={navbarRef}
+                lr={logoRef}
+                language={language}
+                toggleLanguage={toggleLanguage}
+            />
+            <ContactHeader sliderRef={fixedHeader} language={language} />
             <div className="main-content" ref={MainContent}>
-                <ContactWithMap theme="light" />
+                <ContactWithMap theme="light" language={language} />
             </div>
         </LightTheme>
     );
