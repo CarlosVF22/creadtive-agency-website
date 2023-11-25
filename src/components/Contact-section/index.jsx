@@ -3,7 +3,7 @@ import Split from "../Split";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
 
-const ContactSection = () => {
+const ContactSection = ({ language }) => {
     const messageRef = React.useRef(null);
     function validateEmail(value) {
         let error;
@@ -20,17 +20,19 @@ const ContactSection = () => {
             <div className="container">
                 <div className="sec-head custom-font text-center">
                     <h6 className="wow fadeIn" data-wow-delay=".5s">
-                        Get In Touch
+                        {language === "en" ? "Get In Touch" : "Deja un mensaje"}
                     </h6>
                     <Split>
                         <h3
                             className="wow words chars splitting"
                             data-splitting
                         >
-                            Contact Us.
+                            {language === "en" ? "Contact Us" : "Contactanos"}
                         </h3>
                     </Split>
-                    <span className="tbg">Contact</span>
+                    <span className="tbg">
+                        {language === "en" ? "Contact Us" : "Contactanos"}
+                    </span>
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-lg-10">
@@ -98,7 +100,12 @@ const ContactSection = () => {
                                                             id="form_name"
                                                             type="text"
                                                             name="name"
-                                                            placeholder="Name"
+                                                            placeholder={
+                                                                language ===
+                                                                "en"
+                                                                    ? "Name"
+                                                                    : "Nombre"
+                                                            }
                                                             required="required"
                                                         />
                                                     </div>
@@ -112,7 +119,12 @@ const ContactSection = () => {
                                                             validate={
                                                                 validateEmail
                                                             }
-                                                            placeholder="Email"
+                                                            placeholder={
+                                                                language ===
+                                                                "en"
+                                                                    ? "Email"
+                                                                    : "Correo electronico"
+                                                            }
                                                             required="required"
                                                         />
                                                         {errors.email &&
@@ -131,7 +143,12 @@ const ContactSection = () => {
                                                             as="textarea"
                                                             id="form_message"
                                                             name="message"
-                                                            placeholder="Message"
+                                                            placeholder={
+                                                                language ===
+                                                                "en"
+                                                                    ? "Message"
+                                                                    : "Mensaje"
+                                                            }
                                                             rows="4"
                                                             required="required"
                                                         />
@@ -144,7 +161,10 @@ const ContactSection = () => {
                                                             className="simple-btn custom-font cursor-pointer"
                                                         >
                                                             <span>
-                                                                Send Message
+                                                                {language ===
+                                                                "en"
+                                                                    ? "Send Message"
+                                                                    : "Enviar Mensaje"}
                                                             </span>
                                                         </button>
                                                     </div>

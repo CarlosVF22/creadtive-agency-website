@@ -75,7 +75,7 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                 </a>
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link href="/#section-services">
                                 <a className="nav-link">
                                     {language === "en"
@@ -83,7 +83,7 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                         : "Servicios"}
                                 </a>
                             </Link>
-                        </li>
+                        </li> */}
                         <li
                             className="nav-item dropdown"
                             onClick={handleDropdown}

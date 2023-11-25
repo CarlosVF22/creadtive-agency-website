@@ -920,6 +920,14 @@ span:hover {
 
 /* ====================== [ End Helper Classes  ] ====================== */
 /* ====================== [ Start Preloader ] ====================== */
+
+#preloader .loading-logo {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 250px; /* Ajusta el tamaño según tus necesidades */
+}
 .pace {
     pointer-events: none;
     -webkit-user-select: none;

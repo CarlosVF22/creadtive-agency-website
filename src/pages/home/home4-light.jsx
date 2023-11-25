@@ -59,9 +59,9 @@ const Homepage4 = () => {
                 <Services4 withBG withPadding language={language} />
                 <ShowcasesOneCenter language={language} />
                 <AboutUs1 language={language} />
-                <BlogsThreeColumn2 subBG />
-                <ContactSection />
-                <Footer />
+                <BlogsThreeColumn2 subBG language={language} />
+                <ContactSection language={language} />
+                <Footer language={language} />
             </div>
         </LightTheme>
     );

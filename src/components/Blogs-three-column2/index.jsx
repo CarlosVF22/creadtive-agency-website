@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Split from "../Split";
 
-const BlogsThreeColumn2 = ({ subBG }) => {
+const BlogsThreeColumn2 = ({ subBG, language }) => {
     return (
         <section
             className={`blog-grid section-padding ${subBG ? "sub-bg" : ""}`}
@@ -11,14 +11,14 @@ const BlogsThreeColumn2 = ({ subBG }) => {
             <div className="container">
                 <div className="sec-head custom-font text-center">
                     <h6 className="wow fadeIn" data-wow-delay=".5s">
-                        Latest News
+                        {language === "en" ? "Latest News" : "Noticias nuevas"}
                     </h6>
                     <Split>
                         <h3
                             className="wow words chars splitting"
                             data-splitting
                         >
-                            Our Blogs.
+                            {language === "en" ? "Our Blogs" : "Nuestro Blog"}
                         </h3>
                     </Split>
                     <span className="tbg">Blogs</span>
@@ -35,7 +35,10 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                             <div className="cont">
                                 <a className="date custom-font">
                                     <span>
-                                        <i>06</i> August
+                                        <i>06</i>{" "}
+                                        {language === "en"
+                                            ? "August"
+                                            : "Agosto"}
                                     </span>
                                 </a>
 
@@ -45,13 +48,18 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                                 </div>
                                 <h6>
                                     <Link href="/blog-details/blog-details-light-1">
-                                        Measuring Digital Success: Your Website
-                                        Guide
+                                        {language === "en"
+                                            ? "Measuring Digital Success: Your Website Guide"
+                                            : "Medición del éxito digital: La guía de su sitio web"}
                                     </Link>
                                 </h6>
                                 <div className="btn-more custom-font">
                                     <Link href="/blog-details/blog-details-light-1">
-                                        <a className="simple-btn">Read More</a>
+                                        <a className="simple-btn">
+                                            {language === "en"
+                                                ? "Read More"
+                                                : "Leer más"}
+                                        </a>
                                     </Link>
                                 </div>
                             </div>
@@ -68,7 +76,10 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                             <div className="cont">
                                 <a className="date custom-font">
                                     <span>
-                                        <i>07</i> October
+                                        <i>07</i>{" "}
+                                        {language === "en"
+                                            ? "October"
+                                            : "Octubre"}
                                     </span>
                                 </a>
                                 <div className="info custom-font">
@@ -77,13 +88,18 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                                 </div>
                                 <h6>
                                     <Link href="/blog-details/blog-details-light-2">
-                                        Lights, Camera, Action: Tips for
-                                        shooting social media videos
+                                        {language === "en"
+                                            ? "Lights, Camera, Action: Tips for shooting social media video"
+                                            : "Luces, cámara, acción: consejos para grabar vídeos"}
                                     </Link>
                                 </h6>
                                 <div className="btn-more custom-font">
                                     <Link href="/blog-details/blog-details-light-2">
-                                        <a className="simple-btn">Read More</a>
+                                        <a className="simple-btn">
+                                            {language === "en"
+                                                ? "Read More"
+                                                : "Leer más"}
+                                        </a>
                                     </Link>
                                 </div>
                             </div>
@@ -100,7 +116,10 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                             <div className="cont">
                                 <a className="date custom-font">
                                     <span>
-                                        <i>08</i> November
+                                        <i>08</i>{" "}
+                                        {language === "en"
+                                            ? "November"
+                                            : "Noviembre"}
                                     </span>
                                 </a>
                                 <div className="info custom-font">
@@ -109,13 +128,18 @@ const BlogsThreeColumn2 = ({ subBG }) => {
                                 </div>
                                 <h6>
                                     <Link href="/blog-details/blog-details-light-3">
-                                        Things you need to know to find a great
-                                        Logo
+                                        {language === "en"
+                                            ? "Things you need to know to find a great Logo"
+                                            : "Cosas que necesitas saber para encontrar un gran logotipo"}
                                     </Link>
                                 </h6>
                                 <div className="btn-more custom-font">
                                     <Link href="/blog-details/blog-details-light-3">
-                                        <a className="simple-btn">Read More</a>
+                                        <a className="simple-btn">
+                                            {language === "en"
+                                                ? "Read More"
+                                                : "Leer más"}
+                                        </a>
                                     </Link>
                                 </div>
                             </div>
