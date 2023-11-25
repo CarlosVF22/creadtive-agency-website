@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Formik, Form, Field } from "formik";
 
-const BlogDetails = () => {
+const BlogDetails = ({ language }) => {
     function validateEmail(value) {
         let error;
         if (!value) {
@@ -21,7 +21,7 @@ const BlogDetails = () => {
                     <div className="col-lg-11">
                         <div className="post">
                             <div className="img">
-                                <img src="/img/blog/single.jpg" alt="" />
+                                <img src="/img/blog/3.png" alt="" />
                             </div>
                             <div className="content pt-20">
                                 <div className="row justify-content-center">
@@ -51,109 +51,75 @@ const BlogDetails = () => {
                                                 </p>
                                             </div> */}
                                             <p>
-                                                Are you starting a new business
-                                                or thinking about rebranding
-                                                your existing one? One crucial
-                                                element you can’t afford to
-                                                overlook is your logo. Your logo
-                                                is often the first impression
-                                                customers have of your brand, so
-                                                it’s essential to get it right.
-                                                In this blog post, we’ll discuss
-                                                five key things you need to know
-                                                to find a great logo for your
-                                                business.
+                                                {language === "en"
+                                                    ? "Are you starting a new business or thinking about rebranding your existing one? One crucial element you can’t afford to overlook is your logo. Your logo is often the first impression customers have of your brand, so it’s essential to get it right. In this blog post, we’ll discuss five key things you need to know to find a great logo for your business."
+                                                    : "¿Está iniciando un nuevo negocio o está pensando en cambiar el nombre del que ya tiene? Un elemento crucial que no puede pasar por alto es su logotipo. Su logotipo suele ser la primera impresión que los clientes tienen de su marca, por lo que es esencial hacerlo bien. En esta publicación de blog, analizaremos cinco cosas clave que necesita saber para encontrar un excelente logotipo para su empresa."}
                                             </p>
 
                                             <div>
-                                                <h6>- Understand Your Brand</h6>
+                                                <h6>
+                                                    {language === "en"
+                                                        ? "- Understand Your Brand"
+                                                        : "- Comprenda su marca"}
+                                                </h6>
 
                                                 <p>
-                                                    Before you dive into the
-                                                    world of logo design, take
-                                                    the time to understand your
-                                                    brand thoroughly. Your logo
-                                                    should reflect your brand’s
-                                                    personality, values, and
-                                                    mission. Are you a playful
-                                                    and creative brand, or are
-                                                    you more serious and
-                                                    professional? Knowing your
-                                                    brand’s identity will help
-                                                    guide the design process.
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <h6>- Simplicity Is Key</h6>
-
-                                                <p>
-                                                    One of the most critical
-                                                    aspects of a successful logo
-                                                    is simplicity. Think about
-                                                    some of the most iconic
-                                                    logos in the world, like
-                                                    Apple or Nike. They are
-                                                    simple, memorable, and
-                                                    instantly recognizable. A
-                                                    cluttered or overly complex
-                                                    logo can confuse your
-                                                    audience and make it less
-                                                    memorable.
-                                                </p>
-                                            </div>
-
-                                            <div>
-                                                <h6>- Versatility Matters</h6>
-
-                                                <p>
-                                                    Your logo will appear on
-                                                    various platforms and
-                                                    materials, from business
-                                                    cards to billboards. It’s
-                                                    crucial to have a logo that
-                                                    works well in different
-                                                    sizes and formats. Test your
-                                                    logo design in various
-                                                    contexts to ensure it
-                                                    remains effective and
-                                                    recognizable.
+                                                    {language === "en"
+                                                        ? "Before you dive into the world of logo design, take the time to understand your brand thoroughly. Your logo should reflect your brand’s personality, values, and mission. Are you a playful and creative brand, or are you more serious and professional? Knowing your brand’s identity will help guide the design process."
+                                                        : "Antes de sumergirte en el mundo del diseño de logotipos, tómate el tiempo para comprender a fondo tu marca. Su logotipo debe reflejar la personalidad, los valores y la misión de su marca. ¿Eres una marca divertida y creativa, o eres más seria y profesional? Conocer la identidad de su marca ayudará a guiar el proceso de diseño."}
                                                 </p>
                                             </div>
                                             <div>
                                                 <h6>
-                                                    - Professional Design Is
-                                                    Worth It
+                                                    {language === "en"
+                                                        ? "- Simplicity Is Key"
+                                                        : "- La simplicidad es clave"}
                                                 </h6>
 
                                                 <p>
-                                                    While DIY logo design tools
-                                                    are readily available,
-                                                    investing in a professional
-                                                    designer is often worth the
-                                                    cost. Experienced designers
-                                                    understand the nuances of
-                                                    logo design, including color
-                                                    psychology and typography,
-                                                    and can create a logo that
-                                                    truly represents your brand.
+                                                    {language === "en"
+                                                        ? "One of the most critical aspects of a successful logo is simplicity. Think about some of the most iconic logos in the world, like Apple or Nike. They are simple, memorable, and instantly recognizable. A cluttered or overly complex logo can confuse your audience and make it less memorable."
+                                                        : "Uno de los aspectos más críticos de un logotipo exitoso es la simplicidad. Piense en algunos de los logotipos más emblemáticos del mundo, como Apple o Nike. Son simples, memorables y reconocibles al instante. Un logotipo desordenado o demasiado complejo puede confundir a su audiencia y hacerlo menos memorable."}
+                                                </p>
+                                            </div>
+
+                                            <div>
+                                                <h6>
+                                                    {language === "en"
+                                                        ? "- Versatility Matters"
+                                                        : "- La versatilidad importa"}
+                                                </h6>
+
+                                                <p>
+                                                    {language === "en"
+                                                        ? "Your logo will appear on various platforms and materials, from business cards to billboards. It’s crucial to have a logo that works well in different sizes and formats. Test your logo design in various contexts to ensure it remains effective and recognizable."
+                                                        : "Su logotipo aparecerá en diversas plataformas y materiales, desde tarjetas de presentación hasta vallas publicitarias. Es fundamental tener un logotipo que funcione bien en diferentes tamaños y formatos. Pruebe el diseño de su logotipo en varios contextos para asegurarse de que siga siendo efectivo y reconocible."}
                                                 </p>
                                             </div>
                                             <div>
                                                 <h6>
-                                                    - Your Logo Should Stand the
-                                                    Test of Time
+                                                    {language === "en"
+                                                        ? "- Professional Design Is Worth It"
+                                                        : "- El diseño profesional lo vale"}
                                                 </h6>
 
                                                 <p>
-                                                    Avoid trendy design elements
-                                                    that may quickly go out of
-                                                    style. Your logo should be
-                                                    timeless and able to
-                                                    withstand the changes and
-                                                    trends in your industry. A
-                                                    logo that stands the test of
-                                                    time can become a valuable
-                                                    asset for your brand.
+                                                    {language === "en"
+                                                        ? "While DIY logo design tools are readily available, investing in a professional designer is often worth the cost. Experienced designers understand the nuances of logo design, including color psychology and typography, and can create a logo that truly represents your brand."
+                                                        : "Si bien las herramientas de diseño de logotipos de bricolaje están disponibles, invertir en un diseñador profesional a menudo vale la pena. Los diseñadores experimentados comprenden los matices del diseño de logotipos, incluida la psicología del color y la tipografía, y pueden crear un logotipo que realmente represente su marca."}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <h6>
+                                                    {language === "en"
+                                                        ? "- Your Logo Should Stand the Test of Time"
+                                                        : "- Su logotipo debe resistir la prueba del tiempo"}
+                                                </h6>
+
+                                                <p>
+                                                    {language === "en"
+                                                        ? "Avoid trendy design elements that may quickly go out of style. Your logo should be timeless and able to withstand the changes and trends in your industry. A logo that stands the test of time can become a valuable asset for your brand."
+                                                        : "Evite los elementos de diseño de moda que pueden pasar de moda rápidamente. Su logotipo debe ser atemporal y capaz de resistir los cambios y tendencias de su industria. Un logotipo que resiste el paso del tiempo puede convertirse en un activo valioso para su marca."}
                                                 </p>
                                             </div>
                                             {/* <div>
@@ -285,23 +251,9 @@ const BlogDetails = () => {
 
                                             <div className="quotes text-center">
                                                 <p>
-                                                    In conclusion, finding a
-                                                    great logo for your business
-                                                    is a crucial step in
-                                                    establishing a strong brand
-                                                    identity. By understanding
-                                                    your brand, keeping the
-                                                    design simple and versatile,
-                                                    investing in professional
-                                                    design, and prioritizing
-                                                    timelessness, you’ll be well
-                                                    on your way to creating a
-                                                    logo that makes a lasting
-                                                    impact on your audience.
-                                                    Remember, your logo is more
-                                                    than just an image; it’s a
-                                                    representation of your
-                                                    brand’s values and identity.
+                                                    {language === "en"
+                                                        ? "In conclusion, finding a great logo for your business is a crucial step in establishing a strong brand identity. By understanding your brand, keeping the design simple and versatile, investing in professional design, and prioritizing timelessness, you’ll be well on your way to creating a logo that makes a lasting impact on your audience. Remember, your logo is more than just an image; it’s a representation of your brand’s values and identity."
+                                                        : "En conclusión, encontrar un gran logotipo para su empresa es un paso crucial para establecer una identidad de marca sólida. Si comprende su marca, mantiene el diseño simple y versátil, invierte en diseño profesional y prioriza la atemporalidad, estará bien encaminado para crear un logotipo que tenga un impacto duradero en su audiencia. Recuerde, su logotipo es más que una simple imagen; es una representación de los valores y la identidad de su marca."}
                                                 </p>
                                             </div>
                                             {/* <div className="row">
@@ -341,7 +293,7 @@ const BlogDetails = () => {
                                                         <i className="fab fa-facebook-f"></i>
                                                     </a>
                                                     <a href="#0">
-                                                        <i className="fab fa-twitter"></i>
+                                                        <i className="fab fa-instagram"></i>
                                                     </a>
                                                     {/* <a href="#0">
                                                         <i className="fab fa-behance"></i>
@@ -354,7 +306,7 @@ const BlogDetails = () => {
                                                 </div> */}
                                             </div>
                                         </div>
-                                        <div className="author">
+                                        {/* <div className="author">
                                             <div className="author-img">
                                                 <img
                                                     src="/img/blog/01.jpg"
@@ -380,12 +332,9 @@ const BlogDetails = () => {
                                                     <a href="#0">
                                                         <i className="fab fa-twitter"></i>
                                                     </a>
-                                                    {/* <a href="#0">
-                                                        <i className="fab fa-behance"></i>
-                                                    </a> */}
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -393,7 +342,9 @@ const BlogDetails = () => {
                             <div className="pagination">
                                 <span>
                                     <a href="/blog-details/blog-details-light-2">
-                                        Prev Post
+                                        {language === "en"
+                                            ? "Prev Post"
+                                            : "Anterior Post"}
                                     </a>
                                 </span>
                                 <span className="icon">
@@ -404,7 +355,11 @@ const BlogDetails = () => {
                                     </Link>
                                 </span>
                                 <span className="text-right">
-                                    <a href="#">Next Post</a>
+                                    <a href="#">
+                                        {language === "en"
+                                            ? "Next Post"
+                                            : "Siguiente Post"}
+                                    </a>
                                 </span>
                             </div>
 
@@ -540,7 +495,12 @@ const BlogDetails = () => {
                                                         <div className="form-group">
                                                             <Field
                                                                 as="textarea"
-                                                                placeholder="Your Comment"
+                                                                placeholder={
+                                                                    language ===
+                                                                    "en"
+                                                                        ? "Your Comment"
+                                                                        : "Tu comentario"
+                                                                }
                                                                 name="comment"
                                                             />
                                                         </div>
@@ -549,7 +509,12 @@ const BlogDetails = () => {
                                                         <div className="form-group">
                                                             <Field
                                                                 type="text"
-                                                                placeholder="Your Name"
+                                                                placeholder={
+                                                                    language ===
+                                                                    "en"
+                                                                        ? "Your Name"
+                                                                        : "Tu nombre"
+                                                                }
                                                                 name="name"
                                                             />
                                                         </div>
@@ -561,7 +526,12 @@ const BlogDetails = () => {
                                                                 validate={
                                                                     validateEmail
                                                                 }
-                                                                placeholder="Your Email"
+                                                                placeholder={
+                                                                    language ===
+                                                                    "en"
+                                                                        ? "Your email"
+                                                                        : "Correo electrónico"
+                                                                }
                                                                 name="email"
                                                             />
                                                             {errors.email &&
@@ -578,7 +548,10 @@ const BlogDetails = () => {
                                                         <div className="form-group">
                                                             <button className="btn-curve btn-color btn-lg">
                                                                 <span>
-                                                                    Submit
+                                                                    {language ===
+                                                                    "en"
+                                                                        ? "Submit"
+                                                                        : "Enviar"}
                                                                 </span>
                                                             </button>
                                                         </div>

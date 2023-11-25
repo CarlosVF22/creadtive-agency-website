@@ -71,7 +71,7 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                         <li className="nav-item">
                             <Link href="/">
                                 <a className="nav-link">
-                                    {language === "en" ? "Home" : "Home"}
+                                    {language === "en" ? "Home" : "Inicio"}
                                 </a>
                             </Link>
                         </li>
@@ -100,23 +100,50 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                             <div className="dropdown-menu">
                                 <Link href="/blog-details/blog-details-light-1">
                                     <a className="dropdown-item">
-                                        {language === "en"
-                                            ? "Measuring Digital Success: Your Website Guide"
-                                            : "Medición del éxito digital: La guía de su sitio web"}
+                                        {language === "en" ? (
+                                            <>
+                                                Measuring Digital Success:
+                                                <br /> Your Website Guide
+                                            </>
+                                        ) : (
+                                            <>
+                                                Medición del éxito digital:{" "}
+                                                <br /> La guía de su sitio web
+                                            </>
+                                        )}
                                     </a>
                                 </Link>
                                 <Link href="/blog-details/blog-details-light-2">
                                     <a className="dropdown-item">
-                                        {language === "en"
-                                            ? `Lights, Camera, Action: Tips for shooting social media videos`
-                                            : "Luces, cámara, acción: consejos para grabar vídeos en redes sociales"}
+                                        {language === "en" ? (
+                                            <>
+                                                Lights, Camera, Action: <br />{" "}
+                                                Tips for shooting social media
+                                                videos
+                                            </>
+                                        ) : (
+                                            <>
+                                                Luces, cámara, acción: <br />{" "}
+                                                consejos para grabar vídeos en
+                                                redes sociales
+                                            </>
+                                        )}
                                     </a>
                                 </Link>
                                 <Link href="/blog-details/blog-details-light-3">
                                     <a className="dropdown-item">
-                                        {language === "en"
-                                            ? "Things you need to know to find a great Logo"
-                                            : "Cosas que necesitas saber para encontrar un gran logotipo"}
+                                        {language === "en" ? (
+                                            <>
+                                                Things you need to know to find{" "}
+                                                <br /> a great Logo
+                                            </>
+                                        ) : (
+                                            <>
+                                                Cosas que necesitas saber para
+                                                encontrar <br /> un gran
+                                                logotipo
+                                            </>
+                                        )}
                                     </a>
                                 </Link>
                             </div>

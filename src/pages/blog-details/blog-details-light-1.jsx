@@ -3,10 +3,12 @@ import BlogDetails from "../../components/Blog-details/blog-1";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import LightTheme from "../../layouts/Light";
+import { useLanguage } from "../../common/languageContext";
 
 const BlogDetailsLight = () => {
     const navbarRef = React.useRef(null);
     const logoRef = React.useRef(null);
+    const { language, toggleLanguage } = useLanguage();
     React.useEffect(() => {
         document.querySelector("body").classList.add("menubarblack");
         var navbar = navbarRef.current,
@@ -26,22 +28,28 @@ const BlogDetailsLight = () => {
     }, [navbarRef]);
     return (
         <LightTheme>
-            <Navbar nr={navbarRef} lr={logoRef} />
+            <Navbar
+                nr={navbarRef}
+                lr={logoRef}
+                language={language}
+                toggleLanguage={toggleLanguage}
+            />
             <section className="page-header blg">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-7 col-md-9">
                             <div className="cont text-center">
                                 <h2>
-                                    Measuring Digital Success: Your Website
-                                    Guide
+                                    {language === "en"
+                                        ? "Measuring Digital Success: Your Website Guide"
+                                        : "Medición del éxito digital: La guía de su sitio web"}
                                 </h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <BlogDetails />
+            <BlogDetails language={language} />
             <Footer />
         </LightTheme>
     );
