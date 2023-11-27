@@ -122,7 +122,10 @@ const IntroWithSlider1 = ({ sliderRef, language }) => {
                                                     {/* {slide?.content && (
                                                         <p>{slide.content}</p>
                                                     )} */}
-                                                    <Link href="mailto:cevasquezf22@gmail.com?subject=Inquiry About Hiring&body=Hello, I would like to inquire about your services.">
+                                                    <Link
+                                                        legacyBehavior
+                                                        href="#contact"
+                                                    >
                                                         <a className="btn-curve btn-lit mt-30">
                                                             <span>
                                                                 {language ===
@@ -161,12 +164,12 @@ const IntroWithSlider1 = ({ sliderRef, language }) => {
                 ></div>
 
                 <div className="social-icon">
-                    <a href="#0">
+                    <span href="#0">
                         <i className="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#0">
+                    </span>
+                    <span href="#0">
                         <i className="fab fa-instagram"></i>
-                    </a>
+                    </span>
                 </div>
             </div>
         </header>

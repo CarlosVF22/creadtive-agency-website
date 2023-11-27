@@ -55,11 +55,11 @@ const BlogsThreeColumn2 = ({ subBG, language }) => {
                                 </h6>
                                 <div className="btn-more custom-font">
                                     <Link href="/blog-details/blog-details-light-1">
-                                        <a className="simple-btn">
+                                        <span className="simple-btn">
                                             {language === "en"
                                                 ? "Read More"
                                                 : "Leer más"}
-                                        </a>
+                                        </span>
                                     </Link>
                                 </div>
                             </div>
@@ -95,11 +95,11 @@ const BlogsThreeColumn2 = ({ subBG, language }) => {
                                 </h6>
                                 <div className="btn-more custom-font">
                                     <Link href="/blog-details/blog-details-light-2">
-                                        <a className="simple-btn">
+                                        <div className="simple-btn">
                                             {language === "en"
                                                 ? "Read More"
                                                 : "Leer más"}
-                                        </a>
+                                        </div>
                                     </Link>
                                 </div>
                             </div>
@@ -135,11 +135,11 @@ const BlogsThreeColumn2 = ({ subBG, language }) => {
                                 </h6>
                                 <div className="btn-more custom-font">
                                     <Link href="/blog-details/blog-details-light-3">
-                                        <a className="simple-btn">
+                                        <div className="simple-btn">
                                             {language === "en"
                                                 ? "Read More"
                                                 : "Leer más"}
-                                        </a>
+                                        </div>
                                     </Link>
                                 </div>
                             </div>

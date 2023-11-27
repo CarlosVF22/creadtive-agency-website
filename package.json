@@ -9,25 +9,25 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@aws-sdk/client-ses": "^3.454.0",
-        "@aws-sdk/credential-provider-node": "^3.451.0",
-        "aws-sdk": "^2.1499.0",
-        "axios": "^0.27.2",
-        "formik": "^2.2.9",
-        "next": "12.0.7",
+        "@aws-sdk/client-ses": "^3.458.0",
+        "@aws-sdk/credential-provider-node": "^3.458.0",
+        "aws-sdk": "^2.1503.0",
+        "axios": "^1.6.2",
+        "formik": "^2.4.5",
+        "next": "14.0.3",
         "nodemailer": "^6.9.7",
-        "react": "17.0.2",
-        "react-circular-progressbar": "^2.0.4",
-        "react-countup": "^6.1.0",
-        "react-dom": "17.0.2",
-        "react-modal-video": "^1.2.8",
-        "react-slick": "^0.28.1",
+        "react": "18.2.0",
+        "react-circular-progressbar": "^2.1.0",
+        "react-countup": "^6.5.0",
+        "react-dom": "18.2.0",
+        "react-modal-video": "^2.0.1",
+        "react-slick": "^0.29.0",
         "react-visibility-sensor": "^5.1.1",
         "slick-carousel": "^1.8.1",
         "swiper": "^7.4.1"
     },
     "devDependencies": {
-        "eslint": "8.6.0",
-        "eslint-config-next": "12.0.7"
+        "eslint": "8.54.0",
+        "eslint-config-next": "14.0.3"
     }
 }

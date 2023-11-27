@@ -341,9 +341,7 @@ const BlogDetails = ({ language }) => {
                                 </span>
                                 <span className="icon">
                                     <Link href="/blog-details/blog-details-light-3">
-                                        <a>
-                                            <i className="fas fa-th-large"></i>
-                                        </a>
+                                        <i className="fas fa-th-large"></i>
                                     </Link>
                                 </span>
                                 <span className="text-right">
