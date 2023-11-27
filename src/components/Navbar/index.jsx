@@ -22,7 +22,7 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
         >
             <div className="container">
                 <Link href="/">
-                    <a className="logo">
+                    <div className="logo">
                         {theme ? (
                             theme === "themeL" ? (
                                 <img
@@ -44,7 +44,7 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                 alt="Creadtive agency logo"
                             />
                         )}
-                    </a>
+                    </div>
                 </Link>
 
                 {/* collapse button */}
@@ -70,9 +70,9 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <Link href="/">
-                                <a className="nav-link">
+                                <span className="nav-link">
                                     {language === "en" ? "Home" : "Inicio"}
-                                </a>
+                                </span>
                             </Link>
                         </li>
                         {/* <li className="nav-item">
@@ -98,7 +98,10 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                 Blog
                             </span>
                             <div className="dropdown-menu">
-                                <Link href="/blog-details/blog-details-light-1">
+                                <Link
+                                    legacyBehavior
+                                    href="/blog-details/blog-details-light-1"
+                                >
                                     <a className="dropdown-item">
                                         {language === "en" ? (
                                             <>
@@ -113,7 +116,10 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                         )}
                                     </a>
                                 </Link>
-                                <Link href="/blog-details/blog-details-light-2">
+                                <Link
+                                    legacyBehavior
+                                    href="/blog-details/blog-details-light-2"
+                                >
                                     <a className="dropdown-item">
                                         {language === "en" ? (
                                             <>
@@ -130,7 +136,10 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                         )}
                                     </a>
                                 </Link>
-                                <Link href="/blog-details/blog-details-light-3">
+                                <Link
+                                    legacyBehavior
+                                    href="/blog-details/blog-details-light-3"
+                                >
                                     <a className="dropdown-item">
                                         {language === "en" ? (
                                             <>
@@ -150,9 +159,9 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                         </li>
                         <li className="nav-item">
                             <Link href="/contact/contact-light">
-                                <a className="nav-link">
+                                <span className="nav-link">
                                     {language === "en" ? "Contact" : "Contacto"}
-                                </a>
+                                </span>
                             </Link>
                         </li>
                         <div className="toggle-container">
