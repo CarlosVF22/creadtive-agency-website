@@ -1627,6 +1627,9 @@ body {
     z-index: 999;
     min-height: 80px;
 }
+.navbar .container {
+    margin-top: 15px;
+}
 .navbar .icon-bar {
     color: var(--navbar-text-color);
 }
@@ -6143,6 +6146,9 @@ header.simpl .caption .btn-curve {
     .navbar {
         min-height: 60px;
     }
+    .navbar .container {
+        margin-top: 20px;
+    }
     .navbar .navbar-collapse {
         max-height: 340px;
         overflow: auto;
@@ -6415,12 +6421,15 @@ header.simpl .caption .btn-curve {
     h6 {
         font-size: 16px;
     }
+    .navbar .container {
+        margin-top: 20px;
+    }
     .progress-wrap {
         right: 15px;
         bottom: 15px;
     }
     .navbar .logo {
-        width: 100px;
+        width: 150px;
     }
     .hamenu .menu-links .main-menu > li {
         font-size: 24px;
