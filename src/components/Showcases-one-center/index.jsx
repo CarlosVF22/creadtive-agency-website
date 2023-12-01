@@ -3,6 +3,7 @@ import Split from "../Split";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ShowcassesFullScreenData from "../../data/showcases-full-screen-slider.json";
 import SwiperCore, { Navigation, Parallax } from "swiper";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -107,11 +108,21 @@ const ShowcasesOneCenter = ({ language }) => {
                             >
                                 <div
                                     className="bg-img valign"
-                                    style={{
-                                        backgroundImage: `url(${slide.image})`,
-                                    }}
                                     data-overlay-dark="1"
                                 >
+                                    {/* Modificación aquí para usar Image */}
+                                    <Image
+                                        src={slide.image}
+                                        alt={`${
+                                            language === "en"
+                                                ? slide.title_en.second
+                                                : slide.title_es.second
+                                        }`}
+                                        layout="fill"
+                                        objectFit="cover"
+                                        quality={75}
+                                    />
+
                                     <div className="caption ontop">
                                         <div className="o-hidden">
                                             <h1>

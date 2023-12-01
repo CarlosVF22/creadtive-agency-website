@@ -3,6 +3,7 @@ import introData from "../../data/sections/intro.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Link from "next/link";
 import SwiperCore, { Navigation, Pagination, Parallax, Autoplay } from "swiper";
+import Image from "next/image";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -95,11 +96,17 @@ const IntroWithSlider1 = ({ sliderRef, language }) => {
                             >
                                 <div
                                     className="bg-img valign"
-                                    style={{
-                                        backgroundImage: `url(${slide.image})`,
-                                    }}
                                     data-overlay-dark="6"
                                 >
+                                    {/* Modificación aquí para usar Image */}
+                                    <Image
+                                        src={slide.image}
+                                        alt={slide.title[language] || ""}
+                                        layout="fill" // Esto hará que la imagen cubra todo el div
+                                        objectFit="cover" // Mantiene el aspecto de 'background-size: cover;'
+                                        quality={75} // Puedes ajustar la calidad según sea necesario
+                                    />
+
                                     <div className="container">
                                         <div className="row justify-content-center">
                                             <div className="col-lg-7 col-md-9">

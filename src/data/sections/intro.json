@@ -7,7 +7,7 @@
         },
         "content_en": "Transform Your Online Presence with Expert Web Development. Elevate your brand with cutting-edge, responsive websites. Seamless user experience guaranteed. Let's create digital magic together!",
         "content_es": "Transforme su presencia en línea con el desarrollo web experto. Eleve su marca con sitios web responsivos y de vanguardia. Experiencia de usuario perfecta garantizada. ¡Creemos juntos magia digital!",
-        "image": "/img/slid/banner-1.png"
+        "image": "/img/slid/banner-1.webp"
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
         },
         "content_en": "Craft Your Unique Brand Identity with Us. Stand out with bespoke branding that resonates. Connect, engage, and grow your audience. Start your branding journey now!",
         "content_es": "Crea tu Identidad de Marca Única con Nosotros. Destácate con branding a medida que impacta. Conecta, involucra y crece tu audiencia. ¡Inicia tu viaje de marca ahora!",
-        "image": "/img/slid/banner-2.png"
+        "image": "/img/slid/banner-2.webp"
     },
     {
         "id": 3,
@@ -27,6 +27,6 @@
         },
         "content_en": "Boost Your Visibility with Our SEO & SEM Services. Climb search rankings and drive traffic. Expert strategies for maximum impact. Elevate your online success now!",
         "content_es": "Impulsa Tu Visibilidad con Nuestros Servicios de SEO y SEM. Escala en rankings de búsqueda y atrae tráfico. Estrategias expertas para un impacto máximo. ¡Eleva tu éxito en línea ahora! ",
-        "image": "/img/slid/banner-3.png"
+        "image": "/img/slid/banner-3.webp"
     }
 ]

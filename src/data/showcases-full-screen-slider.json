@@ -3,28 +3,28 @@
         "id": 1,
         "title_en": { "first": "Clean", "second": "Code" },
         "title_es": { "first": "Codigo", "second": "Limpio" },
-        "image": "/img/portfolio/full/clean-code.png",
+        "image": "/img/portfolio/full/clean-code.webp",
         "sub": "Clean code"
     },
     {
         "id": 2,
         "title_en": { "first": "Successful", "second": "campaigns" },
         "title_es": { "first": "Campañas", "second": "efectivas" },
-        "image": "/img/portfolio/full/successful-campaings.png",
+        "image": "/img/portfolio/full/successful-campaings.webp",
         "sub": "Campaigns"
     },
     {
         "id": 3,
         "title_en": { "first": "Automate", "second": "processes" },
         "title_es": { "first": "Automatiza", "second": "procesos" },
-        "image": "/img/portfolio/full/automate-process.png",
+        "image": "/img/portfolio/full/automate-process.webp",
         "sub": "Automate"
     },
     {
         "id": 4,
         "title_en": { "first": "Creative", "second": "design" },
         "title_es": { "first": "Diseños", "second": "creativos" },
-        "image": "/img/portfolio/full/design-tools.png",
+        "image": "/img/portfolio/full/design-tools.webp",
         "sub": "Design"
     }
 ]

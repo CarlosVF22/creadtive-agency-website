@@ -2,6 +2,7 @@ import React from "react";
 import Script from "next/script";
 import loadingPace from "../../common/loadingPace.js";
 import appData from "../../data/app.json";
+import Image from "next/image.js";
 
 const LoadingScreen = () => {
     React.useEffect(() => {
@@ -24,11 +25,12 @@ const LoadingScreen = () => {
                 }`}
             >
                 <div id="preloader">
-                    <img
+                    <Image
                         src={appData.darkLogo}
                         alt="Logo"
                         className="loading-logo"
-                        loading="lazy"
+                        width={250}
+                        height={70}
                     />
                 </div>
             </div>
