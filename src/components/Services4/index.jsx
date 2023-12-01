@@ -53,7 +53,6 @@ const Services4 = ({ withBG, withPadding, halfBG, withOutTitle, language }) => {
                                 }
                             >
                                 <span className={`icon ${item.icon}`}></span>
-                                {/* <h6>{item.title}</h6> */}
                                 <h6>
                                     {item.title[language]
                                         ? item.title[language]

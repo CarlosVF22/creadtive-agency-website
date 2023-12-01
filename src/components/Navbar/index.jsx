@@ -1,18 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { Formik, Form, Field } from "formik";
 import Link from "next/link";
+import Image from "next/image";
 import appData from "../../data/app.json";
-import {
-    handleDropdown,
-    handleMobileDropdown,
-    handleSearch,
-} from "../../common/navbar";
+import { handleDropdown, handleMobileDropdown } from "../../common/navbar";
 
 const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
-    // React.useEffect(() => {
-    //     handleSearch();
-    // }, []);
     return (
         <nav
             ref={nr}
@@ -25,16 +18,20 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                     <div className="logo">
                         {theme ? (
                             theme === "themeL" ? (
-                                <img
+                                <Image
                                     ref={lr}
                                     src={`${appData.darkLogo}`}
                                     alt="Creadtive agency logo"
+                                    width={250}
+                                    height={70}
                                 />
                             ) : (
-                                <img
+                                <Image
                                     ref={lr}
                                     src={`${appData.lightLogo}`}
                                     alt="Creadtive agency logo"
+                                    width={250}
+                                    height={70}
                                 />
                             )
                         ) : (
@@ -75,15 +72,6 @@ const Navbar = ({ lr, nr, theme, language, toggleLanguage }) => {
                                 </span>
                             </Link>
                         </li>
-                        {/* <li className="nav-item">
-                            <Link href="/#section-services">
-                                <a className="nav-link">
-                                    {language === "en"
-                                        ? "Services"
-                                        : "Servicios"}
-                                </a>
-                            </Link>
-                        </li> */}
                         <li
                             className="nav-item dropdown"
                             onClick={handleDropdown}

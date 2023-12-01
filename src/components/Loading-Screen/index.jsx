@@ -28,6 +28,7 @@ const LoadingScreen = () => {
                         src={appData.darkLogo}
                         alt="Logo"
                         className="loading-logo"
+                        loading="lazy"
                     />
                 </div>
             </div>

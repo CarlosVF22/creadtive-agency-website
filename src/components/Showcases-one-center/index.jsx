@@ -1,17 +1,13 @@
 import React from "react";
-import Link from "next/link";
 import Split from "../Split";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ShowcassesFullScreenData from "../../data/showcases-full-screen-slider.json";
 import SwiperCore, { Navigation, Parallax } from "swiper";
-// import SwiperCore, { Navigation, Parallax, Mousewheel } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
-// import "swiper/css/mousewheel";
 import removeSlashFromPagination from "../../common/removeSlashFromPagination";
 
-// SwiperCore.use([Navigation, Parallax, Mousewheel]);
 SwiperCore.use([Navigation, Parallax]);
 
 const ShowcasesOneCenter = ({ language }) => {
@@ -119,8 +115,6 @@ const ShowcasesOneCenter = ({ language }) => {
                                     <div className="caption ontop">
                                         <div className="o-hidden">
                                             <h1>
-                                                {/* <Link href="/project-details2/project-details2-dark"> */}
-                                                {/* <a> */}
                                                 <div className="stroke">
                                                     {language === "en"
                                                         ? slide.title_en.first
@@ -131,16 +125,12 @@ const ShowcasesOneCenter = ({ language }) => {
                                                         ? slide.title_en.second
                                                         : slide.title_es.second}
                                                 </span>
-                                                {/* </a> */}
-                                                {/* </Link> */}
                                             </h1>
                                         </div>
                                     </div>
                                     <div className="copy-cap valign">
                                         <div className="cap">
                                             <h1>
-                                                {/* <Link href="/project-details2/project-details2-dark"> */}
-                                                {/* <a> */}
                                                 <div className="stroke">
                                                     {language === "en"
                                                         ? slide.title_en.first
@@ -151,8 +141,6 @@ const ShowcasesOneCenter = ({ language }) => {
                                                         ? slide.title_en.second
                                                         : slide.title_es.second}
                                                 </span>
-                                                {/* </a> */}
-                                                {/* </Link> */}
                                             </h1>
                                         </div>
                                     </div>

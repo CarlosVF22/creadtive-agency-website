@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Split from "../Split";
 
 const BlogsThreeColumn2 = ({ subBG, language }) => {
@@ -30,7 +31,12 @@ const BlogsThreeColumn2 = ({ subBG, language }) => {
                             data-wow-delay=".3s"
                         >
                             <div className="img">
-                                <img src="/img/blog/1.png" alt="" />
+                                <Image
+                                    width={1000}
+                                    height={662}
+                                    src="/img/blog/1.png"
+                                    alt=""
+                                />
                             </div>
                             <div className="cont">
                                 <a className="date custom-font">
@@ -71,7 +77,12 @@ const BlogsThreeColumn2 = ({ subBG, language }) => {
                             data-wow-delay=".5s"
                         >
                             <div className="img">
-                                <img src="/img/blog/2.png" alt="" />
+                                <Image
+                                    width={1000}
+                                    height={662}
+                                    src="/img/blog/2.png"
+                                    alt=""
+                                />
                             </div>
                             <div className="cont">
                                 <a className="date custom-font">
@@ -111,7 +122,12 @@ const BlogsThreeColumn2 = ({ subBG, language }) => {
                             data-wow-delay=".8s"
                         >
                             <div className="img">
-                                <img src="/img/blog/3.png" alt="" />
+                                <Image
+                                    width={1000}
+                                    height={662}
+                                    src="/img/blog/3.png"
+                                    alt=""
+                                />
                             </div>
                             <div className="cont">
                                 <a className="date custom-font">

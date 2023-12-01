@@ -119,9 +119,6 @@ const IntroWithSlider1 = ({ sliderRef, language }) => {
                                                             ? slide?.content_en
                                                             : slide?.content_es}
                                                     </p>
-                                                    {/* {slide?.content && (
-                                                        <p>{slide.content}</p>
-                                                    )} */}
                                                     <Link
                                                         legacyBehavior
                                                         href="#contact"

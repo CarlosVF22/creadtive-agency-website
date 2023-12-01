@@ -2,6 +2,7 @@
 import React from "react";
 import Split from "../Split";
 import AboutUs1Date from "../../data/sections/about-us1.json";
+import Image from "next/image";
 
 const AboutUs1 = ({ language }) => {
     return (
@@ -16,7 +17,11 @@ const AboutUs1 = ({ language }) => {
                                         className="img1 wow imago"
                                         data-wow-delay=".5s"
                                     >
-                                        <img src={AboutUs1Date.image1} alt="" />
+                                        <Image
+                                            src={AboutUs1Date.image1}
+                                            width={602}
+                                            height={402}
+                                        />
                                     </div>
                                 </div>
                                 <div className="col-md-7 cmd-padding">
@@ -24,13 +29,21 @@ const AboutUs1 = ({ language }) => {
                                         className="img2 wow imago"
                                         data-wow-delay=".3s"
                                     >
-                                        <img src={AboutUs1Date.image2} alt="" />
+                                        <Image
+                                            src={AboutUs1Date.image2}
+                                            width={600}
+                                            height={400}
+                                        />
                                     </div>
                                     <div
                                         className="img3 wow imago"
                                         data-wow-delay=".8s"
                                     >
-                                        <img src={AboutUs1Date.image3} alt="" />
+                                        <Image
+                                            src={AboutUs1Date.image3}
+                                            width={602}
+                                            height={402}
+                                        />
                                     </div>
                                 </div>
                             </div>
