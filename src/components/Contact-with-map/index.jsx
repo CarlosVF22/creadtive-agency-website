@@ -175,7 +175,7 @@ const ContactWithMap = ({ theme = "dark", language }) => {
                                 </Split>
                                 <div className="item mb-40">
                                     <h5>
-                                        <a href="mailto:cevasquezf22@gmail.com?subject=Inquiry About Hiring&body=Hello, I would like to inquire about your services.">
+                                        <a href="mailto:info@creadtiveagency.com?subject=Inquiry About Hiring&body=Hello, I would like to inquire about your services.">
                                             info@creadtiveagency.com
                                         </a>
                                     </h5>
