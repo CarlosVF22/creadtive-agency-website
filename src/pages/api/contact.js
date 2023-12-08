@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
         try {
             const envelope = await mailService.sendMail(
-                `${data.email}`,
+                `${process.env.NODEMAILER_EMAIL_RECEIVER}`,
                 "Contact from web page",
                 `<div style="font-family: Arial, sans-serif; color: #333;">
                     <h2 style="color: #1A237E;">Nuevo Mensaje de Contacto</h2>
