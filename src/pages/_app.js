@@ -6,6 +6,7 @@ import ScrollToTop from "../components/Scroll-to-top";
 import LoadingScreen from "../components/Loading-Screen";
 import { LanguageProvider } from "../common/languageContext";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "../styles/globals.css";
 
@@ -48,6 +49,7 @@ function MyApp({ Component, pageProps }) {
                 ></Script>
             </LanguageProvider>
             <Analytics />
+            <SpeedInsights />
         </>
     );
 }
