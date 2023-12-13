@@ -2,21 +2,38 @@
 
 import Logo from "../../../../public/img/logo-light.png";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const messageRef = useRef(null);
+
+    const router = useRouter();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch("/admin/api/auth/signin", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
+
+        const res = await signIn("credentials", {
+            email: email,
+            password: password,
+            redirect: false,
         });
+        console.log(res);
+        if (res.error) {
+            if (messageRef.current) {
+                messageRef.current.innerHTML = res.error; // Mensaje de error
+                messageRef.current.style.backgroundColor = "#FF8369";
+                messageRef.current.style.color = "#FFFF";
+                messageRef.current.style.textAlign = "center";
+                messageRef.current.style.fontWeight = "bold";
+                messageRef.current.style.borderRadius = "10px";
+            }
+        } else {
+            router.push("/admin/dashboard");
+        }
     };
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -33,6 +50,7 @@ export default function Login() {
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form className="space-y-6" onSubmit={handleSubmit}>
+                    <div className="mb-2 p-2" ref={messageRef}></div>
                     <div>
                         <label
                             htmlFor="email"

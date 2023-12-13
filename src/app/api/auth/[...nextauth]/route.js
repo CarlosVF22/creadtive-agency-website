@@ -16,33 +16,26 @@ const authOptions = {
                 },
             },
             async authorize(credentials, req) {
-                try {
-                    const userFound = await db.user.findUnique({
-                        where: {
-                            email: credentials.email,
-                        },
-                    });
+                const userFound = await db.user.findUnique({
+                    where: {
+                        email: credentials.email,
+                    },
+                });
 
-                    if (!userFound) throw new Error("No user found");
+                if (!userFound) throw new Error("No user found");
 
-                    if (
-                        userFound &&
-                        bcrypt.compareSync(
-                            credentials.password,
-                            userFound.password
-                        )
-                    ) {
-                        return {
-                            id: userFound.id,
-                            name: userFound.username,
-                            email: userFound.email,
-                        }; // Devuelve el usuario si la contraseña es correcta
-                    } else {
-                        throw new Error("Credenciales incorrectas"); // Lanza un error si la contraseña es incorrecta
-                    }
-                } catch (error) {
-                    console.error(error);
-                }
+                const matchPassword = await bcrypt.compare(
+                    credentials.password,
+                    userFound.password
+                );
+
+                if (!matchPassword) throw new Error("Wrong password");
+
+                return {
+                    id: userFound.id,
+                    name: userFound.username,
+                    email: userFound.email,
+                };
             },
         }),
     ],
