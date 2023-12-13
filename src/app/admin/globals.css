@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary-color: #95a47b;
+}
+
+.color-text-primary-color {
+    color: var(--primary-color);
+}
+
+.bg-button-primary-color {
+    background-color: var(--primary-color);
+}
+
+.bg-button-primary-color:hover {
+    background-color: #b3d37a;
+}

@@ -11,12 +11,15 @@
     "dependencies": {
         "@aws-sdk/client-ses": "^3.458.0",
         "@aws-sdk/credential-provider-node": "^3.458.0",
+        "@prisma/client": "^5.7.0",
         "@vercel/analytics": "^1.1.1",
         "@vercel/speed-insights": "^1.0.1",
         "aws-sdk": "^2.1503.0",
         "axios": "^1.6.2",
+        "bcrypt": "^5.1.1",
         "formik": "^2.4.5",
         "next": "14.0.3",
+        "next-auth": "^4.24.5",
         "nodemailer": "^6.9.7",
         "react": "18.2.0",
         "react-circular-progressbar": "^2.1.0",
@@ -29,7 +32,12 @@
         "swiper": "^7.4.1"
     },
     "devDependencies": {
+        "@tailwindcss/forms": "^0.5.7",
+        "autoprefixer": "^10.4.16",
         "eslint": "8.54.0",
-        "eslint-config-next": "14.0.3"
+        "eslint-config-next": "14.0.3",
+        "postcss": "^8.4.32",
+        "prisma": "^5.7.0",
+        "tailwindcss": "^3.3.6"
     }
 }
