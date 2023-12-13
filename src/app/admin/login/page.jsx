@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const messageRef = useRef(null);
 
     const router = useRouter();
@@ -16,12 +17,26 @@ export default function Login() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        setLoading(true);
+        if (messageRef.current) {
+            messageRef.current.innerHTML = "Loading..."; // Mensaje de carga
+            messageRef.current.style.backgroundColor = "#b3d37a";
+            messageRef.current.style.color = "#FFFF";
+            messageRef.current.style.textAlign = "center";
+            messageRef.current.style.fontWeight = "bold";
+            messageRef.current.style.borderRadius = "10px";
+        }
+
         const res = await signIn("credentials", {
             email: email,
             password: password,
             redirect: false,
         });
+
+        setLoading(false);
+
         console.log(res);
+
         if (res.error) {
             if (messageRef.current) {
                 messageRef.current.innerHTML = res.error; // Mensaje de error
