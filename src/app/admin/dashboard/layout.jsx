@@ -91,7 +91,7 @@ export default function DashboardLayout({ children }) {
                                 />
                             </svg>
 
-                            <span class="mx-4 font-medium">Accounts</span>
+                            <span class="mx-4 font-medium">Cotizaciones</span>
                         </a>
 
                         {/* <a
@@ -212,7 +212,7 @@ export default function DashboardLayout({ children }) {
                     </a> */}
                 </div>
             </aside>
-            <div>{children}</div>
+            <div className="pl-5 w-full">{children}</div>
         </div>
     );
 }

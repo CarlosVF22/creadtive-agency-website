@@ -1,4 +1,18 @@
 {
     "lightLogo": "/img/logo-light.png",
-    "darkLogo": "/img/logo-dark.png"
+    "darkLogo": "/img/logo-dark.png",
+    "products": [
+        {
+            "id": 1,
+            "name_es": "Desarrollo web"
+        },
+        {
+            "id": 2,
+            "name_es": "Desarrollo Movil"
+        },
+        {
+            "id": 3,
+            "name_es": "SEO y SEM"
+        }
+    ]
 }
