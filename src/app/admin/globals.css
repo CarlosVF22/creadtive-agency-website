@@ -4,6 +4,11 @@
 
 :root {
     --primary-color: #95a47b;
+    --second-color: #e7e9e3;
+}
+
+.bg-ligth-color {
+    background-color: var(--second-color);
 }
 
 .color-text-primary-color {

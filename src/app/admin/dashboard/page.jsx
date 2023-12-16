@@ -55,21 +55,21 @@ function DashboardPage() {
     };
     return (
         <form onSubmit={handleSubmit} className="w-2/4">
-            <div>
-                <label
-                    for="username"
-                    class="block text-sm text-gray-500 dark:text-gray-300"
-                >
-                    A quien va dirigida la cotización
-                </label>
-
-                <input
-                    type="text"
-                    placeholder="John Doe"
-                    class="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
-                />
-            </div>
             <div class="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+                <div className="p-2">
+                    <label
+                        for="username"
+                        class="block text-sm text-gray-500 dark:text-gray-300"
+                    >
+                        A quien va dirigida la cotización
+                    </label>
+
+                    <input
+                        type="text"
+                        placeholder="John Doe"
+                        class="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
+                    />
+                </div>
                 <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                     {appData.products.map((product) => {
                         const isChecked = checkedStates[product.id] || false;
@@ -104,7 +104,7 @@ function DashboardPage() {
                                                             e.target.checked
                                                         )
                                                     }
-                                                    class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-0"
+                                                    class="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:n before:opacity-0 before:transition-opacity checked:border-gray-900 checked:bg-gray-900 checked:before:bg-gray-900 hover:before:opacity-0"
                                                 />
                                                 <span class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
                                                     <svg

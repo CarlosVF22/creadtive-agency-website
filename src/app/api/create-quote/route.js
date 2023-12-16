@@ -1,22 +1,17 @@
 import { NextResponse } from "next/server";
 
-export function POST() {
-    return NextResponse.json({ message: "creating quote" }, { status: 200 });
-    // try {
-    //     const textStates = req.body;
-    //     // Aquí puedes procesar los datos recibidos en textStates
-    //     // Por ejemplo, guardar en una base de datos, realizar alguna lógica, etc.
+export async function POST(req) {
+    const body = await req.json();
 
-    //     // Envía una respuesta de éxito
-    //     res.status(200).json({
-    //         message: "Cotización creada exitosamente",
-    //         data: textStates,
-    //     });
-    // } catch (error) {
-    //     // Manejo de errores
-    //     res.status(500).json({
-    //         message: "Error al procesar la solicitud",
-    //         error: error.message,
-    //     });
-    // }
+    try {
+        return NextResponse.json(
+            { message: "creating quote", body },
+            { status: 200 }
+        );
+    } catch (error) {
+        return NextResponse.json(
+            { message: "Server error", error },
+            { status: 500 }
+        );
+    }
 }
