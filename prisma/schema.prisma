@@ -24,6 +24,8 @@ model Quote {
   language_id Int
   currency_id Int
   user_id Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   User User @relation(fields: [user_id], references: [id], onDelete: NoAction)
   Currency Currency @relation(fields: [currency_id], references: [id], onDelete: NoAction)
   Language Language @relation(fields: [language_id], references: [id], onDelete: NoAction)
@@ -36,6 +38,8 @@ model Product {
   name_en String @unique
   base_price_cop Int
   base_price_usd Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   Quote_Product Quote_Product []
 }
 
@@ -45,6 +49,8 @@ model Quote_Product {
   quote_id Int
   product_text String
   product_price Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   Product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
   Quote Quote @relation(fields: [quote_id], references: [id], onDelete: Cascade)
 }
@@ -53,6 +59,8 @@ model Currency {
   id Int @id @default(autoincrement())
   name String @unique
   acronym String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   quote Quote[]
 }
 
@@ -60,5 +68,7 @@ model Language {
   id Int @id @default(autoincrement())
   name String @unique
   acronym String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   quote Quote[]
 }

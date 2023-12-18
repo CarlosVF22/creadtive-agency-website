@@ -1,11 +1,20 @@
 "use client";
-import React, { useState } from "react";
-
-import appData from "../../data/app.json";
+import React, { useState, useEffect } from "react";
 
 function DashboardPage() {
     const [checkedStates, setCheckedStates] = useState({});
     const [productText, setProductText] = useState([]);
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const response = await fetch("/api/product");
+            const data = await response.json();
+            setProducts(data.allProducts);
+            // console.log(data.allProducts);
+        };
+        fetchProducts();
+    }, []);
 
     const handleCheckboxChange = (productId, isChecked) => {
         setCheckedStates({ ...checkedStates, [productId]: isChecked });
@@ -39,7 +48,7 @@ function DashboardPage() {
             const body = {
                 products_in_quote: productText,
             };
-            const response = await fetch("/api/create-quote", {
+            const response = await fetch("/api/quote", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -71,7 +80,7 @@ function DashboardPage() {
                     />
                 </div>
                 <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
-                    {appData.products.map((product) => {
+                    {products.map((product) => {
                         const isChecked = checkedStates[product.id] || false;
                         const existingProduct = productText.find(
                             (item) => item.id === product.id
