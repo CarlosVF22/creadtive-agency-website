@@ -36,8 +36,6 @@ model Product {
   id Int @id @default(autoincrement())
   name_es String @unique
   name_en String @unique
-  base_price_cop Int
-  base_price_usd Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Quote_Product Quote_Product []

@@ -33,6 +33,13 @@ function DashboardPage() {
 
     const handleCheckboxChange = (productId, isChecked) => {
         setCheckedStates({ ...checkedStates, [productId]: isChecked });
+
+        if (!isChecked) {
+            // Si el checkbox está siendo desmarcado, elimina la información del producto
+            setProductText((prevProductText) =>
+                prevProductText.filter((item) => item.id !== productId)
+            );
+        }
     };
 
     const handleTextChange = (productId, text) => {
@@ -64,11 +71,13 @@ function DashboardPage() {
             const body = {
                 quote: {
                     name: formData.get("quote_name"),
-                    language: formData.get("language_select"),
-                    currency: formData.get("currency_select"),
+                    language: parseInt(formData.get("language_select")),
+                    currency: parseInt(formData.get("currency_select")),
                     products_in_quote: productText,
                 },
             };
+            console.log(body); // Manejar la respuesta
+
             const response = await fetch("/api/quote", {
                 method: "POST",
                 headers: {
@@ -78,11 +87,37 @@ function DashboardPage() {
             });
             const data = await response.json();
             console.log(data);
-            console.log(body); // Manejar la respuesta
         } catch (error) {
             console.error("Error al enviar la solicitud:", error);
         }
     };
+
+    const handlePriceChange = (productId, price) => {
+        const priceValue = price === "" ? null : Number(price);
+
+        setProductText((prevProductText) => {
+            const productIndex = prevProductText.findIndex(
+                (item) => item.id === productId
+            );
+
+            if (productIndex >= 0) {
+                // Si el producto ya está en la lista, actualiza su precio
+                const updatedProductText = [...prevProductText];
+                updatedProductText[productIndex] = {
+                    ...updatedProductText[productIndex],
+                    product_price: priceValue,
+                };
+                return updatedProductText;
+            } else {
+                // Si el producto no está en la lista, lo agrega con precio
+                return [
+                    ...prevProductText,
+                    { id: productId, text: "", product_price: priceValue },
+                ];
+            }
+        });
+    };
+
     return (
         <form onSubmit={handleSubmit} className="w-2/4">
             <div class="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
@@ -91,10 +126,11 @@ function DashboardPage() {
                         for="quote_name"
                         class="block text-sm text-gray-500 "
                     >
-                        A quien va dirigida la cotización
+                        Nombre de la cotización
                     </label>
 
                     <input
+                        required
                         name="quote_name"
                         id="quote_name"
                         type="text"
@@ -147,6 +183,9 @@ function DashboardPage() {
                         const productTextValue = existingProduct
                             ? existingProduct.text
                             : "";
+                        const productPriceValue = existingProduct
+                            ? existingProduct.product_price
+                            : 0;
                         return (
                             <div
                                 key={product.id}
@@ -201,6 +240,7 @@ function DashboardPage() {
                                     <div className="w-full px-2">
                                         <textarea
                                             type="text"
+                                            required
                                             placeholder="Escribe aquí..."
                                             className="border rounded-md w-full"
                                             rows={5}
@@ -211,6 +251,19 @@ function DashboardPage() {
                                                 )
                                             }
                                             value={productTextValue}
+                                        />
+                                        <input
+                                            type="number"
+                                            required
+                                            placeholder="Precio"
+                                            className="border rounded-md"
+                                            value={productPriceValue || ""} // Permite valores nulos o cadenas vacías
+                                            onChange={(e) =>
+                                                handlePriceChange(
+                                                    product.id,
+                                                    e.target.value
+                                                )
+                                            }
                                         />
                                     </div>
                                 )}
