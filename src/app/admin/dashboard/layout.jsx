@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function DashboardLayout({ children }) {
     return (
         <div className="flex">
-            <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-ligth-color border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
+            <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-ligth-color border-r rtl:border-r-0 rtl:border-l">
                 <a href="/">
                     <Image src={appData.lightLogo} width={350} height={70} />
                 </a>
@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }) {
                 <div class="flex flex-col justify-between flex-1 mt-6">
                     <nav>
                         <a
-                            class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                            class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md hover:text-gray-700"
                             href="#"
                         >
                             <svg
@@ -43,7 +43,7 @@ export default function DashboardLayout({ children }) {
                             </span>
                         </a>
 
-                        <hr class="my-6 border-gray-500 dark:border-gray-600" />
+                        <hr class="my-6 border-gray-500" />
                     </nav>
                     <SignOutButton />
                 </div>

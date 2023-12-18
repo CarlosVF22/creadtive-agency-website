@@ -4,16 +4,31 @@ import React, { useState, useEffect } from "react";
 function DashboardPage() {
     const [checkedStates, setCheckedStates] = useState({});
     const [productText, setProductText] = useState([]);
+
+    // variables states from fetch API
     const [products, setProducts] = useState([]);
+    const [languages, setLanguages] = useState([]);
+    const [currency, setCurrency] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
             const response = await fetch("/api/product");
             const data = await response.json();
             setProducts(data.allProducts);
-            // console.log(data.allProducts);
+        };
+        const fetchLanguages = async () => {
+            const response = await fetch("/api/language");
+            const data = await response.json();
+            setLanguages(data.allLanguages);
+        };
+        const fetchCurrency = async () => {
+            const response = await fetch("/api/currency");
+            const data = await response.json();
+            setCurrency(data.allCurrency);
         };
         fetchProducts();
+        fetchLanguages();
+        fetchCurrency();
     }, []);
 
     const handleCheckboxChange = (productId, isChecked) => {
@@ -44,9 +59,15 @@ function DashboardPage() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const formData = new FormData(event.target);
         try {
             const body = {
-                products_in_quote: productText,
+                quote: {
+                    name: formData.get("quote_name"),
+                    language: formData.get("language_select"),
+                    currency: formData.get("currency_select"),
+                    products_in_quote: productText,
+                },
             };
             const response = await fetch("/api/quote", {
                 method: "POST",
@@ -67,17 +88,55 @@ function DashboardPage() {
             <div class="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
                 <div className="p-2">
                     <label
-                        for="username"
-                        class="block text-sm text-gray-500 dark:text-gray-300"
+                        for="quote_name"
+                        class="block text-sm text-gray-500 "
                     >
                         A quien va dirigida la cotización
                     </label>
 
                     <input
+                        name="quote_name"
+                        id="quote_name"
                         type="text"
                         placeholder="John Doe"
-                        class="block  mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"
+                        class="block  mt-2 w-full placeholder-gray-400/70  rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40  "
                     />
+                </div>
+                <div className="p-2">
+                    <label
+                        for="language_select"
+                        class="block text-sm text-gray-500"
+                    >
+                        Selecciona el idioma
+                    </label>
+
+                    <select name="language_select" id="language_select">
+                        {languages.map((language) => {
+                            return (
+                                <option value={language.id}>
+                                    {language.name}
+                                </option>
+                            );
+                        })}
+                    </select>
+                </div>
+                <div className="p-2">
+                    <label
+                        for="currency_select"
+                        class="block text-sm text-gray-500"
+                    >
+                        Selecciona la moneda
+                    </label>
+
+                    <select name="currency_select" id="currency_select">
+                        {currency.map((currency) => {
+                            return (
+                                <option value={currency.id}>
+                                    {currency.name}
+                                </option>
+                            );
+                        })}
+                    </select>
                 </div>
                 <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                     {products.map((product) => {
