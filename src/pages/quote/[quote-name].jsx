@@ -12,8 +12,6 @@ export default function QuotePage({ quote }) {
     const { language, toggleLanguage } = useLanguage();
     const messageRef = React.useRef(null);
 
-    console.log(quote);
-
     function validateEmail(value) {
         let error;
         if (!value) {
@@ -273,17 +271,15 @@ export default function QuotePage({ quote }) {
 }
 
 export async function getStaticPaths() {
-    // Obtener todas las cotizaciones
+    // Obtener las rutas existentes
     const quotes = await db.quote.findMany({ select: { url_path: true } });
-
-    // Crear un array de rutas
     const paths = quotes.map((quote) => ({
-        params: { "quote-name": quote.url_path.substring(7) }, // Remover '/quote/' del inicio
+        params: { "quote-name": quote.url_path.substring(7) },
     }));
 
     return {
         paths,
-        fallback: false, // Puede ser 'blocking' si prefieres ISR (Incremental Static Regeneration)
+        fallback: "blocking", // ISR activado
     };
 }
 
