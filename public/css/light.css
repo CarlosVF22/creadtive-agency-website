@@ -1751,6 +1751,7 @@ body {
 .navbar .logo {
     width: 250px;
 }
+
 .navbar.light .navbar-nav .nav-link {
     color: #0c0f16;
 }
@@ -2084,6 +2085,21 @@ body {
 }
 
 /* ====================== [ End navbar ] ====================== */
+
+/* ====================== [ Start Quote ] ====================== */
+.logo-quote-container {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+.title-quote-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+/* ====================== [ End Quote ] ====================== */
+
 /* ====================== [ Start Slider ] ====================== */
 .slider {
     position: relative;
