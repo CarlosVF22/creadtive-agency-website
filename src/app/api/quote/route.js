@@ -47,23 +47,54 @@ export async function POST(req) {
 }
 
 export async function GET(req) {
-    // console.log(req.nextUrl.searchParams.get("page"));
     const page = parseInt(req.nextUrl.searchParams.get("page")) || 1;
     const limit = parseInt(req.nextUrl.searchParams.get("limit")) || 4;
     const offset = (page - 1) * limit;
     try {
+        const totalQuotes = await db.quote.count();
         const quotes = await db.quote.findMany({
             skip: offset,
             take: limit,
+            orderBy: {
+                createdAt: "desc",
+            },
         });
         return NextResponse.json(
-            { message: "Consulta exitosa", quotes },
+            {
+                message: "Consulta exitosa",
+                quotes,
+                total: totalQuotes, // Enviar el total de cotizaciones
+                currentPage: page,
+                totalPages: Math.ceil(totalQuotes / limit), // Enviar el total de páginas
+            },
             { status: 200 }
         );
     } catch (error) {
         console.error(error);
         return NextResponse.json(
             { message: "Error en la consulta", error },
+            { status: 500 }
+        );
+    }
+}
+
+export async function DELETE(req) {
+    const id = parseInt(req.nextUrl.searchParams.get("id"));
+
+    try {
+        // Eliminar la cotización con el ID proporcionado
+        const deleteQuote = await db.quote.delete({
+            where: { id: parseInt(id) },
+        });
+
+        return NextResponse.json(
+            { message: "Cotización eliminada con exito", deleteQuote },
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error("Error al eliminar la cotización:", error);
+        return NextResponse.json(
+            { message: "Error al eliminar la cotización", deleteQuote },
             { status: 500 }
         );
     }

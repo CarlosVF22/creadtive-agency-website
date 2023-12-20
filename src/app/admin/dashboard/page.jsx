@@ -1,4 +1,3 @@
-import React from "react";
 import FormQuote from "../../../components/App/FormQuote";
 import QuoteList from "../../../components/App/QuoteList";
 

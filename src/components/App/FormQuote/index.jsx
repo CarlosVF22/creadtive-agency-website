@@ -152,7 +152,9 @@ function DashboardPage() {
 
     return (
         <form onSubmit={handleSubmit} className="w-2/4">
-            <div ref={messageRef}></div>
+            <div>
+                <p ref={messageRef}></p>
+            </div>
             <div class="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border min-h-96">
                 <div className="p-2">
                     <label
