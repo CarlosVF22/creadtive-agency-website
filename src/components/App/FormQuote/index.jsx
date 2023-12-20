@@ -87,6 +87,8 @@ function DashboardPage() {
                     language: parseInt(formData.get("language_select")),
                     currency: parseInt(formData.get("currency_select")),
                     products_in_quote: productText,
+                    introductory_text: formData.get("introductory_text"),
+                    conclusion_text: formData.get("conclusion_text"),
                 },
             };
             const response = await fetch("/api/quote", {
@@ -209,6 +211,24 @@ function DashboardPage() {
                         })}
                     </select>
                 </div>
+                <div className="p-2">
+                    <label
+                        for="introductory_text"
+                        class="block text-sm text-gray-500"
+                    >
+                        Texto introductorio
+                    </label>
+
+                    <textarea
+                        type="text"
+                        required
+                        placeholder="Escribe aquí..."
+                        className="border rounded-md w-full"
+                        rows={5}
+                        id="introductory_text"
+                        name="introductory_text"
+                    />
+                </div>
                 <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                     {products.map((product) => {
                         const isChecked = checkedStates[product.id] || false;
@@ -306,6 +326,24 @@ function DashboardPage() {
                         );
                     })}
                 </nav>
+                <div className="p-2">
+                    <label
+                        for="conclusion_text"
+                        class="block text-sm text-gray-500"
+                    >
+                        Conclusión
+                    </label>
+
+                    <textarea
+                        type="text"
+                        required
+                        placeholder="Escribe aquí..."
+                        className="border rounded-md w-full"
+                        rows={5}
+                        id="conclusion_text"
+                        name="conclusion_text"
+                    />
+                </div>
             </div>
             <div>
                 <button

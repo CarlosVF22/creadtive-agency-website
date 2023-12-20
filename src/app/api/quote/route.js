@@ -5,12 +5,23 @@ export async function POST(req) {
     try {
         const body = await req.json();
         const { quote } = body;
-        const { name, language, currency, products_in_quote } = quote;
+        const {
+            name,
+            language,
+            currency,
+            products_in_quote,
+            introductory_text,
+            conclusion_text,
+        } = quote;
 
         const base_path = "/quote/";
 
         const processedName = name.toLowerCase().replace(/ /g, "-");
         const urlPath = `${base_path}${processedName}`;
+        const price = products_in_quote.reduce(
+            (sum, product) => sum + product.product_price,
+            0
+        );
 
         const createdQuote = await db.quote.create({
             data: {
@@ -19,7 +30,9 @@ export async function POST(req) {
                 language_id: language,
                 currency_id: currency,
                 user_id: 1, // Supongamos que es el ID de un usuario existente
-                // ... otros campos si es necesario
+                introductory_text,
+                conclusion_text,
+                price,
             },
         });
 
@@ -106,8 +119,18 @@ export async function PUT(req) {
 
         // Parsea el cuerpo de la solicitud para obtener los datos actualizados
         const body = await req.json();
-        console.log(body);
-        const { name, language, currency, products_in_quote } = body;
+        const {
+            name,
+            language,
+            currency,
+            products_in_quote,
+            introductory_text,
+            conclusion_text,
+        } = body;
+        const price = products_in_quote.reduce(
+            (sum, product) => sum + product.product_price,
+            0
+        );
 
         // Actualiza la cotización en la base de datos
         const updatedQuote = await db.quote.update({
@@ -116,6 +139,9 @@ export async function PUT(req) {
                 name,
                 language_id: language,
                 currency_id: currency,
+                introductory_text,
+                conclusion_text,
+                price,
                 // Aquí puedes agregar más campos para actualizar si es necesario
             },
         });

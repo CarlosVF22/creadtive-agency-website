@@ -24,6 +24,9 @@ model Quote {
   language_id Int
   currency_id Int
   user_id Int
+  price Int
+  introductory_text String
+  conclusion_text String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User User @relation(fields: [user_id], references: [id], onDelete: NoAction)

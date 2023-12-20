@@ -11,6 +11,7 @@ import axios from "axios";
 export default function QuotePage({ quote }) {
     const { language, toggleLanguage } = useLanguage();
     const messageRef = React.useRef(null);
+    console.log(quote);
 
     function validateEmail(value) {
         let error;
@@ -28,7 +29,6 @@ export default function QuotePage({ quote }) {
                 <div className="logo logo-quote-container">
                     <div>
                         <Image
-                            // ref={lr}
                             src={`${appData.lightLogo}`}
                             alt="Creadtive agency logo"
                             width={250}
@@ -56,21 +56,28 @@ export default function QuotePage({ quote }) {
                                 <div className="img">
                                     <img src="/img/blog/1.png" alt="" />
                                 </div>
+                                <div className="row justify-content-center">
+                                    <div className="col-lg-7 col-md-9">
+                                        <div className="title-quote-container text-center">
+                                            <h2 className="primary_color">
+                                                {quote.Language.acronym === "en"
+                                                    ? "Introduction"
+                                                    : "Introducción"}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="content pt-20">
                                     <div className="row justify-content-center">
                                         <div className="col-lg-10">
                                             <div className="cont">
-                                                <p>
-                                                    {language === "en"
-                                                        ? "In the vast ocean of the internet, your website is your virtual ship. It’s a vessel through which you sail to reach your audience and achieve your goals, be it sharing knowledge, selling products, or connecting with like-minded individuals. But how do you know if your ship is on the right course and making progress? The answer lies in measurement. In this blog, we’ll dive into the fascinating world of website analytics and explore why measuring your website’s performance is essential."
-                                                        : "En el vasto océano de Internet, su sitio web es su barco virtual. Es un barco a través del cual navegas para llegar a tu audiencia y lograr tus objetivos, ya sea compartir conocimientos, vender productos o conectarte con personas con ideas afines. Pero, ¿cómo saber si su barco está en el rumbo correcto y avanzando? La respuesta está en la medición. En este blog, nos sumergiremos en el fascinante mundo del análisis de sitios web y exploraremos por qué es esencial medir el rendimiento de su sitio web."}
-                                                </p>
+                                                <p>{quote.introductory_text}</p>
 
                                                 {quote.Quote_Product.map(
                                                     (product) => {
                                                         return (
                                                             <div>
-                                                                <h6>
+                                                                <h6 id="quote_product_title">
                                                                     {quote
                                                                         .Language
                                                                         .acronym ===
@@ -88,23 +95,34 @@ export default function QuotePage({ quote }) {
                                                                         product.product_text
                                                                     }
                                                                 </p>
-                                                                <p>
+                                                                <p id="price_quote">
                                                                     {quote
                                                                         .Language
                                                                         .acronym ===
                                                                     "en"
-                                                                        ? `Price: ${product.product_price}`
-                                                                        : `Precio: ${product.product_price}`}
+                                                                        ? `Price: ${product.product_price} ${quote.Currency.acronym}`
+                                                                        : `Precio: ${product.product_price} ${quote.Currency.acronym}`}
                                                                 </p>
                                                             </div>
                                                         );
                                                     }
                                                 )}
+                                                <div className="row justify-content-center">
+                                                    <div className="col-lg-7 col-md-9">
+                                                        <div className="title-quote-container text-center">
+                                                            <h2 className="primary_color">
+                                                                {quote.Language
+                                                                    .acronym ===
+                                                                "en"
+                                                                    ? `Total: ${quote.price} ${quote.Currency.acronym}`
+                                                                    : `Total: ${quote.price} ${quote.Currency.acronym}`}
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div className="quotes text-center">
                                                     <p>
-                                                        {language === "en"
-                                                            ? "In conclusion, measuring your website’s performance is not just about numbers; it’s about understanding your audience, optimizing your content, and steering your digital ship toward success. Embrace the world of web analytics as your compass, and with each data point, you’ll chart a course towards a more effective and impactful online presence."
-                                                            : "En conclusión, medir el rendimiento de su sitio web no se trata sólo de números; se trata de comprender a su audiencia, optimizar su contenido y dirigir su barco digital hacia el éxito. Adopte el mundo de la analítica web como su brújula y, con cada punto de datos, trazará el rumbo hacia una presencia en línea más efectiva e impactante."}
+                                                        {quote.conclusion_text}
                                                     </p>
                                                 </div>
                                                 <div className="share-info">
@@ -143,7 +161,7 @@ export default function QuotePage({ quote }) {
                                                     const body = {
                                                         name: values.name,
                                                         email: values.email,
-                                                        message: values.message,
+                                                        message: `Mensaje enviado desde la cotización ${quote.name}: ${values.message}`,
                                                     };
                                                     const res =
                                                         await axios.post(
@@ -194,10 +212,10 @@ export default function QuotePage({ quote }) {
                                                                     placeholder={
                                                                         language ===
                                                                         "en"
-                                                                            ? "Your Comment"
-                                                                            : "Tu comentario"
+                                                                            ? "Your Message"
+                                                                            : "Tu mensaje"
                                                                     }
-                                                                    name="comment"
+                                                                    name="message"
                                                                 />
                                                             </div>
                                                         </div>
@@ -294,6 +312,7 @@ export async function getStaticProps({ params }) {
                     Product: true, // Incluir los detalles del producto asociado
                 },
             },
+            Currency: true,
         },
     });
 
@@ -312,6 +331,11 @@ export async function getStaticProps({ params }) {
             createdAt: quoteDetails.Language.createdAt.toISOString(),
             updatedAt: quoteDetails.Language.updatedAt.toISOString(),
             // Añade aquí la serialización de campos adicionales si es necesario
+        },
+        Currency: {
+            ...quoteDetails.Currency,
+            createdAt: quoteDetails.Currency.createdAt.toISOString(),
+            updatedAt: quoteDetails.Currency.updatedAt.toISOString(),
         },
         Quote_Product: quoteDetails.Quote_Product.map((quoteProduct) => ({
             ...quoteProduct,

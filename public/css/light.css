@@ -2098,6 +2098,19 @@ body {
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
+
+#price_quote {
+    font-size: large;
+    font-weight: 500;
+}
+
+#quote_product_title {
+    color: var(--primary-color);
+}
+
+.primary_color {
+    color: var(--primary-color);
+}
 /* ====================== [ End Quote ] ====================== */
 
 /* ====================== [ Start Slider ] ====================== */

@@ -5,6 +5,8 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
     if (!isOpen) return null;
     const [quoteDetails, setQuoteDetails] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [introductoryText, setIntroductoryText] = useState("");
+    const [conclusionText, setConclusionText] = useState("");
     const [name, setName] = useState("");
     const [languageId, setLanguageId] = useState("");
     const [currencyId, setCurrencyId] = useState("");
@@ -86,6 +88,8 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                 setName(data.quote.name);
                 setLanguageId(data.quote.language_id);
                 setCurrencyId(data.quote.currency_id);
+                setIntroductoryText(data.quote.introductory_text);
+                setConclusionText(data.quote.conclusion_text);
 
                 // Actualizar los estados con los productos de la cotización
                 const newCheckedStates = {};
@@ -150,6 +154,8 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
             language: languageId,
             currency: currencyId,
             products_in_quote: updatedProductsInQuote,
+            introductory_text: introductoryText,
+            conclusion_text: conclusionText,
         };
 
         try {
@@ -189,7 +195,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-            <div className="bg-white p-4 rounded-lg shadow-lg w-2/4">
+            <div className="bg-white  rounded-lg shadow-lg w-2/4 overflow-y-auto h-3/4">
                 <div className="w-full flex justify-end">
                     {" "}
                     <button
@@ -199,13 +205,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                         Cerrar
                     </button>
                 </div>
-                <form
-                    onSubmit={handleSubmit}
-                    className="w-full overflow-y-auto max-h-96"
-                >
-                    {/* <div>
-                        <p ref={messageRef}></p>
-                    </div> */}
+                <form onSubmit={handleSubmit} className="w-full p-2">
                     <div class="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border min-h-96">
                         <div className="p-2">
                             <label
@@ -272,6 +272,28 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                                     );
                                 })}
                             </select>
+                        </div>
+                        <div className="p-2">
+                            <label
+                                for="introductory_text"
+                                class="block text-sm text-gray-500"
+                            >
+                                Texto introductorio
+                            </label>
+
+                            <textarea
+                                type="text"
+                                required
+                                placeholder="Escribe aquí..."
+                                className="border rounded-md w-full"
+                                rows={5}
+                                id="introductory_text"
+                                name="introductory_text"
+                                value={introductoryText}
+                                onChange={(e) =>
+                                    setIntroductoryText(e.target.value)
+                                }
+                            />
                         </div>
                         <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                             {products.map((product) => {
@@ -375,6 +397,28 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                                 );
                             })}
                         </nav>
+                        <div className="p-2">
+                            <label
+                                for="introductory_text"
+                                class="block text-sm text-gray-500"
+                            >
+                                Conclusión
+                            </label>
+
+                            <textarea
+                                type="text"
+                                required
+                                placeholder="Escribe aquí..."
+                                className="border rounded-md w-full"
+                                rows={5}
+                                id="introductory_text"
+                                name="introductory_text"
+                                value={conclusionText}
+                                onChange={(e) =>
+                                    setConclusionText(e.target.value)
+                                }
+                            />
+                        </div>
                     </div>
                     <div>
                         <button
