@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Edit, Trash, ExternalLink } from "react-feather";
-import ModalDelete from "../ModalDelete";
+import ModalDeleteQuote from "../ModalDeleteQuote";
 
 export default function QuoteList() {
     const [quotes, setQuotes] = useState([]);
@@ -45,7 +45,6 @@ export default function QuoteList() {
 
             if (response.status === 200) {
                 setQuotes(quotes.filter((quote) => quote.id !== quoteId));
-                console.log(data.message);
                 closeModal();
             } else {
                 throw new Error(data.message);
@@ -143,7 +142,7 @@ export default function QuoteList() {
                     </button>
                 </div>
             </ul>
-            <ModalDelete
+            <ModalDeleteQuote
                 isOpen={isModalOpen}
                 onClose={closeModal}
                 onDelete={handleDelete}
