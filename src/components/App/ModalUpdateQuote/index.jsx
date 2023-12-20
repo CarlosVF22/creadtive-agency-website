@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
     if (!isOpen) return null;
@@ -12,6 +12,8 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
     const [currencyId, setCurrencyId] = useState("");
     const [checkedStates, setCheckedStates] = useState({});
     const [productText, setProductText] = useState([]);
+
+    const messageRef = useRef(null);
 
     const [products, setProducts] = useState([]);
     const [languages, setLanguages] = useState([]);
@@ -143,6 +145,15 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
         event.preventDefault();
         setLoading(true);
 
+        if (messageRef.current) {
+            messageRef.current.innerHTML = "Cargando..."; // Mensaje de carga
+            messageRef.current.style.backgroundColor = "#67e8f9";
+            messageRef.current.style.color = "#FFFF";
+            messageRef.current.style.textAlign = "center";
+            messageRef.current.style.fontWeight = "bold";
+            messageRef.current.style.borderRadius = "10px";
+        }
+
         // Preparar los productos para la actualización
         const updatedProductsInQuote = productText.filter(
             (product) => checkedStates[product.id]
@@ -169,9 +180,26 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
             });
             const data = await response.json();
             if (response.status === 200) {
-                console.log(data);
+                if (messageRef.current) {
+                    // Verifica que messageRef.current no es null
+                    messageRef.current.innerHTML = `Cotización creada, visitala en el siguiente enlace <a href="${process.env.NEXT_PUBLIC_APP_URL}${data.quote.url_path}" target="_blank" rel="noopener noreferrer" style="color: #464545; text-decoration: underline;">${process.env.NEXT_PUBLIC_APP_URL}${data.quote.url_path}</a>`;
+                    messageRef.current.style.backgroundColor = "#b3d37a";
+                    messageRef.current.style.color = "#464545";
+                    messageRef.current.style.textAlign = "center";
+                    messageRef.current.style.fontWeight = "bold";
+                    messageRef.current.style.borderRadius = "10px";
+                }
                 onClose(); // Cierra el modal
+                window.location.reload();
             } else {
+                if (messageRef.current) {
+                    messageRef.current.innerHTML = `Error al crear la cotización`; // Mensaje de error
+                    messageRef.current.style.backgroundColor = "#FF8369";
+                    messageRef.current.style.color = "#FFFF";
+                    messageRef.current.style.textAlign = "center";
+                    messageRef.current.style.fontWeight = "bold";
+                    messageRef.current.style.borderRadius = "10px";
+                }
                 throw new Error(
                     data.message || "Error al actualizar la cotización"
                 );
@@ -206,6 +234,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                     </button>
                 </div>
                 <form onSubmit={handleSubmit} className="w-full p-2">
+                    <div className="p-2" ref={messageRef}></div>
                     <div class="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border min-h-96">
                         <div className="p-2">
                             <label
@@ -421,6 +450,8 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                         </div>
                     </div>
                     <div>
+                        <div className="p-2" ref={messageRef}></div>
+
                         <button
                             type="submit"
                             className="bg-button-primary-color text-white px-4 py-2 rounded-md mt-4"

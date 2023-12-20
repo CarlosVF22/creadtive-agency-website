@@ -110,6 +110,7 @@ function DashboardPage() {
                     messageRef.current.style.fontWeight = "bold";
                     messageRef.current.style.borderRadius = "10px";
                 }
+                window.location.reload();
             } else {
                 throw new Error("Cotización no creada");
             }
@@ -344,6 +345,9 @@ function DashboardPage() {
                         name="conclusion_text"
                     />
                 </div>
+            </div>
+            <div>
+                <p ref={messageRef}></p>
             </div>
             <div>
                 <button
