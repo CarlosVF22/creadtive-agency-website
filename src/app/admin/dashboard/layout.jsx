@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function DashboardLayout({ children }) {
     return (
         <div className="flex">
-            <aside class="flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-ligth-color border-r rtl:border-r-0 rtl:border-l">
+            <aside class="sticky top-0 flex flex-col w-64 h-screen px-4 py-8 overflow-y-auto bg-ligth-color border-r rtl:border-r-0 rtl:border-l">
                 <a href="/">
                     <Image src={appData.lightLogo} width={350} height={70} />
                 </a>
