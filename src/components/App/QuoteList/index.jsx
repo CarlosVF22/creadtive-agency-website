@@ -57,7 +57,7 @@ export default function QuoteList() {
 
             if (response.status === 200) {
                 setQuotes(quotes.filter((quote) => quote.id !== quoteId));
-                closeModal();
+                closeModalDelete();
             } else {
                 throw new Error(data.message);
             }
@@ -65,11 +65,6 @@ export default function QuoteList() {
             console.error("Error al eliminar la cotización:", error);
         }
     };
-
-    // const handleUpdate = (quoteId) => {
-    //     console.log("Actualizar cotización:", quoteId);
-    //     // Implementa la lógica de actualización aquí
-    // };
 
     const handlePrevPage = () => {
         setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);

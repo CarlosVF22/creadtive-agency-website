@@ -82,7 +82,6 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                     `/api/quote/details?id=${quoteId}`
                 );
                 const data = await response.json();
-                console.log(data);
                 setQuoteDetails(data.quote);
                 setName(data.quote.name);
                 setLanguageId(data.quote.language_id);
@@ -190,8 +189,20 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
 
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center">
-            <div className="bg-white p-4 rounded-lg shadow-lg w-3/4">
-                <form onSubmit={handleSubmit} className="w-full">
+            <div className="bg-white p-4 rounded-lg shadow-lg w-2/4">
+                <div className="w-full flex justify-end">
+                    {" "}
+                    <button
+                        className="text-red-500 font-semibold p-2"
+                        onClick={onClose}
+                    >
+                        Cerrar
+                    </button>
+                </div>
+                <form
+                    onSubmit={handleSubmit}
+                    className="w-full overflow-y-auto max-h-96"
+                >
                     {/* <div>
                         <p ref={messageRef}></p>
                     </div> */}
@@ -365,11 +376,16 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                             })}
                         </nav>
                     </div>
-                    <button type="submit" disabled={loading}>
-                        Actualizar Cotización
-                    </button>
+                    <div>
+                        <button
+                            type="submit"
+                            className="bg-button-primary-color text-white px-4 py-2 rounded-md mt-4"
+                            disabled={loading}
+                        >
+                            Actualizar cotización
+                        </button>
+                    </div>
                 </form>
-                <button onClick={onClose}>Cerrar</button>
             </div>
         </div>
     );
