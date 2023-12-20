@@ -45,3 +45,26 @@ export async function POST(req) {
         );
     }
 }
+
+export async function GET(req) {
+    // console.log(req.nextUrl.searchParams.get("page"));
+    const page = parseInt(req.nextUrl.searchParams.get("page")) || 1;
+    const limit = parseInt(req.nextUrl.searchParams.get("limit")) || 4;
+    const offset = (page - 1) * limit;
+    try {
+        const quotes = await db.quote.findMany({
+            skip: offset,
+            take: limit,
+        });
+        return NextResponse.json(
+            { message: "Consulta exitosa", quotes },
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json(
+            { message: "Error en la consulta", error },
+            { status: 500 }
+        );
+    }
+}

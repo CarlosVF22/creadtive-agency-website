@@ -35,8 +35,6 @@ export default function Login() {
 
         setLoading(false);
 
-        console.log(res);
-
         if (res.error) {
             if (messageRef.current) {
                 messageRef.current.innerHTML = res.error; // Mensaje de error
