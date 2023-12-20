@@ -30,7 +30,6 @@ export async function POST(req) {
                     product_id: product.id,
                     product_text: product.text,
                     product_price: product.product_price,
-                    // product_price: ... si es necesario
                 },
             });
         }
@@ -95,6 +94,89 @@ export async function DELETE(req) {
         console.error("Error al eliminar la cotización:", error);
         return NextResponse.json(
             { message: "Error al eliminar la cotización", deleteQuote },
+            { status: 500 }
+        );
+    }
+}
+
+export async function PUT(req) {
+    try {
+        // Parsea el ID de la cotización de la URL
+        const id = parseInt(req.nextUrl.searchParams.get("id"));
+
+        // Parsea el cuerpo de la solicitud para obtener los datos actualizados
+        const body = await req.json();
+        console.log(body);
+        const { name, language, currency, products_in_quote } = body;
+
+        // Actualiza la cotización en la base de datos
+        const updatedQuote = await db.quote.update({
+            where: { id },
+            data: {
+                name,
+                language_id: language,
+                currency_id: currency,
+                // Aquí puedes agregar más campos para actualizar si es necesario
+            },
+        });
+
+        const currentProducts = await db.quote_Product.findMany({
+            where: { quote_id: id },
+        });
+
+        for (const product of products_in_quote) {
+            // Verificar si el producto ya está asociado con la cotización
+            const existingProduct = currentProducts.find(
+                (p) => p.product_id === product.id
+            );
+
+            if (existingProduct) {
+                // Actualizar el producto existente
+                await db.quote_Product.update({
+                    where: { id: existingProduct.id },
+                    data: {
+                        product_text: product.text,
+                        product_price: product.product_price,
+                    },
+                });
+            } else {
+                // Crear un nuevo producto asociado con la cotización
+                await db.quote_Product.create({
+                    data: {
+                        quote_id: id,
+                        product_id: product.id,
+                        product_text: product.text,
+                        product_price: product.product_price,
+                    },
+                });
+            }
+        }
+
+        const newProductIds = products_in_quote.map((p) => p.id);
+        const productsToDelete = currentProducts.filter(
+            (p) => !newProductIds.includes(p.product_id)
+        );
+
+        for (const productToDelete of productsToDelete) {
+            await db.quote_Product.delete({
+                where: { id: productToDelete.id },
+            });
+        }
+
+        return NextResponse.json(
+            {
+                message: "Cotización actualizada con éxito",
+                quote: updatedQuote,
+            },
+            { status: 200 }
+        );
+    } catch (error) {
+        console.error("Error al actualizar la cotización:", error);
+        return NextResponse.json(
+            {
+                message: "Error al actualizar la cotización",
+                error: error.message,
+            },
             { status: 500 }
         );
     }

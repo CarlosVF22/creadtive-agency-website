@@ -9,6 +9,14 @@ export async function GET(req) {
             where: {
                 id,
             },
+            include: {
+                Language: true, // Incluir los detalles del idioma asociado
+                Quote_Product: {
+                    include: {
+                        Product: true, // Incluir los detalles del producto asociado
+                    },
+                },
+            },
         });
         if (!quote) {
             return NextResponse.json(

@@ -3,12 +3,14 @@
 import React, { useEffect, useState } from "react";
 import { Edit, Trash, ExternalLink } from "react-feather";
 import ModalDeleteQuote from "../ModalDeleteQuote";
+import ModalUpdateQuote from "../ModalUpdateQuote";
 
 export default function QuoteList() {
     const [quotes, setQuotes] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpenDelete, setIsModalOpenDelete] = useState(false);
+    const [isModalOpenUpdate, setIsModalOpenUpdate] = useState(false);
     const [selectedQuoteId, setSelectedQuoteId] = useState(null);
     const [selectedQuoteName, setSelectedQuoteName] = useState(null);
     const limit = 4; // Número de cotizaciones por página
@@ -25,14 +27,24 @@ export default function QuoteList() {
         fetchQuotes();
     }, [currentPage]);
 
-    const openModal = (quoteId, quoteName) => {
+    const openModalDelete = (quoteId, quoteName) => {
         setSelectedQuoteId(quoteId);
         setSelectedQuoteName(quoteName);
-        setIsModalOpen(true);
+        setIsModalOpenDelete(true);
     };
 
-    const closeModal = () => {
-        setIsModalOpen(false);
+    const openModalUpdate = (quoteId) => {
+        setSelectedQuoteId(quoteId);
+        setIsModalOpenUpdate(true);
+    };
+
+    const closeModalDelete = () => {
+        setIsModalOpenDelete(false);
+        setSelectedQuoteId(null);
+    };
+
+    const closeModalUpdate = () => {
+        setIsModalOpenUpdate(false);
         setSelectedQuoteId(null);
     };
 
@@ -54,10 +66,10 @@ export default function QuoteList() {
         }
     };
 
-    const handleUpdate = (quoteId) => {
-        console.log("Actualizar cotización:", quoteId);
-        // Implementa la lógica de actualización aquí
-    };
+    // const handleUpdate = (quoteId) => {
+    //     console.log("Actualizar cotización:", quoteId);
+    //     // Implementa la lógica de actualización aquí
+    // };
 
     const handlePrevPage = () => {
         setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);
@@ -98,14 +110,19 @@ export default function QuoteList() {
                                 </div>
                                 <div className="flex gap-x-4">
                                     <button
-                                        onClick={() => handleUpdate(quote.id)}
+                                        onClick={() =>
+                                            openModalUpdate(quote.id)
+                                        }
                                     >
                                         {/* Icono de actualizar */}
                                         <Edit />
                                     </button>
                                     <button
                                         onClick={() =>
-                                            openModal(quote.id, quote.name)
+                                            openModalDelete(
+                                                quote.id,
+                                                quote.name
+                                            )
                                         }
                                     >
                                         {/* Icono de eliminar */}
@@ -143,11 +160,16 @@ export default function QuoteList() {
                 </div>
             </ul>
             <ModalDeleteQuote
-                isOpen={isModalOpen}
-                onClose={closeModal}
+                isOpen={isModalOpenDelete}
+                onClose={closeModalDelete}
                 onDelete={handleDelete}
                 quoteId={selectedQuoteId}
                 quoteName={selectedQuoteName}
+            />
+            <ModalUpdateQuote
+                isOpen={isModalOpenUpdate}
+                onClose={closeModalUpdate}
+                quoteId={selectedQuoteId}
             />
         </>
     );
