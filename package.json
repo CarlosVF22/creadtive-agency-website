@@ -1,12 +1,14 @@
 {
     "name": "creadtive-agency",
     "private": true,
+    "version": "1.0.0",
     "scripts": {
         "dev": "next dev",
         "build": "prisma generate && next build",
         "export": "next build && next export",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "release": "npm version patch && git push origin --tags"
     },
     "dependencies": {
         "@aws-sdk/client-ses": "^3.458.0",
