@@ -289,7 +289,10 @@ function DashboardPage() {
                                         </div>
                                     </div>
                                     <p class="block font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-                                        {product.name_es}
+                                        {product.name_es} <br />
+                                        <small className="italic">
+                                            ({product.name_en})
+                                        </small>
                                     </p>
                                 </label>
                                 {isChecked && (
