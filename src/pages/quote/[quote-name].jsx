@@ -7,11 +7,12 @@ import appData from "../../data/app.json";
 import LightTheme from "../../layouts/Light";
 import { useLanguage } from "../../common/languageContext";
 import axios from "axios";
+import useCurrencyFormatter from "../../common/useCurrencyFormated.js";
 
 export default function QuotePage({ quote }) {
     const { language, toggleLanguage } = useLanguage();
     const messageRef = React.useRef(null);
-    console.log(quote);
+    const formattedPrice = useCurrencyFormatter(quote.price);
 
     function validateEmail(value) {
         let error;
@@ -79,33 +80,42 @@ export default function QuotePage({ quote }) {
                                                 <p>{quote.introductory_text}</p>
 
                                                 {quote.Quote_Product.map(
-                                                    (product) => (
-                                                        <div>
-                                                            <h6 id="quote_product_title">
-                                                                {quote.Language
-                                                                    .acronym ===
-                                                                "en"
-                                                                    ? product
-                                                                          .Product
-                                                                          .name_en
-                                                                    : product
-                                                                          .Product
-                                                                          .name_es}
-                                                            </h6>
-                                                            <p>
-                                                                {
-                                                                    product.product_text
-                                                                }
-                                                            </p>
-                                                            <p id="price_quote">
-                                                                {quote.Language
-                                                                    .acronym ===
-                                                                "en"
-                                                                    ? `Price: ${product.product_price} ${quote.Currency.acronym}`
-                                                                    : `Precio: ${product.product_price} ${quote.Currency.acronym}`}
-                                                            </p>
-                                                        </div>
-                                                    )
+                                                    (product) => {
+                                                        const formattedPrice =
+                                                            useCurrencyFormatter(
+                                                                product.product_price
+                                                            );
+
+                                                        return (
+                                                            <div>
+                                                                <h6 id="quote_product_title">
+                                                                    {quote
+                                                                        .Language
+                                                                        .acronym ===
+                                                                    "en"
+                                                                        ? product
+                                                                              .Product
+                                                                              .name_en
+                                                                        : product
+                                                                              .Product
+                                                                              .name_es}
+                                                                </h6>
+                                                                <p>
+                                                                    {
+                                                                        product.product_text
+                                                                    }
+                                                                </p>
+                                                                <p id="price_quote">
+                                                                    {quote
+                                                                        .Language
+                                                                        .acronym ===
+                                                                    "en"
+                                                                        ? `Price: ${formattedPrice} ${quote.Currency.acronym}`
+                                                                        : `Precio: ${formattedPrice} ${quote.Currency.acronym}`}
+                                                                </p>
+                                                            </div>
+                                                        );
+                                                    }
                                                 )}
                                                 <div className="row justify-content-center">
                                                     <div className="col-lg-7 col-md-9">
@@ -114,8 +124,8 @@ export default function QuotePage({ quote }) {
                                                                 {quote.Language
                                                                     .acronym ===
                                                                 "en"
-                                                                    ? `Total: ${quote.price} ${quote.Currency.acronym}`
-                                                                    : `Total: ${quote.price} ${quote.Currency.acronym}`}
+                                                                    ? `Total: ${formattedPrice} ${quote.Currency.acronym}`
+                                                                    : `Total: ${formattedPrice} ${quote.Currency.acronym}`}
                                                             </h2>
                                                         </div>
                                                     </div>
