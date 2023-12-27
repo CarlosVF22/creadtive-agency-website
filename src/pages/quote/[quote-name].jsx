@@ -70,42 +70,42 @@ export default function QuotePage({ quote }) {
                                 <div className="content pt-20">
                                     <div className="row justify-content-center">
                                         <div className="col-lg-10">
-                                            <div className="cont">
+                                            <div
+                                                className="cont"
+                                                style={{
+                                                    whiteSpace: "pre-line",
+                                                }}
+                                            >
                                                 <p>{quote.introductory_text}</p>
 
                                                 {quote.Quote_Product.map(
-                                                    (product) => {
-                                                        return (
-                                                            <div>
-                                                                <h6 id="quote_product_title">
-                                                                    {quote
-                                                                        .Language
-                                                                        .acronym ===
-                                                                    "en"
-                                                                        ? product
-                                                                              .Product
-                                                                              .name_en
-                                                                        : product
-                                                                              .Product
-                                                                              .name_es}
-                                                                </h6>
-
-                                                                <p>
-                                                                    {
-                                                                        product.product_text
-                                                                    }
-                                                                </p>
-                                                                <p id="price_quote">
-                                                                    {quote
-                                                                        .Language
-                                                                        .acronym ===
-                                                                    "en"
-                                                                        ? `Price: ${product.product_price} ${quote.Currency.acronym}`
-                                                                        : `Precio: ${product.product_price} ${quote.Currency.acronym}`}
-                                                                </p>
-                                                            </div>
-                                                        );
-                                                    }
+                                                    (product) => (
+                                                        <div>
+                                                            <h6 id="quote_product_title">
+                                                                {quote.Language
+                                                                    .acronym ===
+                                                                "en"
+                                                                    ? product
+                                                                          .Product
+                                                                          .name_en
+                                                                    : product
+                                                                          .Product
+                                                                          .name_es}
+                                                            </h6>
+                                                            <p>
+                                                                {
+                                                                    product.product_text
+                                                                }
+                                                            </p>
+                                                            <p id="price_quote">
+                                                                {quote.Language
+                                                                    .acronym ===
+                                                                "en"
+                                                                    ? `Price: ${product.product_price} ${quote.Currency.acronym}`
+                                                                    : `Precio: ${product.product_price} ${quote.Currency.acronym}`}
+                                                            </p>
+                                                        </div>
+                                                    )
                                                 )}
                                                 <div className="row justify-content-center">
                                                     <div className="col-lg-7 col-md-9">
