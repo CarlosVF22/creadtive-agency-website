@@ -32,7 +32,7 @@ const Footer = ({ noSubBG }) => {
                                     </li>
 
                                     <li>
-                                        <span>Phone : </span> (+57) 3148393111
+                                        <span>Phone : </span> (+57) 3113412014
                                     </li>
                                 </ul>
                             </div>
