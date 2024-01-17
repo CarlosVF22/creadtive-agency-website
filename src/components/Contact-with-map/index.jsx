@@ -179,7 +179,7 @@ const ContactWithMap = ({ theme = "dark", language }) => {
                                             info@creadtiveagency.com
                                         </a>
                                     </h5>
-                                    <h5>+4.930.705.5448</h5>
+                                    <h5>+57 3113412014</h5>
                                 </div>
                                 <div className="social mt-50">
                                     <a href="#0" className="icon">
@@ -199,7 +199,7 @@ const ContactWithMap = ({ theme = "dark", language }) => {
                 <div className="container">
                     <div className="copyrights text-center mt-0">
                         <p>
-                            © 2023 - creADtive media ❤️
+                            © 2024 - creADtive media ❤️
                             <a href="#0">ThemesCamp</a>.
                         </p>
                     </div>

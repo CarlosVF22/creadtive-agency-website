@@ -32,8 +32,7 @@ const Footer = ({ noSubBG }) => {
                                     </li>
 
                                     <li>
-                                        <span>Phone : </span> (+1) 2345 678 44
-                                        88
+                                        <span>Phone : </span> (+57) 3148393111
                                     </li>
                                 </ul>
                             </div>
@@ -55,7 +54,7 @@ const Footer = ({ noSubBG }) => {
                     <div className="col-lg-5 offset-lg-2"></div>
                 </div>
                 <div className="copyrights text-center">
-                    <p>© 2023 - Creadtive media ❤️</p>
+                    <p>© 2024 - Creadtive media ❤️</p>
                 </div>
             </div>
         </footer>
