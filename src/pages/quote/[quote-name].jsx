@@ -13,6 +13,7 @@ export default function QuotePage({ quote }) {
     const { language, toggleLanguage } = useLanguage();
     const messageRef = React.useRef(null);
     const formattedPrice = useCurrencyFormatter(quote.price);
+    const formattedPriceRecurring = useCurrencyFormatter(quote.recurring_price);
 
     function validateEmail(value) {
         let error;
@@ -81,40 +82,115 @@ export default function QuotePage({ quote }) {
 
                                                 {quote.Quote_Product.map(
                                                     (product) => {
-                                                        const formattedPrice =
-                                                            useCurrencyFormatter(
-                                                                product.product_price
-                                                            );
+                                                        // Verificar si la propiedad recurring es false
+                                                        if (
+                                                            !product.recurring_charge
+                                                        ) {
+                                                            const formattedPrice =
+                                                                useCurrencyFormatter(
+                                                                    product.product_price
+                                                                );
 
-                                                        return (
-                                                            <div>
-                                                                <h6 id="quote_product_title">
-                                                                    {quote
-                                                                        .Language
-                                                                        .acronym ===
-                                                                    "en"
-                                                                        ? product
-                                                                              .Product
-                                                                              .name_en
-                                                                        : product
-                                                                              .Product
-                                                                              .name_es}
-                                                                </h6>
-                                                                <p>
-                                                                    {
-                                                                        product.product_text
+                                                            return (
+                                                                <div
+                                                                    key={
+                                                                        product.id
                                                                     }
-                                                                </p>
-                                                                <p id="price_quote">
+                                                                >
+                                                                    <h6 id="quote_product_title">
+                                                                        {quote
+                                                                            .Language
+                                                                            .acronym ===
+                                                                        "en"
+                                                                            ? product
+                                                                                  .Product
+                                                                                  .name_en
+                                                                            : product
+                                                                                  .Product
+                                                                                  .name_es}
+                                                                    </h6>
+                                                                    <p>
+                                                                        {
+                                                                            product.product_text
+                                                                        }
+                                                                    </p>
+                                                                    <p id="price_quote">
+                                                                        {quote
+                                                                            .Language
+                                                                            .acronym ===
+                                                                        "en"
+                                                                            ? `Price: ${formattedPrice} ${quote.Currency.acronym}`
+                                                                            : `Precio: ${formattedPrice} ${quote.Currency.acronym}`}
+                                                                    </p>
+                                                                </div>
+                                                            );
+                                                        }
+                                                        return null;
+                                                    }
+                                                )}
+                                                {quote.recurring_price && (
+                                                    <div className="row justify-content-center">
+                                                        <div className="col-lg-7 col-md-9">
+                                                            <div className="title-quote-container text-center">
+                                                                <h3 className="primary_color">
                                                                     {quote
                                                                         .Language
                                                                         .acronym ===
                                                                     "en"
-                                                                        ? `Price: ${formattedPrice} ${quote.Currency.acronym}`
-                                                                        : `Precio: ${formattedPrice} ${quote.Currency.acronym}`}
-                                                                </p>
+                                                                        ? "Monthly Services"
+                                                                        : "Servicios Mensuales"}
+                                                                </h3>
                                                             </div>
-                                                        );
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                {quote.Quote_Product.map(
+                                                    (product) => {
+                                                        // Verificar si la propiedad recurring es false
+                                                        if (
+                                                            product.recurring_charge
+                                                        ) {
+                                                            const formattedPrice =
+                                                                useCurrencyFormatter(
+                                                                    product.product_price
+                                                                );
+
+                                                            return (
+                                                                <div
+                                                                    key={
+                                                                        product.id
+                                                                    }
+                                                                >
+                                                                    <h6 id="quote_product_title">
+                                                                        {quote
+                                                                            .Language
+                                                                            .acronym ===
+                                                                        "en"
+                                                                            ? product
+                                                                                  .Product
+                                                                                  .name_en
+                                                                            : product
+                                                                                  .Product
+                                                                                  .name_es}
+                                                                    </h6>
+                                                                    <p>
+                                                                        {
+                                                                            product.product_text
+                                                                        }
+                                                                    </p>
+                                                                    <p id="price_quote">
+                                                                        {quote
+                                                                            .Language
+                                                                            .acronym ===
+                                                                        "en"
+                                                                            ? `Monthly Price: ${formattedPrice} ${quote.Currency.acronym}`
+                                                                            : `Precio Mensual: ${formattedPrice} ${quote.Currency.acronym}`}
+                                                                    </p>
+                                                                </div>
+                                                            );
+                                                        }
+                                                        return null;
                                                     }
                                                 )}
                                                 <div className="row justify-content-center">
@@ -124,12 +200,29 @@ export default function QuotePage({ quote }) {
                                                                 {quote.Language
                                                                     .acronym ===
                                                                 "en"
-                                                                    ? `Total: ${formattedPrice} ${quote.Currency.acronym}`
-                                                                    : `Total: ${formattedPrice} ${quote.Currency.acronym}`}
+                                                                    ? `Single Payment: ${formattedPrice} ${quote.Currency.acronym}`
+                                                                    : `Único Pago: ${formattedPrice} ${quote.Currency.acronym}`}
                                                             </h2>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {quote.recurring_price && (
+                                                    <div className="row justify-content-center">
+                                                        <div className="col-lg-7 col-md-9">
+                                                            <div className="text-center">
+                                                                <h4 className="primary_color">
+                                                                    {quote
+                                                                        .Language
+                                                                        .acronym ===
+                                                                    "en"
+                                                                        ? `Monthly payments: ${formattedPriceRecurring} ${quote.Currency.acronym}`
+                                                                        : `Pagos mensuales: ${formattedPriceRecurring} ${quote.Currency.acronym}`}
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
+
                                                 <div className="quotes text-center">
                                                     <p>
                                                         {quote.conclusion_text}

@@ -8,68 +8,70 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  username String @unique
-  password String
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  quote Quote[]
+  quote     Quote[]
 }
 
 model Quote {
-  id Int @id @default(autoincrement())
-  name String @unique
-  url_path String @unique
-  language_id Int
-  currency_id Int
-  user_id Int
-  price Int
+  id                Int             @id @default(autoincrement())
+  name              String          @unique
+  url_path          String          @unique
+  user_id           Int
+  currency_id       Int
+  language_id       Int
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  conclusion_text   String
   introductory_text String
-  conclusion_text String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  User User @relation(fields: [user_id], references: [id], onDelete: NoAction)
-  Currency Currency @relation(fields: [currency_id], references: [id], onDelete: NoAction)
-  Language Language @relation(fields: [language_id], references: [id], onDelete: NoAction)
-  Quote_Product Quote_Product []
+  price             Int
+  recurring_price   Int? 
+  Currency          Currency        @relation(fields: [currency_id], references: [id], onDelete: NoAction)
+  Language          Language        @relation(fields: [language_id], references: [id], onDelete: NoAction)
+  User              User            @relation(fields: [user_id], references: [id], onDelete: NoAction)
+  Quote_Product     Quote_Product[]
 }
 
 model Product {
-  id Int @id @default(autoincrement())
-  name_es String @unique
-  name_en String @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Quote_Product Quote_Product []
+  id            Int             @id @default(autoincrement())
+  name_en       String          @unique
+  name_es       String          @unique
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  Quote_Product Quote_Product[]
 }
 
 model Quote_Product {
-  id Int @id @default(autoincrement())
-  product_id Int
-  quote_id Int
-  product_text String
+  id            Int      @id @default(autoincrement())
+  product_id    Int
+  quote_id      Int
   product_price Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  Quote Quote @relation(fields: [quote_id], references: [id], onDelete: Cascade)
+  product_text  String
+  recurring_charge Boolean @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  Product       Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  Quote         Quote    @relation(fields: [quote_id], references: [id], onDelete: Cascade)
 }
 
 model Currency {
-  id Int @id @default(autoincrement())
-  name String @unique
-  acronym String @unique
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  acronym   String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  quote Quote[]
+  quote     Quote[]
 }
 
 model Language {
-  id Int @id @default(autoincrement())
-  name String @unique
-  acronym String @unique
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  acronym   String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  quote Quote[]
+  quote     Quote[]
 }

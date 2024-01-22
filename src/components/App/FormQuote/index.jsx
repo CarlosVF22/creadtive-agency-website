@@ -153,6 +153,40 @@ function DashboardPage() {
         });
     };
 
+    const handleRecurringCharge = (productId, isChecked) => {
+        setProductText((prevProductText) => {
+            const productIndex = prevProductText.findIndex(
+                (item) => item.id === productId
+            );
+
+            if (productIndex >= 0) {
+                // Si el producto ya está en la lista, actualiza o elimina la propiedad recurring
+                const updatedProductText = [...prevProductText];
+                if (isChecked) {
+                    updatedProductText[productIndex] = {
+                        ...updatedProductText[productIndex],
+                        recurring: true,
+                    };
+                } else {
+                    const { recurring, ...rest } =
+                        updatedProductText[productIndex];
+                    updatedProductText[productIndex] = rest;
+                }
+                return updatedProductText;
+            } else {
+                // Si el producto no está en la lista y el checkbox está marcado, lo agrega con la propiedad recurring
+                if (isChecked) {
+                    return [
+                        ...prevProductText,
+                        { id: productId, text: "", recurring: true },
+                    ];
+                } else {
+                    return prevProductText;
+                }
+            }
+        });
+    };
+
     return (
         <form onSubmit={handleSubmit} className="w-2/4">
             <div>
@@ -311,19 +345,42 @@ function DashboardPage() {
                                             }
                                             value={productTextValue}
                                         />
-                                        <input
-                                            type="number"
-                                            required
-                                            placeholder="Precio"
-                                            className="border rounded-md"
-                                            value={productPriceValue || ""} // Permite valores nulos o cadenas vacías
-                                            onChange={(e) =>
-                                                handlePriceChange(
-                                                    product.id,
-                                                    e.target.value
-                                                )
-                                            }
-                                        />
+                                        <div>
+                                            <input
+                                                type="number"
+                                                required
+                                                placeholder="Precio"
+                                                className="border rounded-md"
+                                                value={productPriceValue || ""} // Permite valores nulos o cadenas vacías
+                                                onChange={(e) =>
+                                                    handlePriceChange(
+                                                        product.id,
+                                                        e.target.value
+                                                    )
+                                                }
+                                            />
+                                            <div>
+                                                <input
+                                                    id="recurring_charge"
+                                                    type="checkbox"
+                                                    className="rounded-md"
+                                                    onChange={(e) =>
+                                                        handleRecurringCharge(
+                                                            product.id,
+                                                            e.target.checked
+                                                        )
+                                                    }
+                                                />
+                                                <label
+                                                    htmlFor="recurring_charge"
+                                                    className="pl-2"
+                                                >
+                                                    <small>
+                                                        Cobro recurrente
+                                                    </small>
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 )}
                             </div>

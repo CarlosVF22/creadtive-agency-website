@@ -78,6 +78,40 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
         });
     };
 
+    const handleRecurringCharge = (productId, isChecked) => {
+        setProductText((prevProductText) => {
+            const productIndex = prevProductText.findIndex(
+                (item) => item.id === productId
+            );
+
+            if (productIndex >= 0) {
+                // Si el producto ya está en la lista, actualiza o elimina la propiedad recurring
+                const updatedProductText = [...prevProductText];
+                if (isChecked) {
+                    updatedProductText[productIndex] = {
+                        ...updatedProductText[productIndex],
+                        recurring: true,
+                    };
+                } else {
+                    const { recurring, ...rest } =
+                        updatedProductText[productIndex];
+                    updatedProductText[productIndex] = rest;
+                }
+                return updatedProductText;
+            } else {
+                // Si el producto no está en la lista y el checkbox está marcado, lo agrega con la propiedad recurring
+                if (isChecked) {
+                    return [
+                        ...prevProductText,
+                        { id: productId, text: "", recurring: true },
+                    ];
+                } else {
+                    return prevProductText;
+                }
+            }
+        });
+    };
+
     useEffect(() => {
         const fetchQuoteDetails = async () => {
             setLoading(true);
@@ -102,6 +136,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                         id: product.product_id,
                         text: product.product_text,
                         product_price: product.product_price,
+                        recurring: product.recurring_charge,
                     });
                 });
 
@@ -337,6 +372,9 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                                 const productPriceValue = existingProduct
                                     ? existingProduct.product_price
                                     : 0;
+                                const isRecurring = existingProduct
+                                    ? existingProduct.recurring
+                                    : false; // Nuevo campo para verificar si el producto es recurrente
                                 return (
                                     <div
                                         key={product.id}
@@ -420,6 +458,28 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                                                         )
                                                     }
                                                 />
+                                                <div>
+                                                    <input
+                                                        id={`recurring_charge_${product.id}`}
+                                                        type="checkbox"
+                                                        className="rounded-md"
+                                                        checked={isRecurring}
+                                                        onChange={(e) =>
+                                                            handleRecurringCharge(
+                                                                product.id,
+                                                                e.target.checked
+                                                            )
+                                                        }
+                                                    />
+                                                    <label
+                                                        htmlFor={`recurring_charge_${product.id}`}
+                                                        className="pl-2"
+                                                    >
+                                                        <small>
+                                                            Cobro recurrente
+                                                        </small>
+                                                    </label>
+                                                </div>
                                             </div>
                                         )}
                                     </div>

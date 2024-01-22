@@ -18,10 +18,21 @@ export async function POST(req) {
 
         const processedName = name.toLowerCase().replace(/ /g, "-");
         const urlPath = `${base_path}${processedName}`;
-        const price = products_in_quote.reduce(
-            (sum, product) => sum + product.product_price,
-            0
-        );
+
+        const price = products_in_quote.reduce((sum, product) => {
+            // Excluir productos con recurring true del cálculo del precio
+            if (!product.recurring) {
+                return sum + (product.product_price || 0);
+            }
+            return sum;
+        }, 0);
+
+        const recurring_price = products_in_quote.reduce((sum, product) => {
+            if (product.recurring) {
+                return sum + (product.product_price || 0);
+            }
+            return sum;
+        }, 0);
 
         const createdQuote = await db.quote.create({
             data: {
@@ -33,6 +44,7 @@ export async function POST(req) {
                 introductory_text,
                 conclusion_text,
                 price,
+                recurring_price,
             },
         });
 
@@ -43,6 +55,7 @@ export async function POST(req) {
                     product_id: product.id,
                     product_text: product.text,
                     product_price: product.product_price,
+                    recurring_charge: product.recurring,
                 },
             });
         }
@@ -127,10 +140,24 @@ export async function PUT(req) {
             introductory_text,
             conclusion_text,
         } = body;
-        const price = products_in_quote.reduce(
-            (sum, product) => sum + product.product_price,
-            0
-        );
+
+        const price = products_in_quote.reduce((sum, product) => {
+            // Excluir productos con recurring true del cálculo del precio
+            if (!product.recurring) {
+                return sum + (product.product_price || 0);
+            }
+            return sum;
+        }, 0);
+
+        const recurring_price = products_in_quote.reduce((sum, product) => {
+            if (product.recurring) {
+                return sum + (product.product_price || 0);
+            }
+            return sum;
+        }, 0);
+
+        const updatedRecurringPrice =
+            recurring_price !== 0 ? recurring_price : null;
 
         // Actualiza la cotización en la base de datos
         const updatedQuote = await db.quote.update({
@@ -142,6 +169,7 @@ export async function PUT(req) {
                 introductory_text,
                 conclusion_text,
                 price,
+                recurring_price: updatedRecurringPrice,
                 // Aquí puedes agregar más campos para actualizar si es necesario
             },
         });
@@ -150,20 +178,23 @@ export async function PUT(req) {
             where: { quote_id: id },
         });
 
+        console.log("en ruta", products_in_quote);
         for (const product of products_in_quote) {
             // Verificar si el producto ya está asociado con la cotización
             const existingProduct = currentProducts.find(
                 (p) => p.product_id === product.id
             );
 
+            const updateData = {
+                product_text: product.text,
+                product_price: product.product_price,
+                recurring_charge: product.recurring || false,
+            };
             if (existingProduct) {
                 // Actualizar el producto existente
                 await db.quote_Product.update({
                     where: { id: existingProduct.id },
-                    data: {
-                        product_text: product.text,
-                        product_price: product.product_price,
-                    },
+                    data: updateData,
                 });
             } else {
                 // Crear un nuevo producto asociado con la cotización
@@ -171,8 +202,7 @@ export async function PUT(req) {
                     data: {
                         quote_id: id,
                         product_id: product.id,
-                        product_text: product.text,
-                        product_price: product.product_price,
+                        ...updateData,
                     },
                 });
             }
