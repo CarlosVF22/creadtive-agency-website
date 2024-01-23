@@ -25,6 +25,14 @@ export default function QuotePage({ quote }) {
         return error;
     }
     const sendMessage = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    const additionalProducts = quote.Quote_Product.filter((product) => {
+        if (product.additional_product) {
+            return product;
+        }
+    });
+
+    console.log("Productos adicionales", additionalProducts);
     return (
         <LightTheme>
             <Link href="/">
@@ -84,7 +92,8 @@ export default function QuotePage({ quote }) {
                                                     (product) => {
                                                         // Verificar si la propiedad recurring es false
                                                         if (
-                                                            !product.recurring_charge
+                                                            !product.recurring_charge &&
+                                                            !product.additional_product
                                                         ) {
                                                             const formattedPrice =
                                                                 useCurrencyFormatter(
@@ -149,7 +158,8 @@ export default function QuotePage({ quote }) {
                                                     (product) => {
                                                         // Verificar si la propiedad recurring es false
                                                         if (
-                                                            product.recurring_charge
+                                                            product.recurring_charge &&
+                                                            !product.additional_product
                                                         ) {
                                                             const formattedPrice =
                                                                 useCurrencyFormatter(
@@ -228,6 +238,78 @@ export default function QuotePage({ quote }) {
                                                         {quote.conclusion_text}
                                                     </p>
                                                 </div>
+                                                {additionalProducts.length >
+                                                    0 && (
+                                                    <h4 className="primary_color">
+                                                        {quote.Language
+                                                            .acronym === "en"
+                                                            ? `more from our portfolio`
+                                                            : `más de nuestro portafolio`}
+                                                    </h4>
+                                                )}
+                                                {quote.Quote_Product.map(
+                                                    (product) => {
+                                                        if (
+                                                            product.additional_product
+                                                        ) {
+                                                            const formattedPrice =
+                                                                useCurrencyFormatter(
+                                                                    product.product_price
+                                                                );
+
+                                                            return (
+                                                                <div
+                                                                    key={
+                                                                        product.id
+                                                                    }
+                                                                >
+                                                                    <h6 id="quote_product_title">
+                                                                        {quote
+                                                                            .Language
+                                                                            .acronym ===
+                                                                        "en"
+                                                                            ? product
+                                                                                  .Product
+                                                                                  .name_en
+                                                                            : product
+                                                                                  .Product
+                                                                                  .name_es}
+                                                                    </h6>
+                                                                    <p>
+                                                                        {
+                                                                            product.product_text
+                                                                        }
+                                                                    </p>
+                                                                    <p id="price_quote">
+                                                                        {quote
+                                                                            .Language
+                                                                            .acronym ===
+                                                                        "en"
+                                                                            ? `Price${
+                                                                                  product.recurring_charge
+                                                                                      ? " monthly"
+                                                                                      : ""
+                                                                              }: ${formattedPrice} ${
+                                                                                  quote
+                                                                                      .Currency
+                                                                                      .acronym
+                                                                              }`
+                                                                            : `Precio${
+                                                                                  product.recurring_charge
+                                                                                      ? " mensual"
+                                                                                      : ""
+                                                                              }: ${formattedPrice} ${
+                                                                                  quote
+                                                                                      .Currency
+                                                                                      .acronym
+                                                                              }`}
+                                                                    </p>
+                                                                </div>
+                                                            );
+                                                        }
+                                                        return null;
+                                                    }
+                                                )}
                                                 <div className="share-info">
                                                     <div className="social">
                                                         <a href="#0">

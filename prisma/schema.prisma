@@ -52,6 +52,7 @@ model Quote_Product {
   product_price Int
   product_text  String
   recurring_charge Boolean @default(false)
+  additional_product Boolean @default(false)
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   Product       Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)

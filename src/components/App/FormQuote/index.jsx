@@ -187,6 +187,40 @@ function DashboardPage() {
         });
     };
 
+    const handleAdditionalProduct = (productId, isChecked) => {
+        setProductText((prevProductText) => {
+            const productIndex = prevProductText.findIndex(
+                (item) => item.id === productId
+            );
+
+            if (productIndex >= 0) {
+                // Si el producto ya está en la lista, actualiza o elimina la propiedad recurring
+                const updatedProductText = [...prevProductText];
+                if (isChecked) {
+                    updatedProductText[productIndex] = {
+                        ...updatedProductText[productIndex],
+                        additional_product: true,
+                    };
+                } else {
+                    const { additional_product, ...rest } =
+                        updatedProductText[productIndex];
+                    updatedProductText[productIndex] = rest;
+                }
+                return updatedProductText;
+            } else {
+                // Si el producto no está en la lista y el checkbox está marcado, lo agrega con la propiedad recurring
+                if (isChecked) {
+                    return [
+                        ...prevProductText,
+                        { id: productId, text: "", additionalProduct: true },
+                    ];
+                } else {
+                    return prevProductText;
+                }
+            }
+        });
+    };
+
     return (
         <form onSubmit={handleSubmit} className="w-2/4">
             <div>
@@ -377,6 +411,29 @@ function DashboardPage() {
                                                 >
                                                     <small>
                                                         Cobro recurrente
+                                                    </small>
+                                                </label>
+                                            </div>
+                                            <div>
+                                                <input
+                                                    id="additional_product"
+                                                    type="checkbox"
+                                                    className="rounded-md"
+                                                    onChange={(e) =>
+                                                        handleAdditionalProduct(
+                                                            product.id,
+                                                            e.target.checked
+                                                        )
+                                                    }
+                                                />
+                                                <label
+                                                    htmlFor="additional_product"
+                                                    className="pl-2"
+                                                >
+                                                    <small>
+                                                        Producto adicional
+                                                        (Producto no agregado al
+                                                        valor de la cotización)
                                                     </small>
                                                 </label>
                                             </div>

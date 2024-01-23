@@ -8,7 +8,9 @@
         "export": "next build && next export",
         "start": "next start",
         "lint": "next lint",
-        "release": "npm version patch && git push origin --tags"
+        "release-patch": "npm version patch && git push origin --tags",
+        "release-minor": "npm version minor && git push origin --tags",
+        "release-major": "npm version minor && git push origin --tags"
     },
     "dependencies": {
         "@aws-sdk/client-ses": "^3.458.0",

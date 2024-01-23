@@ -112,6 +112,40 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
         });
     };
 
+    const handleAdditionalProduct = (productId, isChecked) => {
+        setProductText((prevProductText) => {
+            const productIndex = prevProductText.findIndex(
+                (item) => item.id === productId
+            );
+
+            if (productIndex >= 0) {
+                // Si el producto ya está en la lista, actualiza o elimina la propiedad recurring
+                const updatedProductText = [...prevProductText];
+                if (isChecked) {
+                    updatedProductText[productIndex] = {
+                        ...updatedProductText[productIndex],
+                        additional_product: true,
+                    };
+                } else {
+                    const { additional_product, ...rest } =
+                        updatedProductText[productIndex];
+                    updatedProductText[productIndex] = rest;
+                }
+                return updatedProductText;
+            } else {
+                // Si el producto no está en la lista y el checkbox está marcado, lo agrega con la propiedad recurring
+                if (isChecked) {
+                    return [
+                        ...prevProductText,
+                        { id: productId, text: "", additionalProduct: true },
+                    ];
+                } else {
+                    return prevProductText;
+                }
+            }
+        });
+    };
+
     useEffect(() => {
         const fetchQuoteDetails = async () => {
             setLoading(true);
@@ -137,6 +171,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                         text: product.product_text,
                         product_price: product.product_price,
                         recurring: product.recurring_charge,
+                        additional_product: product.additional_product,
                     });
                 });
 
@@ -375,6 +410,9 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                                 const isRecurring = existingProduct
                                     ? existingProduct.recurring
                                     : false; // Nuevo campo para verificar si el producto es recurrente
+                                const isAdditionalProduct = existingProduct
+                                    ? existingProduct.additional_product
+                                    : false; // Nuevo campo para verificar si el producto es recurrente
                                 return (
                                     <div
                                         key={product.id}
@@ -477,6 +515,33 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                                                     >
                                                         <small>
                                                             Cobro recurrente
+                                                        </small>
+                                                    </label>
+                                                </div>
+                                                <div>
+                                                    <input
+                                                        id={`additional_product_${product.id}`}
+                                                        type="checkbox"
+                                                        className="rounded-md"
+                                                        checked={
+                                                            isAdditionalProduct
+                                                        }
+                                                        onChange={(e) =>
+                                                            handleAdditionalProduct(
+                                                                product.id,
+                                                                e.target.checked
+                                                            )
+                                                        }
+                                                    />
+                                                    <label
+                                                        htmlFor={`additional_product_${product.id}`}
+                                                        className="pl-2"
+                                                    >
+                                                        <small>
+                                                            Producto adicional
+                                                            (Producto no
+                                                            agregado al valor de
+                                                            la cotización)
                                                         </small>
                                                     </label>
                                                 </div>

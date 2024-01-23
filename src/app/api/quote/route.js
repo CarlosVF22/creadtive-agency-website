@@ -21,14 +21,14 @@ export async function POST(req) {
 
         const price = products_in_quote.reduce((sum, product) => {
             // Excluir productos con recurring true del cálculo del precio
-            if (!product.recurring) {
+            if (!product.recurring && !product.additional_product) {
                 return sum + (product.product_price || 0);
             }
             return sum;
         }, 0);
 
         const recurring_price = products_in_quote.reduce((sum, product) => {
-            if (product.recurring) {
+            if (product.recurring && !product.additional_product) {
                 return sum + (product.product_price || 0);
             }
             return sum;
@@ -56,6 +56,7 @@ export async function POST(req) {
                     product_text: product.text,
                     product_price: product.product_price,
                     recurring_charge: product.recurring,
+                    additional_product: product.additional_product,
                 },
             });
         }
@@ -143,14 +144,14 @@ export async function PUT(req) {
 
         const price = products_in_quote.reduce((sum, product) => {
             // Excluir productos con recurring true del cálculo del precio
-            if (!product.recurring) {
+            if (!product.recurring && !product.additional_product) {
                 return sum + (product.product_price || 0);
             }
             return sum;
         }, 0);
 
         const recurring_price = products_in_quote.reduce((sum, product) => {
-            if (product.recurring) {
+            if (product.recurring && !product.additional_product) {
                 return sum + (product.product_price || 0);
             }
             return sum;
@@ -178,7 +179,6 @@ export async function PUT(req) {
             where: { quote_id: id },
         });
 
-        console.log("en ruta", products_in_quote);
         for (const product of products_in_quote) {
             // Verificar si el producto ya está asociado con la cotización
             const existingProduct = currentProducts.find(
@@ -189,6 +189,7 @@ export async function PUT(req) {
                 product_text: product.text,
                 product_price: product.product_price,
                 recurring_charge: product.recurring || false,
+                additional_product: product.additional_product || false,
             };
             if (existingProduct) {
                 // Actualizar el producto existente
