@@ -32,7 +32,6 @@ export default function QuotePage({ quote }) {
         }
     });
 
-    console.log("Productos adicionales", additionalProducts);
     return (
         <LightTheme>
             <Link href="/">
@@ -137,7 +136,7 @@ export default function QuotePage({ quote }) {
                                                         return null;
                                                     }
                                                 )}
-                                                {quote.recurring_price && (
+                                                {quote.recurring_price != 0 && (
                                                     <div className="row justify-content-center">
                                                         <div className="col-lg-7 col-md-9">
                                                             <div className="title-quote-container text-center">
@@ -216,7 +215,7 @@ export default function QuotePage({ quote }) {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {quote.recurring_price && (
+                                                {quote.recurring_price != 0 && (
                                                     <div className="row justify-content-center">
                                                         <div className="col-lg-7 col-md-9">
                                                             <div className="text-center">
