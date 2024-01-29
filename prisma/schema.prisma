@@ -29,7 +29,8 @@ model Quote {
   conclusion_text   String
   introductory_text String
   price             Int
-  recurring_price   Int? 
+  recurring_price   Int?
+  data_sheet_text   String?
   Currency          Currency        @relation(fields: [currency_id], references: [id], onDelete: NoAction)
   Language          Language        @relation(fields: [language_id], references: [id], onDelete: NoAction)
   User              User            @relation(fields: [user_id], references: [id], onDelete: NoAction)
@@ -46,17 +47,17 @@ model Product {
 }
 
 model Quote_Product {
-  id            Int      @id @default(autoincrement())
-  product_id    Int
-  quote_id      Int
-  product_price Int
-  product_text  String
-  recurring_charge Boolean @default(false)
-  additional_product Boolean @default(false)
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  Product       Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
-  Quote         Quote    @relation(fields: [quote_id], references: [id], onDelete: Cascade)
+  id                 Int      @id @default(autoincrement())
+  product_id         Int
+  quote_id           Int
+  product_price      Int
+  product_text       String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  recurring_charge   Boolean  @default(false)
+  additional_product Boolean  @default(false)
+  Product            Product  @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  Quote              Quote    @relation(fields: [quote_id], references: [id], onDelete: Cascade)
 }
 
 model Currency {

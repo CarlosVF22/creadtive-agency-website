@@ -63,6 +63,7 @@ function FormQuote({ products, currency, languages }) {
                     products_in_quote: productText,
                     introductory_text: formData.get("introductory_text"),
                     conclusion_text: formData.get("conclusion_text"),
+                    data_sheet_text: formData.get("data_sheet_text"),
                 },
             };
             const response = await fetch("/api/quote", {
@@ -218,6 +219,7 @@ function FormQuote({ products, currency, languages }) {
                         class="block  mt-2 w-full placeholder-gray-400/70  rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40  "
                     />
                 </div>
+                <hr />
                 <div className="p-2">
                     <label
                         for="language_select"
@@ -236,6 +238,7 @@ function FormQuote({ products, currency, languages }) {
                         })}
                     </select>
                 </div>
+                <hr />
                 <div className="p-2">
                     <label
                         for="currency_select"
@@ -254,6 +257,7 @@ function FormQuote({ products, currency, languages }) {
                         })}
                     </select>
                 </div>
+                <hr />
                 <div className="p-2">
                     <label
                         for="introductory_text"
@@ -272,6 +276,7 @@ function FormQuote({ products, currency, languages }) {
                         name="introductory_text"
                     />
                 </div>
+                <hr />
                 <nav class="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
                     {products.map((product) => {
                         const isChecked = checkedStates[product.id] || false;
@@ -418,6 +423,7 @@ function FormQuote({ products, currency, languages }) {
                         );
                     })}
                 </nav>
+                <hr />
                 <div className="p-2">
                     <label
                         for="conclusion_text"
@@ -434,6 +440,25 @@ function FormQuote({ products, currency, languages }) {
                         rows={5}
                         id="conclusion_text"
                         name="conclusion_text"
+                    />
+                </div>
+                <hr />
+                <div className="p-2">
+                    <label
+                        for="data_sheet_text"
+                        class="block text-sm text-gray-500"
+                    >
+                        ficha técnica
+                    </label>
+
+                    <textarea
+                        type="text"
+                        required
+                        placeholder="Escribe aquí..."
+                        className="border rounded-md w-full"
+                        rows={5}
+                        id="data_sheet_text"
+                        name="data_sheet_text"
                     />
                 </div>
             </div>

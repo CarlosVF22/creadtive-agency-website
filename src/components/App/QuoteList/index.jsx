@@ -5,7 +5,7 @@ import { Edit, Trash, ExternalLink } from "react-feather";
 import ModalDeleteQuote from "../ModalDeleteQuote";
 import ModalUpdateQuote from "../ModalUpdateQuote";
 
-export default function QuoteList() {
+export default function QuoteList({ products, currency, languages }) {
     const [quotes, setQuotes] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
@@ -83,56 +83,59 @@ export default function QuoteList() {
                     {quotes.map((quote) => {
                         const linkToQuote = `${process.env.NEXT_PUBLIC_APP_URL}${quote.url_path}`;
                         return (
-                            <li
-                                key={quote.url_path}
-                                className="flex justify-between gap-x-6 py-5 items-center hover:bg-lime-50"
-                            >
-                                <div className="flex min-w-0 gap-x-4">
-                                    <div className="min-w-0 flex-auto">
-                                        <p className="text-sm font-semibold leading-6 text-gray-900">
-                                            {quote.name}
-                                        </p>
-                                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                                            <a
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={linkToQuote}
-                                            >
-                                                {linkToQuote}
-                                            </a>
-                                        </p>
+                            <div>
+                                <li
+                                    key={quote.url_path}
+                                    className="flex justify-between gap-x-6 py-5 items-center hover:bg-lime-50"
+                                >
+                                    <div className="flex min-w-0 gap-x-4">
+                                        <div className="min-w-0 flex-auto">
+                                            <p className="text-sm font-semibold leading-6 text-gray-900">
+                                                {quote.name}
+                                            </p>
+                                            <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                                                <a
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    href={linkToQuote}
+                                                >
+                                                    {linkToQuote}
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="flex gap-x-4">
-                                    <button
-                                        onClick={() =>
-                                            openModalUpdate(quote.id)
-                                        }
-                                    >
-                                        {/* Icono de actualizar */}
-                                        <Edit />
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            openModalDelete(
-                                                quote.id,
-                                                quote.name
-                                            )
-                                        }
-                                    >
-                                        {/* Icono de eliminar */}
-                                        <Trash />
-                                    </button>
-                                    <a
-                                        href={linkToQuote}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        {/* Icono de ir al enlace */}
-                                        <ExternalLink />
-                                    </a>
-                                </div>
-                            </li>
+                                    <div className="flex gap-x-4">
+                                        <button
+                                            onClick={() =>
+                                                openModalUpdate(quote.id)
+                                            }
+                                        >
+                                            {/* Icono de actualizar */}
+                                            <Edit />
+                                        </button>
+                                        <button
+                                            onClick={() =>
+                                                openModalDelete(
+                                                    quote.id,
+                                                    quote.name
+                                                )
+                                            }
+                                        >
+                                            {/* Icono de eliminar */}
+                                            <Trash />
+                                        </button>
+                                        <a
+                                            href={linkToQuote}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {/* Icono de ir al enlace */}
+                                            <ExternalLink />
+                                        </a>
+                                    </div>
+                                </li>
+                                <hr />
+                            </div>
                         );
                     })}
                 </div>
@@ -165,6 +168,9 @@ export default function QuoteList() {
                 isOpen={isModalOpenUpdate}
                 onClose={closeModalUpdate}
                 quoteId={selectedQuoteId}
+                products={products}
+                currency={currency}
+                languages={languages}
             />
         </>
     );

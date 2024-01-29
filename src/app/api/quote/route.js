@@ -12,6 +12,7 @@ export async function POST(req) {
             products_in_quote,
             introductory_text,
             conclusion_text,
+            data_sheet_text,
         } = quote;
 
         const base_path = "/quote/";
@@ -45,6 +46,7 @@ export async function POST(req) {
                 conclusion_text,
                 price,
                 recurring_price,
+                data_sheet_text,
             },
         });
 
@@ -140,6 +142,7 @@ export async function PUT(req) {
             products_in_quote,
             introductory_text,
             conclusion_text,
+            data_sheet_text,
         } = body;
 
         const price = products_in_quote.reduce((sum, product) => {
@@ -171,6 +174,7 @@ export async function PUT(req) {
                 conclusion_text,
                 price,
                 recurring_price: updatedRecurringPrice,
+                data_sheet_text,
                 // Aquí puedes agregar más campos para actualizar si es necesario
             },
         });

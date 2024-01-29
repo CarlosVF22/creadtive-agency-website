@@ -1,12 +1,20 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 
-function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
+function ModalUpdateQuote({
+    quoteId,
+    onClose,
+    isOpen,
+    products,
+    languages,
+    currency,
+}) {
     if (!isOpen) return null;
     const [quoteDetails, setQuoteDetails] = useState(null);
     const [loading, setLoading] = useState(false);
     const [introductoryText, setIntroductoryText] = useState("");
     const [conclusionText, setConclusionText] = useState("");
+    const [dataSheetText, setDataSheetText] = useState("");
     const [name, setName] = useState("");
     const [languageId, setLanguageId] = useState("");
     const [currencyId, setCurrencyId] = useState("");
@@ -14,10 +22,6 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
     const [productText, setProductText] = useState([]);
 
     const messageRef = useRef(null);
-
-    const [products, setProducts] = useState([]);
-    const [languages, setLanguages] = useState([]);
-    const [currency, setCurrency] = useState([]);
 
     const handleCheckboxChange = (productId, isChecked) => {
         setCheckedStates({ ...checkedStates, [productId]: isChecked });
@@ -160,6 +164,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                 setCurrencyId(data.quote.currency_id);
                 setIntroductoryText(data.quote.introductory_text);
                 setConclusionText(data.quote.conclusion_text);
+                setDataSheetText(data.quote.data_sheet_text) || "";
 
                 // Actualizar los estados con los productos de la cotización
                 const newCheckedStates = {};
@@ -190,27 +195,6 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
         fetchQuoteDetails();
     }, [quoteId]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const response = await fetch("/api/product");
-            const data = await response.json();
-            setProducts(data.allProducts);
-        };
-        const fetchLanguages = async () => {
-            const response = await fetch("/api/language");
-            const data = await response.json();
-            setLanguages(data.allLanguages);
-        };
-        const fetchCurrency = async () => {
-            const response = await fetch("/api/currency");
-            const data = await response.json();
-            setCurrency(data.allCurrency);
-        };
-        fetchProducts();
-        fetchLanguages();
-        fetchCurrency();
-    }, []);
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         setLoading(true);
@@ -237,6 +221,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
             products_in_quote: updatedProductsInQuote,
             introductory_text: introductoryText,
             conclusion_text: conclusionText,
+            data_sheet_text: dataSheetText,
         };
 
         try {
@@ -553,7 +538,7 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                         </nav>
                         <div className="p-2">
                             <label
-                                for="introductory_text"
+                                for="conclusion_text"
                                 class="block text-sm text-gray-500"
                             >
                                 Conclusión
@@ -565,11 +550,33 @@ function ModalUpdateQuote({ quoteId, onClose, isOpen }) {
                                 placeholder="Escribe aquí..."
                                 className="border rounded-md w-full"
                                 rows={5}
-                                id="introductory_text"
-                                name="introductory_text"
+                                id="conclusion_text"
+                                name="conclusion_text"
                                 value={conclusionText}
                                 onChange={(e) =>
                                     setConclusionText(e.target.value)
+                                }
+                            />
+                        </div>
+                        <div className="p-2">
+                            <label
+                                for="data_sheet_text"
+                                class="block text-sm text-gray-500"
+                            >
+                                Ficha técnica
+                            </label>
+
+                            <textarea
+                                type="text"
+                                required
+                                placeholder="Escribe aquí..."
+                                className="border rounded-md w-full"
+                                rows={5}
+                                id="data_sheet_text"
+                                name="data_sheet_text"
+                                value={dataSheetText}
+                                onChange={(e) =>
+                                    setDataSheetText(e.target.value)
                                 }
                             />
                         </div>

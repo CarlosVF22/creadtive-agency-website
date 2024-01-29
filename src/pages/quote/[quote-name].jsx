@@ -32,6 +32,8 @@ export default function QuotePage({ quote }) {
         }
     });
 
+    console.log(quote);
+
     return (
         <LightTheme>
             <Link href="/">
@@ -231,12 +233,29 @@ export default function QuotePage({ quote }) {
                                                         </div>
                                                     </div>
                                                 )}
-
+                                                {/* Conclusion Text */}
                                                 <div className="quotes text-center">
                                                     <p>
                                                         {quote.conclusion_text}
                                                     </p>
                                                 </div>
+                                                {/* Data Sheet Text */}
+                                                {quote.data_sheet_text && (
+                                                    <div>
+                                                        <h4 className="primary_color">
+                                                            {quote.Language
+                                                                .acronym == "en"
+                                                                ? "Data Sheet"
+                                                                : "Ficha Técnica"}
+                                                        </h4>
+                                                        <p>
+                                                            {
+                                                                quote.data_sheet_text
+                                                            }
+                                                        </p>
+                                                    </div>
+                                                )}
+                                                {/* Addiotal Products */}
                                                 {additionalProducts.length >
                                                     0 && (
                                                     <h4 className="primary_color">
