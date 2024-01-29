@@ -568,7 +568,6 @@ function ModalUpdateQuote({
 
                             <textarea
                                 type="text"
-                                required
                                 placeholder="Escribe aquí..."
                                 className="border rounded-md w-full"
                                 rows={5}
