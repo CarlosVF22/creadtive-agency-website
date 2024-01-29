@@ -138,7 +138,7 @@ export default function QuotePage({ quote }) {
                                                         return null;
                                                     }
                                                 )}
-                                                {quote.recurring_price != 0 && (
+                                                {quote.recurring_price && (
                                                     <div className="row justify-content-center">
                                                         <div className="col-lg-7 col-md-9">
                                                             <div className="title-quote-container text-center">

@@ -163,6 +163,9 @@ export async function PUT(req) {
         const updatedRecurringPrice =
             recurring_price !== 0 ? recurring_price : null;
 
+        const updateDataSheetText =
+            data_sheet_text !== "" ? data_sheet_text : null;
+
         // Actualiza la cotización en la base de datos
         const updatedQuote = await db.quote.update({
             where: { id },
@@ -174,7 +177,7 @@ export async function PUT(req) {
                 conclusion_text,
                 price,
                 recurring_price: updatedRecurringPrice,
-                data_sheet_text,
+                data_sheet_text: updateDataSheetText,
                 // Aquí puedes agregar más campos para actualizar si es necesario
             },
         });
