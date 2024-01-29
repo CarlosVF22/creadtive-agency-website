@@ -32,8 +32,6 @@ export default function QuotePage({ quote }) {
         }
     });
 
-    console.log(quote);
-
     return (
         <LightTheme>
             <Link href="/">
