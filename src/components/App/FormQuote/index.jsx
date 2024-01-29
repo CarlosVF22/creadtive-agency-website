@@ -1,38 +1,12 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 
-function DashboardPage() {
+function FormQuote({ products, currency, languages }) {
     const [checkedStates, setCheckedStates] = useState({});
     const [productText, setProductText] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const messageRef = useRef(null);
-
-    // variables states from fetch API
-    const [products, setProducts] = useState([]);
-    const [languages, setLanguages] = useState([]);
-    const [currency, setCurrency] = useState([]);
-
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const response = await fetch("/api/product");
-            const data = await response.json();
-            setProducts(data.allProducts);
-        };
-        const fetchLanguages = async () => {
-            const response = await fetch("/api/language");
-            const data = await response.json();
-            setLanguages(data.allLanguages);
-        };
-        const fetchCurrency = async () => {
-            const response = await fetch("/api/currency");
-            const data = await response.json();
-            setCurrency(data.allCurrency);
-        };
-        fetchProducts();
-        fetchLanguages();
-        fetchCurrency();
-    }, []);
 
     const handleCheckboxChange = (productId, isChecked) => {
         setCheckedStates({ ...checkedStates, [productId]: isChecked });
@@ -477,4 +451,4 @@ function DashboardPage() {
         </form>
     );
 }
-export default DashboardPage;
+export default FormQuote;
